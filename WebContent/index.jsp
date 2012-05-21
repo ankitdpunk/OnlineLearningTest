@@ -1,1 +1,1 @@
-<jsp:forward page="browsecourse.html"></jsp:forward>
+<jsp:forward page="main.html"></jsp:forward>

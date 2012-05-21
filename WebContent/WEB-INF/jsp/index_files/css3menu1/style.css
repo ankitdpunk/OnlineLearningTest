@@ -20,7 +20,7 @@ ul#css3menu1 ul>li{
 ul#css3menu1 a:active, ul#css3menu1 a:focus{
 	outline-style:none;}
 ul#css3menu1 a{
-	display:block;vertical-align:middle;text-align:left;text-decoration:none;font:bold 12px Arial;color:#262626;cursor:default;padding:10px;background-color:#eeeeee;background-image:url("mainbk.png");background-repeat:repeat;background-position:0 200px;border-width:0px;border-style:none;border-color:;}
+	display:block;vertical-align:middle;text-align:left;text-decoration:none;font:bold 12px Arial;color:#002448;cursor:default;padding:10px;background-color:#eeeeee;background-image:url("mainbk.png");background-repeat:repeat;background-position:0 200px;border-width:0px;border-style:none;border-color:;}
 ul#css3menu1 ul li{
 	float:none;margin:9px 0 0;}
 ul#css3menu1 ul a{
