@@ -33,5 +33,6 @@
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-webmvc-portlet.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-webmvc-struts.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/mysql-connector-java-5.1.19-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

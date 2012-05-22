@@ -29,13 +29,15 @@ public class ContactController {
 //	private HttpServletRequest request;
 		
 	@RequestMapping(value = "/addContact", method = RequestMethod.POST)
-    public String addContact(@ModelAttribute Tutor tutor, Model model) {
+    public ModelAndView addContact(@ModelAttribute Tutor tutor, Model model) {
 		System.out.println("Name:" + tutor.getName() +
                 "email:" + tutor.getEmail());
 		
+		StoreUserDetails sd = new StoreUserDetails();
+		sd.storeInfo(tutor);
 		System.out.println("I am here");
 		model.addAttribute("tutor", tutor);
-		return "redirect:browsecourse.html";
+		return new ModelAndView("/browsecourse");
        } 	
 	
 	@RequestMapping(value = "/main", method = RequestMethod.POST)
@@ -79,11 +81,22 @@ public class ContactController {
         return new ModelAndView("signup1", "command", new Tutor());
     } 
    @RequestMapping("/main" )
-   public ModelAndView showMain(@ModelAttribute Login login, Model model) {
+   public ModelAndView showMain(@ModelAttribute Login login, Model model, HttpSession session) {
 	   
+	   if(session.getAttribute("currentLogin") == null)
+	   {
+		   return new ModelAndView ("/main");
+	   }
+	   else
+	   {
+		   login = (Login)session.getAttribute("currentLogin");
+	System.out.println("I am here");
+	model.addAttribute("login", login);
+	 return new ModelAndView("/main");
+	
+	   }
 	   
-	   model.addAttribute("login", login);
-	   return new ModelAndView("/main");
+	  
    } 
     
    	
@@ -123,6 +136,7 @@ public class ContactController {
 		System.out.println("I am here");
 		if(session.getAttribute("currentLogin") == null)
 		   {
+				System.out.println("I am in post of lectures");
 			   return new ModelAndView("/Lectures" ); 
 		   }
 		else{
@@ -136,7 +150,7 @@ public class ContactController {
 	}
    @RequestMapping("/Lectures")
    public ModelAndView createLecture( HttpSession session) {
-
+	   System.out.println("I am in get of lectures");
        return new ModelAndView("/Lectures");
    } 
     @RequestMapping("/course2")
