@@ -48,10 +48,12 @@ border-radius:8px;
 <body>
 <div class="signup">
   <h3>Login with Your  Account</h3>
+  ${login.message} 
 <form:form method="post" action="main.html" >		
 	<table width="501" height="144" align="center">
+	
 	<tr>
-		<td width="59"><form:label path="email">Email</form:label></td>
+		<td width="59"><form:label path="email">Email </form:label></td>		
 		<td width="192"><form:input path="email" />
 			     
 	</tr>

@@ -1,16 +1,16 @@
 package net.spring3.form;
 
 public class Course {
-	private String CourseTitle;
+	private String courseTitle;
 	private String courseCategoryId;
-	private String Headline;
-	private String Keywords;
+	private String headline;
+	private String keywords;
 	private String languageId;
 	public String getCourseTitle() {
-		return CourseTitle;
+		return courseTitle;
 	}
 	public void setCourseTitle(String courseTitle) {
-		CourseTitle = courseTitle;
+		this.courseTitle = courseTitle;
 	}
 	public String getCourseCategoryId() {
 		return courseCategoryId;
@@ -19,16 +19,16 @@ public class Course {
 		this.courseCategoryId = courseCategoryId;
 	}
 	public String getHeadline() {
-		return Headline;
+		return headline;
 	}
 	public void setHeadline(String headline) {
-		Headline = headline;
+		this.headline = headline;
 	}
 	public String getKeywords() {
-		return Keywords;
+		return keywords;
 	}
 	public void setKeywords(String keywords) {
-		Keywords = keywords;
+		this.keywords = keywords;
 	}
 	public String getLanguageId() {
 		return languageId;
