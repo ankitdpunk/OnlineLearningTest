@@ -1,9 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="Style/style.css" rel="stylesheet" type="text/css" />
 
 <style type="text/css">
 <!--
@@ -16,7 +18,7 @@
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <p> <img src="images/logo.png" width="237" height="42" /> </p>
+        <p> <img src="Style/images/logo.png" width="237" height="42" /> </p>
       </div>
       <div class="menu_nav">
         <ul>
@@ -24,7 +26,7 @@
 </a></li>
           <li><a href="#">Browe Course </a></li>
           <li><a href="#">My Courses</a></li>
-          <li><a href="#">account holder<br />
+          <li><a href="#"><core:out value="${login.email}"/><br />
           </a></li>
         </ul>
       </div>
@@ -46,15 +48,15 @@
 	
      <div class="rightbox">
        <h4><span class="green" style="padding-left:20px; ">15 Days Already</span> Taking this course </h4>
-	   <div class="box"><img src="images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
-	   <img src="images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
-	   <img src="images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
-	   <img src="images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
-	   <img src="images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
-	   <img src="images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
-	   <img src="images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
-	   <img src="images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
-	   <img src="images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
+	   <div class="box"><img src="Style/imagess/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
+	   <img src="Style/images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
+	   <img src="Style/images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
+	   <img src="Style/images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
+	   <img src="Style/images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
+	   <img src="Style/images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
+	   <img src="Style/images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
+	   <img src="Style/images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
+	   <img src="Style/images/userpic.gif" width="40" height="40" />&nbsp;&nbsp;
 	   </div>
      </div>
 	 <div class="rightbox">
@@ -70,27 +72,27 @@
 	  <h4><span class="green " style="padding-left:20px; ">LECTURES: </span>  </h4>
 	  <div class="box">
 	  <div class="videodetails">
-	  <div class="pic"><a href="#" class="thumb ud-popup"><img src="images/video.png" width="70" height="70" border="0" align="left" /></a></div>
+	  <div class="pic"><a href="#" class="thumb ud-popup"><img src="Style/images/video.png" width="70" height="70" border="0" align="left" /></a></div>
 	    Lecture 2:<br />
 	    <a href="#" class="ud-popup">An Entrepreneur's Checklist </a></div>
 	  <div class="videodetails">
-	<div class="pic"><a href="#" class="thumb ud-popup"><img src="images/video.png" width="70" height="70" border="0" align="left" /></a></div>
+	<div class="pic"><a href="#" class="thumb ud-popup"><img src="Style/images/video.png" width="70" height="70" border="0" align="left" /></a></div>
 	    Lecture 2:<br />
 	     <a href="#" class="ud-popup">An Entrepreneur's Checklist </a></div>
 	  <div class="videodetails">
-	<div class="pic"><a href="#" class="thumb ud-popup"><img src="images/video.png" width="70" height="70" border="0" align="left" /></a></div>
+	<div class="pic"><a href="#" class="thumb ud-popup"><img src="Style/images/video.png" width="70" height="70" border="0" align="left" /></a></div>
 	    Lecture 3:<br />
 	     <a href="#" class="ud-popup">An Entrepreneur's Checklist </a></div>
 	  <div class="videodetails">
-	  <div class="pic"><a href="#" class="thumb ud-popup"><img src="images/video.png" width="70" height="70" border="0" align="left" /></a></div>
+	  <div class="pic"><a href="#" class="thumb ud-popup"><img src="Style/images/video.png" width="70" height="70" border="0" align="left" /></a></div>
 	    Lecture 4:<br />
 	      <a href="#" class="ud-popup">An Entrepreneur's Checklist </a></div>
 	  <div class="videodetails">
-	  <div class="pic"><a href="#" class="thumb ud-popup"><img src="images/video.png" width="70" height="70" border="0" align="left" /></a></div>
+	  <div class="pic"><a href="#" class="thumb ud-popup"><img src="Style/images/video.png" width="70" height="70" border="0" align="left" /></a></div>
 	    Lecture 5:<br />
 	     <a href="#" class="ud-popup">An Entrepreneur's Checklist </a></div>
 	  <div class="videodetails">
-	<div class="pic"><a href="#" class="thumb ud-popup"><img src="images/video.png" width="70" height="70" border="0" align="left" /></a></div>
+	<div class="pic"><a href="#" class="thumb ud-popup"><img src="Style/images/video.png" width="70" height="70" border="0" align="left" /></a></div>
 	    Lecture 6:<br />
 	    <a href="#" class="ud-popup">An Entrepreneur's Checklist </a></div>
 	</div>

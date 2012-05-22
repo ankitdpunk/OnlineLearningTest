@@ -1,4 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
@@ -15,12 +17,13 @@
       </div>
       <div class="menu_nav">
         <ul>
-          <li class="active"><a href="#">Create a Course
+          <li class="active"><a href="Createacourse.html">Create a Course
 </a></li>
-          <li><a href="browsecourse.html">Browe Course </a></li>
+          <li><a href="browsecourse.html">Browse Course </a></li>
           <li><a href="#">My Courses</a></li>
-          <li><a href="#">account holder<br />
-          </a></li>
+          <li><a href="#"><core:out value="${login.email}"/><br /> </a></li>
+          
+         
         </ul>
       </div>
       <div class="clr"></div>
@@ -33,7 +36,7 @@
             <li>SHARE YOUR KNOWLEDGE</li>
             <li>MAKE MONEY ONLINE</li>
           </ul>
-          <h2><a href="#">Get Started</a></h2>
+          <h2><a href="Createacourse.html">Get Started</a></h2>
         </div>
         <div class="clr"></div>
       </div>

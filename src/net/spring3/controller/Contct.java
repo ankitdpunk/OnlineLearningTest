@@ -1,15 +1,11 @@
 package net.spring3.controller;
  
-import javax.servlet.http.HttpSession;
-import java.io.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.spring3.validator.SignupValidator;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-
 import net.spring3.form.*;
  
 import org.springframework.stereotype.Controller;
@@ -21,13 +17,18 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.support.SessionStatus;
-@Controller
-@SessionAttributes
-public class ContactController {
+/*@Controller
+@SessionAttributes */
+public class Contct {
 	
-//	private HttpSession session ;
-//	private HttpServletRequest request;
-		
+	
+	
+/*SignupValidator signupValidator;
+	
+	@Autowired
+	public ContactController(SignupValidator signupValidator){
+		this.signupValidator = signupValidator; 
+	} */
 	@RequestMapping(value = "/addContact", method = RequestMethod.POST)
     public String addContact(@ModelAttribute Tutor tutor, Model model) {
 		System.out.println("Name:" + tutor.getName() +
@@ -35,16 +36,28 @@ public class ContactController {
 		
 		System.out.println("I am here");
 		model.addAttribute("tutor", tutor);
+ 
+      /*   signupValidator.validate(tutor, result);
+           if (result.hasErrors()) {
+   			//if validator failed
+   		//	return "redirect:Log.html";
+   		} else {
+   			status.setComplete();
+   			//form success
+   			 
+   		}*/
 		return "redirect:browsecourse.html";
-       } 	
+        
+    } 
+	
 	
 	@RequestMapping(value = "/main", method = RequestMethod.POST)
-    public ModelAndView addLogin(@ModelAttribute Login login, Model model, HttpSession session, HttpServletRequest request) {
-	//	session = request.getSession(true);
-	//	session = sess;
-		session.setAttribute("currentLogin", login);
+    public ModelAndView addLogin(@ModelAttribute Login login, Model model) {
 		System.out.println("Password:" + login.getPassword() +"\n"+
                 "email:" + login.getEmail());
+		
+		
+	
 		System.out.println("I am in addContact1");
 		System.out.println(login.getEmail());
 		model.addAttribute("login", login);
@@ -54,22 +67,13 @@ public class ContactController {
 		//return "redirect:course2.html";
 	}
 	@RequestMapping(value = "/course2", method = RequestMethod.POST)
-    public ModelAndView addContact(@ModelAttribute Login login, Model model, HttpSession session) {
+    public void addContact(@ModelAttribute Login login, Model model) {
 		System.out.println("password:" + login.getPassword() +
                 "email:" + login.getEmail());
-		
-		
-		   if(session.getAttribute("currentLogin") == null)
-		   {
-			   return new ModelAndView ("/course2");
-		   }
-		   else
-		   {
-			   login = (Login)session.getAttribute("currentLogin");
+	
 		System.out.println("I am here");
 		model.addAttribute("login", login);
-		return new ModelAndView ("/course2");
-		   }
+		
 		//return "redirect:course2.html";
 	}
     
@@ -78,34 +82,21 @@ public class ContactController {
  
         return new ModelAndView("signup1", "command", new Tutor());
     } 
-   @RequestMapping("/main" )
-   public ModelAndView showMain(@ModelAttribute Login login, Model model) {
+   @RequestMapping("/main")
+   public ModelAndView showMain() {
 	   
 	   
-	   model.addAttribute("login", login);
 	   return new ModelAndView("/main");
    } 
-    
-   	
-   
    @RequestMapping("/Createacourse")
-   public ModelAndView createCourse( @ModelAttribute Login login, Model model, HttpSession session) {
-	//   login = (Login)session.getAttribute("currentLogin");
-	   if(session.getAttribute("currentLogin") == null)
-	   {
-		   return new ModelAndView("/Createacourse" ); 
-	   }
-	   else{
-	   login = (Login)session.getAttribute("currentLogin");
-	   System.out.println("The anser here is"+ login.getEmail());
-	   model.addAttribute("login", login);
-       return new ModelAndView("/Createacourse" );
-	   }
+   public ModelAndView createCourse(Model model) {
+	   
+
+       return new ModelAndView("/Createacourse");
    } 
    @RequestMapping(value = "/Lectures", method = RequestMethod.POST )
-   public ModelAndView addContac1t(@ModelAttribute Course course,Login login, Model model, HttpSession session, HttpServletRequest request) {
+   public ModelAndView addContac1t(@ModelAttribute Course course, Model model, HttpSession session, HttpServletRequest request) {
 	   Course course1 = new Course();
-	   
 	   String ctitle = request.getParameter("CourseTitle");
 	   String cId = request.getParameter("courseCategoryId");
 	   String head = request.getParameter("Headline");
@@ -121,21 +112,11 @@ public class ContactController {
          //      "email:" + login.getEmail());
 	
 		System.out.println("I am here");
-		if(session.getAttribute("currentLogin") == null)
-		   {
-			   return new ModelAndView("/Lectures" ); 
-		   }
-		else{
-			   login = (Login)session.getAttribute("currentLogin");
-			   System.out.println("The anser here is"+ login.getEmail());
-			   model.addAttribute("login", login);
-		       return new ModelAndView("/Lectures" );
-			   }
-		
+		return new ModelAndView("/Lectures");
 		//return "redirect:course2.html";
 	}
    @RequestMapping("/Lectures")
-   public ModelAndView createLecture( HttpSession session) {
+   public ModelAndView createLecture() {
 
        return new ModelAndView("/Lectures");
    } 
@@ -161,7 +142,7 @@ public class ContactController {
         return new ModelAndView("browsecourse");
     }
     @RequestMapping("/Login")
-    public ModelAndView login( HttpSession session) 
+    public ModelAndView login() 
     {
  
     //	String message = "Hello World, Spring 3.0!";

@@ -1,24 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" /></head>
+<link href="Style/style.css" rel="stylesheet" type="text/css" /></head>
 <body>
 <div class="main">
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <p> <img src="images/logo.png" width="237" height="42" /> </p>
+        <p> <img src="Style/images/logo.png" width="237" height="42" /> </p>
       </div>
       <div class="menu_nav">
         <ul>
-          <li class="active"><a href="#">Create a Course
+          <li class="active"><a href="Createacourse.html">Create a Course
 </a></li>
           <li><a href="#">Browe Course </a></li>
           <li><a href="#">My Courses</a></li>
-          <li><a href="#">account holder<br />
-          </a></li>
+          <li><a href="#"><c:out value="${login.email}"/><br /></a></li>
+        
         </ul>
       </div>
       <div class="clr"></div>
@@ -30,13 +32,13 @@
       <h2 style="color:#000;">Create a Course </h2>
 	  Your course will be created as a draft. It won't be visible until you publish it!
 	  
-      <form id="form1" name="form1" method="post" action="">
+      <form id="form1" name="form1" method="post" action="Lectures.html">
         <table width="843" height="357" border="0" align="center">
           <tr>
             <td width="148" height="54" align="right" valign="top"><h4>Course Title: *</h4>
             </td>
             <td width="679"><div class="input-field">
-                    <input id="title" name="Course Title" type="text" class="text-input  " maxlength="60" style="width:500px; height:30px;">
+                    <input id="title" name="CourseTitle" type="text" class="text-input  " maxlength="60" style="width:500px; height:30px;">
                     <span style="color:#AAA; padding:3px 7px 0px; text-align:right">60 characters left</span>
                     
 					
@@ -47,23 +49,23 @@
             <td><span class="input-field">
               <select name="courseCategoryId" id="courseCategoryId" style="width:auto;">
                 <option value="" selected="selected">-- Select One --</option>
-                <option value="273">Arts</option>
-                <option value="268">Business</option>
-                <option value="275">Crafts and Hobbies</option>
-                <option value="269">Design</option>
-                <option value="277">Education</option>
-                <option value="281">Games</option>
-                <option value="276">Health and Fitness</option>
-                <option value="272">Humanities</option>
-                <option value="279">Languages</option>
-                <option value="274">Lifestyle</option>
-                <option value="271">Math and Science</option>
-                <option value="278">Music</option>
-                <option value="282">Other</option>
-                <option value="270">Social Sciences</option>
-                <option value="280">Sports</option>
-                <option value="267">Technology</option>
-                <option value="283">Test</option>
+                <option value="Arts">Arts</option>
+                <option value="Business">Business</option>
+                <option value="Crafts and Hobbies">Crafts and Hobbies</option>
+                <option value="Design">Design</option>
+                <option value="Education">Education</option>
+                <option value="Games">Games</option>
+                <option value="Health and Fitness">Health and Fitness</option>
+                <option value="Humanities">Humanities</option>
+                <option value="Languages">Languages</option>
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Math and Science">Math and Science</option>
+                <option value="Music">Music</option>
+                <option value="Other">Other</option>
+                <option value="Social Sciences">Social Sciences</option>
+                <option value="Sports">Sports</option>
+                <option value="Technology">Technology</option>
+                <option value="Test">Test</option>
               </select>
             </span></td>
           </tr>
@@ -228,6 +230,11 @@
             <td height="51">&nbsp;</td>
             <td><div class="button-blue">&nbsp;&nbsp;Save</div></td>
           </tr>
+          <tr>
+		<td colspan="2">
+			<input type="submit" value="Create Course"/>
+		</td>
+	</tr>
         </table>
       </form>
       <div class="clr"></div>

@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="index_files/css3menu1/style.css" type="text/css" /></head>
+<link href="Style/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="Style/index_files/css3menu1/style.css" type="text/css" /></head>
 <body>
 <div class="main">
   <div class="header">
@@ -18,7 +20,7 @@
 </a></li>
           <li><a href="#">Browe Course </a></li>
           <li><a href="#">My Courses</a></li>
-          <li><a href="#">account holder<br />
+          <li><a href="#"><core:out value="${login.email}"/><br /> <br />
           </a></li>
         </ul>
       </div>
@@ -33,9 +35,9 @@
     <div class="content_resize">
       <h2 style="color:#000;"> Course Name </h2>
 	  <div class="rightbox">
-       <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="images/like.png" width="60" height="25" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="images/tweet.png" width="75" height="25" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="images/send.jpg" width="70" height="25" border="0" /></a></h4>
+       <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="Style/images/like.png" width="60" height="25" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="Style/images/tweet.png" width="75" height="25" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="Style/images/send.jpg" width="70" height="25" border="0" /></a></h4>
       </div>
-	  <div class="leftbox" style="margin-bottom:20px;"><img src="images/userpic.gif" width="104" height="87" align="left" />
+	  <div class="leftbox" style="margin-bottom:20px;"><img src="Style/images/userpic.gif" width="104" height="87" align="left" />
 	   <h4><span class="green style1" style="padding-left:20px; ">BY </span>  <strong>Creater Name </strong><br />
 	  <span class="green style1" style="padding-left:20px; ">Category:</span> Art <br />
 	  <span class="green style1" style="padding-left:20px; ">Tags:</span>
