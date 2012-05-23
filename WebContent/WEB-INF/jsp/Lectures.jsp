@@ -88,7 +88,7 @@
 	      <div style="margin-left:30px;">
 	        <ol id="add-content">
 	          <li>
-	            <h4><a href="#">Upload a Video</a></h4>
+	            <h4><a href="uploadForm.html">Upload a file</a></h4>
 	            <p>Videos are a great way to engage your audience with visual and auditory learning.</p>
 	          </li>
 	          <li>
@@ -116,7 +116,7 @@
 	            <p> Only .mp3 files for now</p>
 	          </li>
 	          <li>
-	            <h4><a href="#">Upload any File</a></h4>
+	            <h4><a href="uploadForm.html">Upload any File</a></h4>
 	            <p>Use this tool to upload all other file types to be downloaded by users.</p>
 	          </li>
 	          </ol>

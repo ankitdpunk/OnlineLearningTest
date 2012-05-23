@@ -223,11 +223,19 @@ public class ContactController {
         return new ModelAndView("index1", "message", message);
     }
     @RequestMapping("/browsecourse")
-    public ModelAndView browseCourse() 
+    public ModelAndView browseCourse( HttpSession session,Login login, Model model) 
     {
- 
-    //	String message = "Hello World, Spring 3.0!";
-        return new ModelAndView("browsecourse");
+    	login = (Login)session.getAttribute("currentLogin");
+    	if(session.getAttribute("currentLogin") == null)
+    	{
+    		return new ModelAndView("browsecourse");
+    	}
+    	else
+    	{
+    		System.out.println("The answer in browsecourse session is "+login.getEmail());
+    		model.addAttribute("login", login);
+    		return new ModelAndView("browsecourselogin");
+    	}
     }
     @RequestMapping("/Login")
     public ModelAndView login(SessionStatus status ) 
