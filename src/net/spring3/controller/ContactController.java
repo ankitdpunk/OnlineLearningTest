@@ -1,5 +1,12 @@
 package net.spring3.controller;
- 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.output.*; 
+import org.springframework.validation.ObjectError;
+
+import java.util.*;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 
@@ -17,6 +24,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+///import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -203,17 +211,9 @@ public class ContactController {
 	   System.out.println("I am in get of lectures");
        return new ModelAndView("/Lectures");
    } 
-   @RequestMapping("/uploadFile")
-   public ModelAndView uploadfile( HttpSession session) {
-	   System.out.println("I am in uploadfile");
-       return new ModelAndView("uploadFile");
-   } 
-   @RequestMapping(value = "/fileupload", method = RequestMethod.POST)
-   public ModelAndView filestore(HttpSession session, HttpServletRequest request) {
-	   File file = request.getParameter("upfile");
-	   System.out.println("I am in uploadfile");
-       return new ModelAndView("uploadFile");
-   } 
+   
+  
+   
    
     @RequestMapping("/index1")
     public ModelAndView showindex1() 
