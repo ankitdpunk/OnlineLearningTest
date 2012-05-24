@@ -6,6 +6,13 @@ public class Course {
 	private String headline;
 	private String keywords;
 	private String languageId;
+	private String url;
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public String getCourseTitle() {
 		return courseTitle;
 	}

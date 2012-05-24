@@ -27,6 +27,7 @@ public class StoreUserDetails {
 	     	 pst.setString(2, name);
 	     	 pst.setString(3, password);
 	     	int numRowsChanged = pst.executeUpdate();
+	     	System.out.println("The string is " + pst);
 	     	System.out.println("No of rows changed " + numRowsChanged);
 		}
 		 catch (Exception e)

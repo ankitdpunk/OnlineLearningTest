@@ -1,5 +1,5 @@
 package net.spring3.controller;
-
+import net.spring3.form.*;
 import java.io.*;
 
 import javax.servlet.http.HttpSession;
@@ -30,13 +30,21 @@ public class UpdateController
   }
  
   @RequestMapping(method = RequestMethod.POST)
-  public String create(UploadItem uploadItem, BindingResult result, Login login, HttpSession session, HttpServletRequest request) throws Exception
+  public String create(UploadItem uploadItem,Course course, BindingResult result, Login login, HttpSession session, HttpServletRequest request) throws Exception
   {
 	  
 	  System.out.println("Inside post of uplodForm");
 	  login = (Login)session.getAttribute("currentLogin");
 	  String userDir = "F://BmTech//Users//"+login.getEmail();
+	  String email = login.getEmail();
 	  new File(userDir).mkdir();
+	  if(session.getAttribute("currentLogin") != null)
+	  {
+		  StoreLecture sl =  new StoreLecture();
+		  sl.storeLecture(userDir, email);
+	  }
+	  course = (Course)session.getAttribute("currentCourse");
+	  
 	  System.out.println("The session in post"+ login.getEmail());
  
     // Some type of file processing...

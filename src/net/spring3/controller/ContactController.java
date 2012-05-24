@@ -199,6 +199,8 @@ public class ContactController {
 			   model.addAttribute("login", login);
 			   model.addAttribute("course", course);
 			   System.out.println("The course title is "+ course.getCourseTitle());
+			   StoreCourseDetails scd  = new StoreCourseDetails();
+			   scd.storeCourse(course, login);
 			   
 		       return new ModelAndView("/Lectures", "coursename", course.getCourseTitle());
 			   }

@@ -18,7 +18,7 @@
         <ul>
           <li class="active"><a href="#">Create a Course
 </a></li>
-          <li><a href="#">Browe Course </a></li>
+          <li><a href="browsecourse.html">Browse Course </a></li>
           <li><a href="#">My Courses</a></li>
           <li><a href="#"><core:out value="${login.email}"/><br/> <br />
           </a></li>
