@@ -27,16 +27,15 @@ public class StoreLecture {
 			
 		if(lectures == 1)
 		{
-			CreateLectureTable create = new CreateLectureTable();
+			QueryLectureTable create = new QueryLectureTable();
 			create.createTable(email);
 			
 			
 		}
 			Connection c2 = conn1.getConnection();
 			System.out.println(url);
-			String sqlq = "INSERT INTO "+ tname+ " (url) VALUES ('"+ url+"')";
-			PreparedStatement pstq = c2.prepareStatement(sqlq);
-			pst.executeUpdate();
+			QueryLectureTable create = new QueryLectureTable();
+			create.executeQuery(tname, url);
 		
 		}
 		catch(Exception e)

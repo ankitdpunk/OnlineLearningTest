@@ -1,9 +1,10 @@
 package net.spring3.controller;
 
 import java.sql.*;
+
 import net.spring3.controller.*;
 
-public class CreateLectureTable {
+public class QueryLectureTable {
 	
 	public  String createTable(String email)
 	{
@@ -30,6 +31,26 @@ public class CreateLectureTable {
 		System.err.println ("Problem inserting values into the database");
 	}
 	return tablename;
-
+   
 }
+	public void executeQuery(String tname, String url )
+	   {
+		try
+		{
+			System.err.println("Inside lecturetable execute quey" );
+		ConnectionManager conn = new ConnectionManager();
+		Connection c1 = conn.getConnection();
+		String sqlq = "INSERT INTO "+ tname+ " (url) VALUES ('"+ url+"')";
+		PreparedStatement pstq = c1.prepareStatement(sqlq);
+		pstq.executeUpdate();   
+	   }
+	 
+	catch(Exception e)
+	{
+		System.err.println("Cannot insert query into lecturetable");
+	}
+		
+		
+	   }
+		
 }
