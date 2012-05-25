@@ -21,14 +21,14 @@ public class StoreUserDetails {
 		try{
 	     	   Statement s = c1.createStatement ();
 	     	   int count;
-	     	  String sql = "INSERT INTO user VALUES(?,?,?)";
+	     	  String sql = "INSERT INTO user(email, name, password) VALUES(?,?,?)";
 	     	 PreparedStatement pst = c1.prepareStatement(sql);
 	     	 pst.setString(1, email);
 	     	 pst.setString(2, name);
 	     	 pst.setString(3, password);
 	     	int numRowsChanged = pst.executeUpdate();
 	     	System.out.println("The string is " + pst);
-	     	System.out.println("No of rows changed " + numRowsChanged);
+	     	System.out.println("No of rows changed in user details storage" + numRowsChanged);
 		}
 		 catch (Exception e)
 	        {

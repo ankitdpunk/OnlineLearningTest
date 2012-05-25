@@ -40,6 +40,7 @@ public class ContactController {
     public ModelAndView addContact(@ModelAttribute Tutor tutor, Model model) {
 		System.out.println("Name:" + tutor.getName() +
                 "email:" + tutor.getEmail());
+	
 		
 		StoreUserDetails sd = new StoreUserDetails();
 		sd.storeInfo(tutor);
@@ -77,25 +78,7 @@ public class ContactController {
 	//	return new ModelAndView("main");
 		//return "redirect:course2.html";
 	}
-/*	@RequestMapping(value = "/course2", method = RequestMethod.POST)
-    public ModelAndView addContact(@ModelAttribute Login login, Model model, HttpSession session) {
-		System.out.println("password:" + login.getPassword() +
-                "email:" + login.getEmail());
-		
-		
-		   if(session.getAttribute("currentLogin") == null)
-		   {
-			   return new ModelAndView ("/course2");
-		   }
-		   else
-		   {
-			   login = (Login)session.getAttribute("currentLogin");
-		System.out.println("I am here");
-		model.addAttribute("login", login);
-		return new ModelAndView ("/course2");
-		   }
-		//return "redirect:course2.html";
-	} */
+
 	@RequestMapping("/course2")
     public ModelAndView course2(@ModelAttribute Login login, Model model, HttpSession session) {
 		System.out.println("password:" + login.getPassword() +
@@ -206,8 +189,8 @@ public class ContactController {
 			   System.out.println("The course title is "+ course.getCourseTitle());
 //----------------------------------------- Uncomment to start storing the course details--------------------
 			   
-		/*	   StoreCourseDetails scd  = new StoreCourseDetails();
-			   scd.storeCourse(course, login); */
+			   StoreCourseDetails scd  = new StoreCourseDetails();
+			   scd.storeCourse(course, login); 
 			   
 		       return new ModelAndView("/Lectures", "coursename", course.getCourseTitle());
 			   }

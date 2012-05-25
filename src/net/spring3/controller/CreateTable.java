@@ -6,25 +6,73 @@ public class CreateTable {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+	String	email = "admin";
+	String ctitle = "ajax";
+	String url = "dadas";
+		int cid=0, uid=0;
 		
-		String nl ="";
-		ConnectionManager conn = new ConnectionManager();
-		Connection c1 = conn.getConnection();
-		try
-		{
-			Statement s = c1.createStatement();
-			String tname = "lecturetableadmin";
-			String url = "F://BmTech//Users//admin";
+		//   String tname = "lecturetable"+email;
+		   ConnectionManager conn = new ConnectionManager();
+		   ConnectionManager conn1 = new ConnectionManager();
+			try
+			{
+				Connection c1 = conn.getConnection();
+				String sql = "SELECT * from user where email = ?";
+				PreparedStatement pst = c1.prepareStatement(sql);
+				pst.setString(1, email);
+				ResultSet rs = pst.executeQuery();
+				while(rs.next())
+				{
+					uid = rs.getInt("uid");
+				}
+				
+				System.out.println("The uid i get is "+ uid);
+				pst.close();
+			}
+		   catch(Exception e)
+		   {
+			   e.printStackTrace();
+		   }
+		   
+		   try
+			{
+				
+				Connection c1 = conn.getConnection();
 			
-			String sqlq = "INSERT INTO "+ tname+ " (url) VALUES ('"+ url+"')";
-			PreparedStatement pstq = c1.prepareStatement(sqlq);
-			pstq.executeUpdate(sqlq);
-		}
-		catch(Exception e)
-		{
-			System.err.println ("Problem inserting values into the database");
-		}
+				String sql = "SELECT * from course c where c.ctitle = ? and c.uid = ?";
+				PreparedStatement pst = c1.prepareStatement(sql);
+				pst.setString(1, ctitle);
+				pst.setInt(2,uid);
+				ResultSet rs = pst.executeQuery();
+				while(rs.next())
+				{
+					cid = rs.getInt("cid");
+					 uid = rs.getInt("uid");
+				}
+				pst.close();
+				
+			}
+			catch(Exception e)
+			{
+				System.err.println ("Problem getting uid cid values from the database");
+			}
+			try
+			{
+				Connection c = conn.getConnection();
+				String sql = "INSERT INTO lecture(uid,cid,url) VALUES(?,?,?)";
+				PreparedStatement pst = c.prepareStatement(sql);
+				pst.setInt(1, uid);
+				pst.setInt(2, cid);
+				pst.setString(3,url);
+				int no=pst.executeUpdate();
+				System.out.println("Value inserted into lecture");
+			}
+			catch(Exception e)
+			{
+				System.err.println("error in inserting values in lecture ");
+			}		
+
+
 
 	}
-
 }

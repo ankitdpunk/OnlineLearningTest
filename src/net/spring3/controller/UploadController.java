@@ -19,7 +19,7 @@ import net.spring3.form.Login;
  
 @Controller
 @RequestMapping(value = "/uploadForm")
-public class UpdateController
+public class UploadController
 {
   @RequestMapping(method = RequestMethod.GET)
   public String getUploadForm(Model model)
@@ -35,13 +35,16 @@ public class UpdateController
 	  
 	  System.out.println("Inside post of uplodForm");
 	  login = (Login)session.getAttribute("currentLogin");
+	  course = (Course)session.getAttribute("currentCourse");
+	  
 	  String userDir = "F://BmTech//Users//"+login.getEmail();
-	  String email = login.getEmail();
+	  String userUrl = userDir.replaceAll("//", "/");
+	  String ctitle = course.getCourseTitle();
 	  new File(userDir).mkdir();
 	  if(session.getAttribute("currentLogin") != null)
 	  {
 		  StoreLecture sl =  new StoreLecture();
-		  sl.storeLecture(userDir, email);
+		  sl.storeLecture(ctitle, userUrl, login.getEmail());
 	  }
 	  course = (Course)session.getAttribute("currentCourse");
 	  
