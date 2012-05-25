@@ -20,8 +20,8 @@
 </a></li>
           <li><a href="browsecourse.html">Browse Course </a></li>
           <li><a href="#">My Courses</a></li>
-          <li><a href="#"><core:out value="${login.email}"/><br/> <br />
-          </a></li>
+          <li><a href="#"><core:out value="${login.email}"/></a></li>
+          <li><a href="logout.html">Log Out</a></li>
         </ul>
       </div>
       <div class="clr"></div>

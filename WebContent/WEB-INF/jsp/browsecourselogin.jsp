@@ -22,6 +22,7 @@
 </a></li>
           <li><a href="browsecourse.html">Browse Course </a></li>
           <li><a> <core:out value="${login.email}"/><br /> </a></li>
+          <li><a href="logout.html">Log Out</a></li>
           
           </a></li>
         </ul>

@@ -72,7 +72,7 @@ public class ContactController {
 			System.out.println("I am in addContact1");
 			System.out.println(login.getEmail());
 			model.addAttribute("login", login);
-			return new ModelAndView("/main");
+			return new ModelAndView("/mainalogin");
 		}
 	//	return new ModelAndView("main");
 		//return "redirect:course2.html";
@@ -120,6 +120,11 @@ public class ContactController {
  
         return new ModelAndView("signup1", "command", new Tutor());
     } 
+   @RequestMapping("/logout")
+   public ModelAndView logout(HttpSession session) {
+	   session.invalidate();
+       return new ModelAndView("/main");
+   } 
    @RequestMapping("/main" )
    public ModelAndView showMain(@ModelAttribute Login login, Model model, HttpSession session) {
 	   
@@ -133,7 +138,7 @@ public class ContactController {
 		   login = (Login)session.getAttribute("currentLogin");
 	System.out.println("I am here");
 	model.addAttribute("login", login);
-	 return new ModelAndView("/main");
+	 return new ModelAndView("/mainalogin");
 	
 	   }
 	   
@@ -199,8 +204,10 @@ public class ContactController {
 			   model.addAttribute("login", login);
 			   model.addAttribute("course", course);
 			   System.out.println("The course title is "+ course.getCourseTitle());
-			   StoreCourseDetails scd  = new StoreCourseDetails();
-			   scd.storeCourse(course, login);
+//----------------------------------------- Uncomment to start storing the course details--------------------
+			   
+		/*	   StoreCourseDetails scd  = new StoreCourseDetails();
+			   scd.storeCourse(course, login); */
 			   
 		       return new ModelAndView("/Lectures", "coursename", course.getCourseTitle());
 			   }
