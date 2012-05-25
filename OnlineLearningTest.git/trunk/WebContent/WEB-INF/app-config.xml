@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <!-- Scans the classpath of this application for @Components to deploy as beans -->
+    <context:component-scan base-package="net.sping3.controller"/>
+
+    <!-- Configures Spring MVC -->
+    <import resource="spring-servlet.xml"/>
+
+    <!-- Configure the multipart resolver -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- one of the properties available; the maximum file size in bytes -->
+        <property name="maxUploadSize" value="1000000000"/>
+    </bean>
+
+</beans>

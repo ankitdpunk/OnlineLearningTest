@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>on line</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="index_files/css3menu1/style.css" type="text/css" /></head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <p> <img src="images/logo.png" width="237" height="42" /> </p>
+      </div>
+      <div class="menu_nav">
+        <ul>
+          <li class="active"><a href="#">Create a Course
+</a></li>
+          <li><a href="#">Browe Course </a></li>
+          <li><a href="#">My Courses</a></li>
+          <li><a href="#">account holder<br />
+          </a></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content_resize">
+      <h2 style="color:#000;"> Account Settings</h2>
+	  
+	  <div class="clr"></div>
+	<div class="box">
+	  <h2>Privacy Settings</h2>
+	  <div>
+	    <form id="" name="" action="" method="post">
+	      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+	        <tbody>
+	          <tr id="form-item-profileVisibility">
+	            <td align="left"><label>Show my profile on search engines:</label></td>
+	            <td><div>
+	              <input type="checkbox" id="profileVisibility" name="profileVisibility" checked="checked" />
+	              <label for="profileVisibility"> </label>
+	              </div></td>
+	            </tr>
+	          <tr id="form-item-fbSubscribedCourseShare">
+	            <td align="left"><div>Share subscribed courses on Facebook:</div></td>
+	            <td><div>
+	              <input type="checkbox" id="fbSubscribedCourseShare" name="fbSubscribedCourseShare" />
+	              <label for="fbSubscribedCourseShare"> </label>
+	              </div></td>
+	            </tr>
+	          <tr id="form-item-subscribedCourses">
+	            <td align="left">Show my subscribed courses:</td>
+	            <td><div>
+	              <div id="subscribedCourses">
+	                <div>
+	                  <input type="radio" name="subscribedCourses" id="subscribedCourses_option0" checked="checked" value="Public" />
+	                  <label for="subscribedCourses_option0">Public</label>
+	                  </div>
+	                <div>
+	                  <input type="radio" name="subscribedCourses" id="subscribedCourses_option1" value="Private" />
+	                  <label for="subscribedCourses_option1">Private</label>
+	                  </div>
+	                <br clear="all" />
+	                </div>
+	              </div></td>
+	            </tr>
+	          <tr>
+	            <td></td>
+	            <td></td>
+	            </tr>
+	          </tbody>
+	        </table>
+	      </form>
+	    </div>
+	  <h2>Notification Settings</h2>
+	  <div>
+	    <form id="all-notification-settings" name="all-notification-settings" action="http://www.udemy.com/settings/edit-submit" method="post">
+	     <div>Don't send me any email notifications:</div>
+	         
+	      </form>
+	    <div>Send an email notification when:</div>
+	    <h4>General Settings</h4>
+	    <div>
+	      <form id="general-notification-settings" name="general-notification-settings" action="http://www.udemy.com/settings/edit-submit" method="post">
+	        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+	          <tbody>
+	            <tr id="form-item-udemy-announcement">
+	              <td align="left"><label>Udemy team makes an announcement:</label></td>
+	              <td><div>
+	                <input type="checkbox" id="udemy-announcement" name="udemy-announcement" checked="checked" />
+	                <label for="udemy-announcement"> </label>
+	                </div></td>
+	              </tr>
+	            <tr id="form-item-course-of-the-week">
+	              <td align="left"><label>Udemy team chooses course of the week:</label></td>
+	              <td><div>
+	                <input type="checkbox" id="course-of-the-week" name="course-of-the-week" checked="checked" />
+	                <label for="course-of-the-week"> </label>
+	                </div></td>
+	              </tr>
+	            <tr id="form-item-remind-review-after-one-week">
+	              <td align="left"><label>Udemy team asks you to review a course you subscribed:</label></td>
+	              <td><div>
+	                <input type="checkbox" id="remind-review-after-one-week" name="remind-review-after-one-week" checked="checked" />
+	                <label for="remind-review-after-one-week"> </label>
+	                </div></td>
+	              </tr>
+	            <tr id="form-item-weekly-course-recommendation-for-user">
+	              <td align="left"><label>Udemy team recommends courses for you every week:</label></td>
+	              <td><div>
+	                <input type="checkbox" id="weekly-course-recommendation-for-user" name="weekly-course-recommendation-for-user" checked="checked" />
+	                <label for="weekly-course-recommendation-for-user"> </label>
+	                </div></td>
+	              </tr>
+	            <tr id="form-item-coupon-deadline">
+	              <td align="left"><label>Udemy team reminds you the coupon deadlines for courses you visited:</label></td>
+	              <td><div>
+	                <input type="checkbox" id="coupon-deadline" name="coupon-deadline" checked="checked" />
+	                <label for="coupon-deadline"> </label>
+	                </div></td>
+	              </tr>
+	            <tr id="form-item-message-notification">
+	              <td align="left"><label>Someone sends you a message:</label></td>
+	              <td><div>
+	                <input type="checkbox" id="message-notification" name="message-notification" checked="checked" />
+	                <label for="message-notification"> </label>
+	                </div></td>
+	              </tr>
+	            <tr id="form-item-follower-notification">
+	              <td align="left"><label>Someone starts to follow you:</label></td>
+	              <td><div>
+	                <input type="checkbox" id="follower-notification" name="follower-notification" checked="checked" />
+	                <label for="follower-notification"> </label>
+	                </div></td>
+	              </tr>
+	            <tr>
+	              <td></td>
+	              <td></td>
+	              </tr>
+	            </tbody>
+	          </table>
+	        </form>
+	      </div>
+	      &quot;aaa&quot; Course Settingsshow settings<br />
+		
+	     &quot;An Entrepreneur's Checklist&quot; Course Settings
+	    <div></div>
+	    </div>
+	  <h4>Account Management</h4>
+	  <a href="#">Remove User Account</a><a href="#">Change Password</a>
+<p>&nbsp;</p>
+	  
+</div>
+</div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright | All Right Reserved 2012</p>
+      <p class="rf">&nbsp;</p>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

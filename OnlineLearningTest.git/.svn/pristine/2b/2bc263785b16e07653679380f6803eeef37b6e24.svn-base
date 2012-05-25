@@ -1,12 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href="Style/style.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -14,31 +11,23 @@
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <p> <img src="Style/images/logo.png" width="237" height="42" /> </p>
+        <h1><a href="index.html"><span>On line</span></a> Eduction</h1>
       </div>
       <div class="menu_nav">
         <ul>
-          <li class="active"><a href="Createacourse.html">Create a Course
+          <li class="active"><a href="#">Create a Course
 </a></li>
-          <li><a href="browsecourse.html">Browse Course </a></li>
-          <li><a> <core:out value="${login.email}"/><br /> </a></li>
-          <li><a href="logout.html">Log Out</a></li>
-          <li><a href="logout.html">Log Out</a></li>
-          
+          <li><a href="#">Browe Course </a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Singup<br />
           </a></li>
         </ul>
       </div>
       <div class="clr"></div>
-      <div class="hbg">
+      <div class="hbg"><img src="images/header_images.jpg" width="430" height="315" alt="" class="fl" />
         <div class="info fl">
-          <h3>Create a Course </h3>
-          <h2 >And Join Thousands of Instructors to...</h2>
-          <ul style="list-style:none;">
-            <li>BUILD YOUR BRAND</li>
-            <li>SHARE YOUR KNOWLEDGE</li>
-            <li>MAKE MONEY ONLINE</li>
-          </ul>
-          <h2><a href="Createacourse.html">Get Started</a></h2>
+          <h3>Take and build online<br />
+          courses on any subject</h3>
         </div>
         <div class="clr"></div>
       </div>
@@ -51,36 +40,26 @@
         <div class="article">
           <h2><span>New and Noteworthy Course</span></h2>
           <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
-          <h5>AJAX Development</h5>
-          <p class="spec">Mark Lassoff
-11 Subscribers , 41 Lectures<br />
-Price: 49</p>
-</div>
-        <div class="article">
+          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="290" height="217" align="right" />   <img src="pics/Success-Failure.jpg" alt="" width="290" height="217" align="left" />         </p>
+        <p>sssssss</p>
+          <p class="spec"><a href="#" class="rm fl">Next &gt;&gt;&gt;&gt;&gt;</a>               </p>
           <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
-          <h5>AJAX Development</h5>
-          <p class="spec">Mark Lassoff
-            11 Subscribers , 41 Lectures<br />
-          Price: 49</p>
         </div>
         <div class="article">
+          <h2><span>Trending Paid Courses</span></h2>
           <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
-          <h5>AJAX Development</h5>
-          <p class="spec">Mark Lassoff
-            11 Subscribers , 41 Lectures<br />
-            Price: 49</p>
+          <p class="post-data"><img src="pics/bigstockphoto_the_missing_piece_493271.jpg" width="617" height="213" alt="" />          </p>
+          <p class="spec"><a href="suceessss.html" class="rm fl">Next&gt;&gt;&gt;&gt;</a></p>
+          <div class="clr"></div>
         </div>
         <div class="article">
+          <h2><span>Technology</span></h2>
           <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
-          <h5>AJAX Development</h5>
-          <p class="spec">Mark Lassoff
-            11 Subscribers , 41 Lectures<br />
-          Price: $49</p>
+          <p class="post-data"><img src="pics/servic2.jpg" width="617" height="213" alt="" />          </p>
+          <p class="spec"><a href="#" class="rm fl">Next&gt;&gt;&gt;&gt;&gt;</a></p>
+          <div class="clr"></div>
         </div>
+        <div class="pagenavi"></div>
       </div>
       <div class="sidebar">
         <div class="gadget"></div>
@@ -118,8 +97,8 @@ Price: 49</p>
   </div>
   <div class="footer">
     <div class="footer_resize">
-      <p class="lf">&copy; Copyright | All Right Reserved 2012</p>
-      
+      <p class="lf">&copy; Copyright | All Right Reserved 2011</p>
+      <p class="rf">Bussiness Tips<a href="http://www.iwebsitetemplate.com/"></a></p>
       <div class="clr"></div>
     </div>
   </div>
