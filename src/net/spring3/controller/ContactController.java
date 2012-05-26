@@ -7,6 +7,7 @@ import org.apache.commons.io.output.*;
 import org.springframework.validation.ObjectError;
 
 import java.util.*;
+
 import javax.servlet.http.HttpSession;
 import java.io.*;
 
@@ -57,16 +58,19 @@ public class ContactController {
 		
 		LoginValidator lv = new LoginValidator();
 		String str = lv.validate(login);
+		System.out.println("The uid is "+ str);
 		if(str.equals("User does not exist") || str.equals("Incorrect Password"))
 		{
-			Login login1 = new Login();
-			session.setAttribute("currentLogin", login1);
-			status.setComplete();
+			
+			session.invalidate();
 			login.setMessage(str);
 			return new ModelAndView("/Login", "command", new Login());
 		}
 		else
 		{
+			int uid = Integer.parseInt(str);
+			login.setUid(uid);
+			System.out.println("The uid is "+ uid);
 			session.setAttribute("currentLogin", login);
 			System.out.println("Password:" + login.getPassword() +"\n"+
 	                "email:" + login.getEmail());
@@ -135,7 +139,7 @@ public class ContactController {
 	//   login = (Login)session.getAttribute("currentLogin");
 	   if(session.getAttribute("currentLogin") == null)
 	   {
-		   return new ModelAndView("/Createacourse" ); 
+		   return new ModelAndView("main","value","Login or Signup to create a course" ); 
 	   }
 	   else{
 	   login = (Login)session.getAttribute("currentLogin");
@@ -202,6 +206,26 @@ public class ContactController {
    public ModelAndView createLecture( HttpSession session) {
 	   System.out.println("I am in get of lectures");
        return new ModelAndView("/Lectures");
+   } 
+   
+   @RequestMapping("/mycourses")
+   public ModelAndView mycourses( HttpSession session, Login login, Model model) {
+	   if(session.getAttribute("currentLogin") == null)
+	   {
+		   return new ModelAndView ("mycourses");
+	   }
+	   else
+	   {
+		   ArrayList<Course> cour = new ArrayList<Course>();
+		   login = (Login)session.getAttribute("currentLogin");
+		   GetCourseList glc = new GetCourseList();
+		   cour = glc.getCourseList(login.getUid());
+		   session.setAttribute("courseList", cour);
+		   model.addAttribute("courseList", cour);
+		   System.out.println("I am here");
+		   model.addAttribute("login", login);
+		   return new ModelAndView ("mycourseslogin");
+	   }
    } 
    
   

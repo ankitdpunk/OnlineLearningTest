@@ -7,6 +7,13 @@ public class Course {
 	private String keywords;
 	private String languageId;
 	private String url;
+	private int cid;
+	public int getCid() {
+		return cid;
+	}
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
 	public String getUrl() {
 		return url;
 	}

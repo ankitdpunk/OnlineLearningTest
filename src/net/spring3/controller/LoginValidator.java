@@ -12,7 +12,7 @@ public class LoginValidator {
 		String email = log.getEmail(), emailCheck = "", passwordCheck = "", name ="";
 		String password = log.getPassword();
 		System.out.println("The email is "+ email);
-		
+		int uid = 0;
 		ConnectionManager conn = new ConnectionManager();
 		Connection c1 = conn.getConnection();
 		
@@ -35,6 +35,7 @@ public class LoginValidator {
 	     		emailCheck = r.getString("email");
 	     		System.out.println("The email is" + emailCheck);
 	     		 passwordCheck = r.getString("password");
+	     		uid = r.getInt("uid");
 	     	 }
 	     	 if(!email.equals(emailCheck))
 	     	 {
@@ -55,7 +56,8 @@ public class LoginValidator {
 			
      	   System.err.println ("Problem executing query");
         }
-		return "Login Successful";
+		String uidS = new Integer(uid).toString();
+		return uidS;
 		
 	}
 

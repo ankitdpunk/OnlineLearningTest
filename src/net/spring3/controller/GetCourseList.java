@@ -1,20 +1,16 @@
 package net.spring3.controller;
-import java.sql.*;
-import java.util.ArrayList;
+import net.spring3.form.*;
+import java.util.*;
 
-import net.spring3.form.Course;
-public class CreateTable {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-	String	email = "admin";
-	String ctitle = "ajax";
-	String url = "dadas";
-		int uid = 1;
+public class GetCourseList {
+
+	public ArrayList<Course>  getCourseList(int uid)
+	{
 		
-		Course course = new Course();
 		ArrayList<Course> cour = new ArrayList<Course>();
 		try
 		{
@@ -27,7 +23,7 @@ public class CreateTable {
 			ResultSet rs = pst.executeQuery();
 			while(rs.next())
 			{
-				System.out.println("Inside while");
+				Course course = new Course();
 				course.setCid(rs.getInt("cid"));
 				course.setCourseTitle(rs.getString("ctitle"));
 				course.setCourseCategoryId(rs.getString("ccategid"));
@@ -44,9 +40,9 @@ public class CreateTable {
 			System.err.println("Inside exception of getcourselist");
 			e.printStackTrace();
 		}
+		return cour;
 		
-
-
-
 	}
+	
+	
 }

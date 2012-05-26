@@ -17,8 +17,8 @@
       </div>
       <div class="menu_nav">
         <ul>
-          <li class="active"><a href="Createacourse.html">Create a Course
-</a></li>
+          <li class="active"><a href="Createacourse.html">Create a Course</a></li>
+           <li ><a>${value}</a></li>
           <li><a href="browsecourse.html">Browse Course </a></li>
           <li><a href="Login.html">Login</a></li>
           <li><a href="signup1.html">Singup<br/></a></li>

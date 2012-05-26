@@ -5,6 +5,13 @@ public class Login {
 	private String password;
 	private String message;
 	private String name;
+	private int uid;
+	public int getUid() {
+		return uid;
+	}
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
 	public String getName() {
 		return name;
 	}
