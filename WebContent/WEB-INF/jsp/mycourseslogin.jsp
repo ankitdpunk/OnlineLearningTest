@@ -6,6 +6,8 @@
          pageEncoding="windows-1256"
          import="net.spring3.form.Course"
          import="java.util.*"
+         import="java.lang.*"
+         
         
   %>
 
@@ -65,9 +67,17 @@
     	out.write( "Course title " + co.getCourseTitle() +"</a><br />");
     	out.write(" Public Â· Not Published Â· Free <br />");
         out.write( "0 Lecture </div>");
-    	  out.write("<div class=\"box\">");
-    	 out.write("<div class=\"pic\"><img src=\"Style/images/2202.jpg\" width=\"75\" height=\"75\" /></div>");
-    	 out.write("<a href=\"#\">") ;
+    	out.write("<div class=\"box\">");
+    	int cid= co.getCid();
+    	out.write("The course id is "+ cid);
+    	String cnum = new Integer(cid).toString();
+    	
+    	String coursename = "course"+cnum;
+    	System.out.println("cour  "+ coursename);
+    	session.setAttribute("coursename", co);
+    	//session.setAttribute("cnum", cnum);
+    	out.write("<div class=\"pic\"><img src=\"Style/images/2202.jpg\" width=\"75\" height=\"75\" /></div>");
+    	 out.write("<a href=\"Discussions(0).html\">") ;
      }
      %>
      

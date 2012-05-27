@@ -14,24 +14,27 @@ public class GetCourseList {
 		ArrayList<Course> cour = new ArrayList<Course>();
 		try
 		{
+			int no = 0;
 			ConnectionManager conn = new ConnectionManager();
 			Connection c1 = conn.getConnection();
-			String sql = "SELECT * from course c, lecture l WHERE " +
+			String sql = "SELECT c.cid,c.uid,ctitle, ccategid, headline, keywords,lang, lid,url from course c, lecture l WHERE " +
 					"c.uid = l.uid AND c.uid = ?";
 			PreparedStatement pst = c1.prepareStatement(sql);
 			pst.setInt(1, uid);
 			ResultSet rs = pst.executeQuery();
 			while(rs.next())
 			{
-				Course course = new Course();
-				course.setCid(rs.getInt("cid"));
-				course.setCourseTitle(rs.getString("ctitle"));
-				course.setCourseCategoryId(rs.getString("ccategid"));
-				course.setHeadline(rs.getString("headline"));
-				course.setKeywords(rs.getString("keywords"));
-				course.setLanguageId(rs.getString("lang"));
-				course.setUrl(rs.getString("url"));
-				cour.add(course);
+				no++;
+				System.out.println("The course add is "+ rs.getInt("cid"));
+				Course c = new Course();
+				c.setCid(rs.getInt("cid"));
+				c.setCourseTitle(rs.getString("ctitle"));
+				c.setCourseCategoryId(rs.getString("ccategid"));
+				c.setHeadline(rs.getString("headline"));
+				c.setKeywords(rs.getString("keywords"));
+				c.setLanguageId(rs.getString("lang"));
+				c.setUrl(rs.getString("url"));
+				cour.add(c);
 			}
 			
 		}

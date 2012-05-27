@@ -112,7 +112,7 @@ public class ContactController {
 	  System.out.println("In test "+ user);
 	  return new ModelAndView("main");
    
-   }*/
+   } */
    
    
    @RequestMapping("/logout")
@@ -269,6 +269,20 @@ public class ContactController {
     //	String message = "Hello World, Spring 3.0!";
         return new ModelAndView("Login", "command", new Login());
     }
+   
+    @RequestMapping("/Discussions(0)")
+    public ModelAndView courseLectures(HttpSession session,Model model)
+    
+    {
+    	Course cou =(Course)session.getAttribute("coursename");
+    	model.addAttribute("coursename", cou);
+    	System.out.println("The course is" + cou.getCourseTitle());
+    	
+    //	String message = "Hello World, Spring 3.0!";
+        return new ModelAndView("Discussions(0)");
+    }
+ 
+   
     @RequestMapping("/Signup")
     public ModelAndView signup() 
     {

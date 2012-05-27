@@ -30,12 +30,23 @@ public class UploadController
   }
  
   @RequestMapping(method = RequestMethod.POST)
-  public String create(UploadItem uploadItem,Course course, BindingResult result, Login login, HttpSession session, HttpServletRequest request) throws Exception
+  public String create(UploadItem uploadItem,Course course,Model model, BindingResult result, Login login, HttpSession session, HttpServletRequest request) throws Exception
   {
+	  Course course1 = new Course();
 	  
 	  System.out.println("Inside post of uplodForm");
 	  login = (Login)session.getAttribute("currentLogin");
-	  course = (Course)session.getAttribute("currentCourse");
+	  
+	  
+	 // course1 = (Course)session.getAttribute("currentCourse");
+	  if(session.getAttribute("coursename") == null)
+			  {
+		  	course = (Course)session.getAttribute("currentCourse");
+			  }
+	  else
+	  {
+		  course = (Course)session.getAttribute("coursename");
+	  }
 	  
 	  String userDir = "F://BmTech//Users//"+login.getEmail();
 	  String userUrl = userDir+"//"+uploadItem.getFileData().getOriginalFilename(); 
@@ -47,7 +58,7 @@ public class UploadController
 		  StoreLecture sl =  new StoreLecture();
 		  sl.storeLecture(ctitle, userUrl, login.getEmail());
 	  }
-	  course = (Course)session.getAttribute("currentCourse");
+	//  course = (Course)session.getAttribute("currentCourse");
 	  
 	  System.out.println("The session in post"+ login.getEmail());
  
@@ -83,12 +94,13 @@ public class UploadController
                 outputStream.close();
                 inputStream.close();
         }
+        model.addAttribute("login", login);
 
         // ..........................................
       //  session.setAttribute("uploadFile", file.getOriginalFilename());
 } catch (Exception e) {
         e.printStackTrace();
 }
-     return "/uploadForm";
+     return "/Discussions(0)";
   }
 }
