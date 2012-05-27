@@ -30,7 +30,7 @@ public class UploadController
   }
  
   @RequestMapping(method = RequestMethod.POST)
-  public String create(UploadItem uploadItem,Course course,Model model, BindingResult result, Login login, HttpSession session, HttpServletRequest request) throws Exception
+  public String create(UploadItem uploadItem,Course course, Model model, Login login, HttpSession session, HttpServletRequest request) throws Exception
   {
 	  Course course1 = new Course();
 	  
