@@ -1,25 +1,23 @@
 package net.spring3.controller;
 import org.apache.commons.fileupload.FileItem;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+//import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.output.*; 
 import org.springframework.validation.ObjectError;
-
 import java.util.*;
-
 import javax.servlet.http.HttpSession;
 import java.io.*;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import net.spring3.validator.SignupValidator;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-
-import net.spring3.form.*;
- 
+import net.spring3.form.*; 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +28,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.support.SessionStatus;
+//import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 @SessionAttributes
 public class ContactController {
@@ -107,6 +106,15 @@ public class ContactController {
  
         return new ModelAndView("signup1", "command", new Tutor());
     } 
+ /* @RequestMapping(value="/main/{user}", method= RequestMethod.GET)
+   public  ModelAndView demo(@PathVariable String user, ModelMap map) {  
+	  map.addAttribute("Hello");
+	  System.out.println("In test "+ user);
+	  return new ModelAndView("main");
+   
+   }*/
+   
+   
    @RequestMapping("/logout")
    public ModelAndView logout(HttpSession session) {
 	   session.invalidate();
@@ -207,6 +215,7 @@ public class ContactController {
 	   System.out.println("I am in get of lectures");
        return new ModelAndView("/Lectures");
    } 
+   
    
    @RequestMapping("/mycourses")
    public ModelAndView mycourses( HttpSession session, Login login, Model model) {

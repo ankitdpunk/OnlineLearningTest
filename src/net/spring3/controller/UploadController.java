@@ -38,7 +38,8 @@ public class UploadController
 	  course = (Course)session.getAttribute("currentCourse");
 	  
 	  String userDir = "F://BmTech//Users//"+login.getEmail();
-	  String userUrl = userDir.replaceAll("//", "/");
+	  String userUrl = userDir+"//"+uploadItem.getFileData().getOriginalFilename(); 
+			  userUrl = userUrl.replaceAll("//", "/");
 	  String ctitle = course.getCourseTitle();
 	  new File(userDir).mkdir();
 	  if(session.getAttribute("currentLogin") != null)

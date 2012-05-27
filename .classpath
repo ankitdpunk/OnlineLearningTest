@@ -17,8 +17,11 @@
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/commons-logging.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/jstl.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring.jar"/>
+	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/mysql-connector-java-5.1.19-bin.jar"/>
+	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/commons-io-2.3.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-aop.jar"/>
+	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-beans.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-context.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-context-support.jar"/>
@@ -32,8 +35,5 @@
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-webmvc.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-webmvc-portlet.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-webmvc-struts.jar"/>
-	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/standard.jar"/>
-	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/mysql-connector-java-5.1.19-bin.jar"/>
-	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/commons-io-2.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

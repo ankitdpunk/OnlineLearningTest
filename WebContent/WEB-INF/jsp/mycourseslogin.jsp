@@ -36,8 +36,7 @@
           <li><a href="mycourses.html">My Courses</a></li>
           <li><a href="mycourses.html"><core:out value="${login.email}"/></a></li>
           <li><a href="logout.html">Log Out</a></li>
-          <% out.println("this is test");
-			%>
+        
         </ul>
       </div>
       <div class="clr"></div>
@@ -71,15 +70,8 @@
     	 out.write("<a href=\"#\">") ;
      }
      %>
-     Courses name create by you </a><br />
-     Public Â· Not Published Â· Free <br />
-     0 Lecture </div>
-	  <div class="box">
-	 <div class="pic"><img src="Style/images/2202.jpg" width="75" height="75" /></div>
-     <a href="#">
-     Courses name create by you </a><br />
-     Public Â· Not Published Â· Free <br />
-     0 Lecture </div>
+     
+     
 	   <div class="clr"></div>	
     </div>
 	 <div class="leftbox" style="width:960px; margin:">
