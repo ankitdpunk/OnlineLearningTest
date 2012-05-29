@@ -14,28 +14,33 @@ public class CreateTable {
 	String url = "dadas";
 		int uid = 1;
 		
-		Course course = new Course();
-		ArrayList<Course> cour = new ArrayList<Course>();
 		try
 		{
+			int no = 0;
 			ConnectionManager conn = new ConnectionManager();
 			Connection c1 = conn.getConnection();
-			String sql = "SELECT * from course c, lecture l WHERE " +
+			String sql = "SELECT c.cid,c.uid,c.ctitle, c.ccategid, c.headline, c.keywords,c.lang, l.lid,l.url from course c, lecture l WHERE " +
 					"c.uid = l.uid AND c.uid = ?";
 			PreparedStatement pst = c1.prepareStatement(sql);
 			pst.setInt(1, uid);
 			ResultSet rs = pst.executeQuery();
 			while(rs.next())
 			{
-				System.out.println("Inside while");
-				course.setCid(rs.getInt("cid"));
-				course.setCourseTitle(rs.getString("ctitle"));
-				course.setCourseCategoryId(rs.getString("ccategid"));
-				course.setHeadline(rs.getString("headline"));
-				course.setKeywords(rs.getString("keywords"));
-				course.setLanguageId(rs.getString("lang"));
-				course.setUrl(rs.getString("url"));
-				cour.add(course);
+				no++;
+				System.out.println("The course add is "+ rs.getInt("cid"));
+				Course c = new Course();
+				System.out.println("wer  "+ rs.getInt("cid"));
+				c.setCid(rs.getInt("cid"));
+				System.out.println("wer  "+ rs.getString("ctitle"));
+				c.setCourseTitle(rs.getString("ctitle"));
+				System.out.println("wer  "+ rs.getString("ccategid"));
+				c.setCourseCategoryId(rs.getString("ccategid"));
+				System.out.println("wer  "+ rs.getString("headline"));				
+				c.setHeadline(rs.getString("headline"));
+				c.setKeywords(rs.getString("keywords"));
+				c.setLanguageId(rs.getString("lang"));
+				c.setUrl(rs.getString("url"));
+				//cour.add(c);
 			}
 			
 		}
@@ -44,6 +49,7 @@ public class CreateTable {
 			System.err.println("Inside exception of getcourselist");
 			e.printStackTrace();
 		}
+
 		
 
 

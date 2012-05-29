@@ -6,20 +6,62 @@
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
 
 </head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="Style/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<link rel="stylesheet" type="text/css" href="Style/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("a#example3").fancybox({
+				'transitionIn'	: 'none',
+				'transitionOut'	: 'none'	
+			});
+
+			$("#various3").fancybox({
+				'width'				: '58%',
+				'height'			: '58%',
+				'autoScale'			: false,
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'type'				: 'iframe'
+			});
+		});
+	</script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("a#example4").fancybox({
+				'transitionIn'	: 'none',
+				'transitionOut'	: 'none'	
+			});
+
+			$("#various4").fancybox({
+				'width'				: '58%',
+				'height'			: '58%',
+				'autoScale'			: false,
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'type'				: 'iframe'
+			});
+		});
+	</script>
 <body>
 <div class="main">
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <p> <img src="Style/images/logo.png" width="237" height="42" /> </p>
+        <p> <br /><img src="Style/images/logo.png" width="237" height="42" /> </p>
+      </div>
+      <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search :
+        <input type="text" name="textfield" />
       </div>
       <div class="menu_nav">
         <ul>
-          <li class="active"><a href="Createacourse.html">Create a Course
+          <li class="active"><a href="#">Create a Course
 </a></li>
-          <li><a href="browsecourse.html">Browe Course </a></li>
-          <li><a href="Login.html">Login</a></li>
-          <li><a href="signup1.html">Singup<br />
+          <li><a href="browsecourse.html">Browse Course </a></li>
+          <li><a href="Login.html" id="various3">Login</a></li>
+          <li><a href="signup1.html" id="various4">Singup<br />
           </a></li>
         </ul>
       </div>
@@ -27,13 +69,13 @@
       <div class="hbg">
         <div class="info fl">
           <h3>Create a Course </h3>
-          <h2 >And JoinÂ ThousandsÂ of Instructors to...</h2>
+          <h2 >And Join Thousands of Instructors to...</h2>
           <ul style="list-style:none;">
             <li>BUILD YOUR BRAND</li>
             <li>SHARE YOUR KNOWLEDGE</li>
             <li>MAKE MONEY ONLINE</li>
           </ul>
-          <h2><a href="Createacourse.html">Get Started</a></h2>
+          <h2><a href="#">Get Started</a></h2>
         </div>
         <div class="clr"></div>
       </div>
@@ -45,8 +87,7 @@
       <div class="mainbar">
         <div class="article">
           <h2><span>New and Noteworthy Course</span></h2>
-          <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
+          <p><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
           <h5>AJAX Development</h5>
           <p class="spec">Mark Lassoff
 11 Subscribers , 41 Lectures<br />
@@ -54,7 +95,7 @@ Price: 49</p>
 </div>
         <div class="article">
           <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
+          <p><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
           <h5>AJAX Development</h5>
           <p class="spec">Mark Lassoff
             11 Subscribers , 41 Lectures<br />
@@ -62,7 +103,7 @@ Price: 49</p>
         </div>
         <div class="article">
           <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
+          <p ><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
           <h5>AJAX Development</h5>
           <p class="spec">Mark Lassoff
             11 Subscribers , 41 Lectures<br />
@@ -70,7 +111,7 @@ Price: 49</p>
         </div>
         <div class="article">
           <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
+          <p ><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
           <h5>AJAX Development</h5>
           <p class="spec">Mark Lassoff
             11 Subscribers , 41 Lectures<br />

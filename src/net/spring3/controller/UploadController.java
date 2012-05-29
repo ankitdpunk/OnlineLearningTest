@@ -33,25 +33,23 @@ public class UploadController
   public String create(UploadItem uploadItem,Course course, Model model, Login login, HttpSession session, HttpServletRequest request) throws Exception
   {
 	  Course course1 = new Course();
+	  String ctitle;
 	  
 	  System.out.println("Inside post of uplodForm");
 	  login = (Login)session.getAttribute("currentLogin");
 	  
+/*	  course1 = (Course)session.getAttribute("coursename");
+	  	 ctitle = course1.getCourseTitle(); */
+	   	
+	  course = (Course)session.getAttribute("currentCourse");
+	  ctitle = course.getCourseTitle(); 
+	  int courseId = course.getCid();
 	  
-	 // course1 = (Course)session.getAttribute("currentCourse");
-	  if(session.getAttribute("coursename") == null)
-			  {
-		  	course = (Course)session.getAttribute("currentCourse");
-			  }
-	  else
-	  {
-		  course = (Course)session.getAttribute("coursename");
-	  }
-	  
+	
 	  String userDir = "F://BmTech//Users//"+login.getEmail();
 	  String userUrl = userDir+"//"+uploadItem.getFileData().getOriginalFilename(); 
 			  userUrl = userUrl.replaceAll("//", "/");
-	  String ctitle = course.getCourseTitle();
+	  //String ctitle = course.getCourseTitle();
 	  new File(userDir).mkdir();
 	  if(session.getAttribute("currentLogin") != null)
 	  {

@@ -16,6 +16,9 @@ public class ConnectionManager {
        try
        {
     	   System.out.println("Inside Connection Manager");
+           /*String userName = "eduonweb";
+           String password = "anurakt";
+           String url = "jdbc:mysql://localhost:3306/eduonweb"; */
            String userName = "root";
            String password = "root";
            String url = "jdbc:mysql://localhost:3306/onlinelearning";

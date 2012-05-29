@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" 
          
          pageEncoding="windows-1256"
@@ -87,21 +88,26 @@
     <div class="clr"></div>
 	 <div class="box"> 
 	 <%
-	Course cor = (Course)session.getAttribute("coursename");
-	int cid = cor.getCid();
+	
+	String cid = (String)session.getAttribute("cid");
 	out.println(cid);
 	
-	 System.out.println("Inside hello jsp  "+ cid);
+	int courseId = Integer.parseInt(cid);
+	//courseId = ${c1.getCid()};
+	 
+	 System.out.println("Inside Discussions jsp  "+ cid);
 	 ConnectionManager conn = new ConnectionManager();
 	 Connection c1 = conn.getConnection();
 	 String sql = "SELECT * from lecture where cid = ?";
 	 PreparedStatement pst = c1.prepareStatement(sql);
-	 pst.setInt(1, cid);
+	 pst.setInt(1, courseId);
 	 ResultSet rs = pst.executeQuery();
 		while(rs.next())
 		{
 			String url  = rs.getString("url");
 			out.println(url);
+			out.write("The download link is <a href="+url+">Download Here</a>");
+			
 			out.println("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp");
 			
 		}
@@ -110,9 +116,10 @@
 	 
 	//<core:out value="${cor}"/><br />
 	//out.write(cor); 
-%>
+
+	  %>
+	 <form id="form1" name="form1" method="get" action="Lectures.html">
 	 
-	  <form id="form1" name="form1" method="get" action="uploadForm.html">
 	    <label>
 	      <input type="submit" name="Submit" value="Create New Lecture" />
 	      </label>

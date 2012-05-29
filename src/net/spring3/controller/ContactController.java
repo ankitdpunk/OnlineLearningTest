@@ -159,6 +159,8 @@ public class ContactController {
    @RequestMapping(value = "/Lectures", method = RequestMethod.POST )
    public ModelAndView addContac1t(@ModelAttribute Course course,Login login, Model model, HttpSession session, HttpServletRequest request) {
 	   Course course1 = new Course();
+	   model.addAttribute("login", login);
+	   
 	   
 	   String ctitle = request.getParameter("CourseTitle");
 	   String cId = request.getParameter("courseCategoryId");
@@ -171,6 +173,7 @@ public class ContactController {
 	   course1.setKeywords(keys);
 	   course1.setLanguageId(lang);
 	   course = course1;
+	  
 	   session.setAttribute("currentCourse", course);
 	   //model.addAttribute("course", course);
 		System.out.println("Course Title:"  +"\n"+ ctitle+ "\n"+ cId + "\n" + head+ "\n"+keys+"\n"+lang+ "\n");
@@ -211,9 +214,11 @@ public class ContactController {
 		//return "redirect:course2.html";
 	}
    @RequestMapping("/Lectures")
-   public ModelAndView createLecture( HttpSession session) {
+   public ModelAndView createLecture( HttpSession session, Login login, Model model) {
 	   System.out.println("I am in get of lectures");
+	   model.addAttribute("login", login);
        return new ModelAndView("/Lectures");
+       
    } 
    
    
@@ -270,18 +275,7 @@ public class ContactController {
         return new ModelAndView("Login", "command", new Login());
     }
    
-    @RequestMapping("/Discussions(0)")
-    public ModelAndView courseLectures(HttpSession session,Model model)
-    
-    {
-    	Course cou =(Course)session.getAttribute("coursename");
-    	model.addAttribute("coursename", cou);
-    	System.out.println("The course is" + cou.getCourseTitle());
-    	
-    //	String message = "Hello World, Spring 3.0!";
-        return new ModelAndView("Discussions(0)");
-    }
- 
+   
    
     @RequestMapping("/Signup")
     public ModelAndView signup() 
