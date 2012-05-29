@@ -16,19 +16,16 @@
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
-
-<style type="text/css">
-<!--
-.style1 {color: #517223}
--->
-</style>
 </head>
 <body>
 <div class="main">
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <p> <img src="Style/images/logo.png" width="237" height="42" /> </p>
+        <p><br /> <img src="Style/images/logo.png" width="237" height="42" /> </p>
+      </div>
+      <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search :
+        <input type="text" name="textfield" />
       </div>
       <div class="menu_nav">
         <ul>

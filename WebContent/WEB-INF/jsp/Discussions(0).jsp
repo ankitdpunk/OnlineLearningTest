@@ -22,9 +22,13 @@
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <p> <img src="Style/images/logo.png" width="237" height="42" /> </p>
+        <p><br /> <img src="Style/images/logo.png" width="237" height="42" /> </p>
+      </div>
+      <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search :
+        <input type="text" name="textfield" />
       </div>
       <div class="menu_nav">
+
         <ul>
           <li class="active"><a href="#">Create a Course
 </a></li>
@@ -42,13 +46,16 @@
   </div>
   <div class="content">
     <div class="content_resize">
-      <h2 style="color:#000;"> Course Name </h2>
+      <h2 style="color:#000;"> Course Name <%Course course = new Course();
+      course = (Course)session.getAttribute("currentCourse");
+      out.println(course.getCourseTitle());
+      %> </h2>
 	  <div class="rightbox">
        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Style/images/like.png" width="60" height="25" />&nbsp;&nbsp;&nbsp;&nbsp;<img src="Style/images/tweet.png" width="75" height="25" />&nbsp;&nbsp;&nbsp;&nbsp;<img src="Style/images/send.jpg" width="70" height="25" /></h4>
       </div>
 	  <div class="leftbox" style="margin-bottom:20px;"><img src="Style/images/userpic.gif" width="104" height="87" align="left" />
-	   <h4><span class="green style1" style="padding-left:20px; ">BY </span> Â <strong>Creater Name </strong><br />
-	  <span class="green style1" style="padding-left:20px; ">Category:</span> Art <br />
+	   <h4><span class="green style1" style="padding-left:20px; ">BY: </span><strong>Creater Name: <core:out value="${login.email}"/> </strong><br />
+	  <span class="green style1" style="padding-left:20px; ">Category:</span><%out.println(course.getCourseCategoryId()); %> <br />
 	  <span class="green style1" style="padding-left:20px; ">Tags:</span>
 	   </h4>
 	  </div>
@@ -90,7 +97,7 @@
 	 <%
 	
 	String cid = (String)session.getAttribute("cid");
-	out.println(cid);
+	
 	
 	int courseId = Integer.parseInt(cid);
 	//courseId = ${c1.getCid()};
@@ -106,9 +113,9 @@
 		{
 			String url  = rs.getString("url");
 			out.println(url);
-			out.write("The download link is <a href="+url+">Download Here</a>");
+			out.write("The download link is <a href="+url+">Download Here</a><br>");
 			
-			out.println("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp");
+		
 			
 		}
 	 

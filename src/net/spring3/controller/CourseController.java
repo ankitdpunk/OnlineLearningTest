@@ -22,7 +22,7 @@ import net.spring3.form.Login;
 public class CourseController
 {
   @RequestMapping(method = RequestMethod.GET)
-  public String getCourseId(Model model, HttpServletRequest request, HttpSession session)
+  public String getCourseId(Model model, HttpServletRequest request, HttpSession session, Login login)
   {
 	//Course c1 = new Course();
 	  System.out.println("Inside get of discussions");
@@ -30,13 +30,14 @@ public class CourseController
 	CreateCourse cc = new CreateCourse();
 	Course course = cc.createCourse(cid);
 	session.setAttribute("currentCourse", course);
+	login=(Login)session.getAttribute("currentLogin");
 	
 	
 	
 //	c1.setCid(courseId);
 	System.out.println("The cid i get is "+ cid);
 	session.setAttribute("cid", cid);
-	//model.addAttribute("cid", c1);
+	model.addAttribute("login", login);
 	
 	
 	

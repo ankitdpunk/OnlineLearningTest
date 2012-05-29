@@ -12,8 +12,10 @@
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <p>
-          <img src="Style/images/logo.png" width="237" height="42" />      </p>
+        <p> <br /><img src="Style/images/logo.png" width="237" height="42" /> </p>
+      </div>
+      <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search :
+        <input type="text" name="textfield" />
       </div>
       <div class="menu_nav">
         <ul>

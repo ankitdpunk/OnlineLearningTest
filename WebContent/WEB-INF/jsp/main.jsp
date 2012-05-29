@@ -1,19 +1,60 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
+
 </head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="Style/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<link rel="stylesheet" type="text/css" href="Style/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("a#example3").fancybox({
+				'transitionIn'	: 'none',
+				'transitionOut'	: 'none'	
+			});
+
+			$("#various3").fancybox({
+				'width'				: '58%',
+				'height'			: '58%',
+				'autoScale'			: false,
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'type'				: 'iframe'
+			});
+		});
+	</script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("a#example4").fancybox({
+				'transitionIn'	: 'none',
+				'transitionOut'	: 'none'	
+			});
+
+			$("#various4").fancybox({
+				'width'				: '58%',
+				'height'			: '58%',
+				'autoScale'			: false,
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'type'				: 'iframe'
+			});
+		});
+	</script>
 <body>
 <div class="main">
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <p>
-          <img src="Style/images/logo.png" width="237" height="42" />      </p>
+        <p> <br /><img src="Style/images/logo.png" width="237" height="42" /> </p>
+      </div>
+      <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search :
+        <input type="text" name="textfield" />
       </div>
       <div class="menu_nav">
         <ul>

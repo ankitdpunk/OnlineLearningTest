@@ -57,16 +57,7 @@ public class UploadController
 	   
 			  
 	  //String ctitle = course.getCourseTitle();
-			String  userDir = request.getRealPath("")+login.getEmail();
-			String userUrl = userDir+"//"+lectname;
-			userUrl = userUrl.replaceAll("//", "/");
 			
-	  new File(userDir).mkdir();
-	  if(session.getAttribute("currentLogin") != null)
-	  {
-		  StoreLecture sl =  new StoreLecture();
-		  sl.storeLecture(ctitle, userUrl, login.getEmail());
-	  }
 	//  course = (Course)session.getAttribute("currentCourse");
 	  
 	  System.out.println("The session in post"+ login.getEmail());
@@ -82,6 +73,7 @@ public class UploadController
         String fileName = null;
         InputStream inputStream = null;
         OutputStream outputStream = null;
+        
         if (file.getSize() > 0) {
                 inputStream = file.getInputStream();
                 if (file.getSize() > 1000000000) {
@@ -89,12 +81,27 @@ public class UploadController
                         return "/uploadForm";
                 }
                 System.out.println("size::" + file.getSize());
+                String  userDir = request.getRealPath("")+login.getEmail();
+        		String userUrl = userDir+"//"+lectname;
+        		userUrl = userUrl.replaceAll("//", "/");
+        		fileName = userUrl+file.getOriginalFilename();
+        		userUrl=fileName;
+        		
+          new File(userDir).mkdir();
+          if(session.getAttribute("currentLogin") != null)
+          {
+        	  StoreLecture sl =  new StoreLecture();
+        	  sl.storeLecture(ctitle, userUrl, login.getEmail());
+          } 
+                
              //   fileName = request.getRealPath("") + "/images/"
              //                   + file.getOriginalFilename();
               //  fileName = "F://BmTech//Users//"+login.getEmail()+"//" + file.getOriginalFilename();
-                fileName = userUrl;
+                
                 outputStream = new FileOutputStream(fileName);
-                System.out.println("fileName:" + file.getOriginalFilename());
+                System.out.println("fileName:" + file.getOriginalFilename()+ fileName);
+                
+          
 
                 int readBytes = 0;
                 byte[] buffer = new byte[10000];

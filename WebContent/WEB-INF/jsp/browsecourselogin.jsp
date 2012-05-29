@@ -6,7 +6,7 @@
 <head>
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="Style/style.css" rel="stylesheet" type="text/css" />
 
 </head>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
@@ -53,15 +53,15 @@
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <p> <br /><img src="images/logo.png" width="237" height="42" /> </p>
+        <p> <br /><img src="Style/images/logo.png" width="237" height="42" /> </p>
       </div>
       <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search :
         <input type="text" name="textfield" />
       </div>
       <div class="menu_nav">
+
         <ul>
-          <li class="active"><a href="Createacourse.html">Create a Course
-</a></li>
+          <li class="active"><a href="Createacourse.html">Create a Course</a></li>
           <li><a href="browsecourse.html">Browse Course </a></li>
           <li><a href="mycourses.html"><core:out value="${login.email}"/><br /> </a></li>
           <li><a href="logout.html">Log Out</a></li>
@@ -74,7 +74,7 @@
       <div class="hbg">
         <div class="info fl">
           <h3>Create a Course </h3>
-          <h2 >And Join Thousands of Instructors to...</h2>
+          <h2 >And Join Thousands of Instructors to...</h2>
           <ul style="list-style:none;">
             <li>BUILD YOUR BRAND</li>
             <li>SHARE YOUR KNOWLEDGE</li>
