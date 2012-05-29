@@ -42,14 +42,25 @@ public class UploadController
 	  	 ctitle = course1.getCourseTitle(); */
 	   	
 	  course = (Course)session.getAttribute("currentCourse");
+	  
 	  ctitle = course.getCourseTitle(); 
 	  int courseId = course.getCid();
+	  CreateCourse cc = new CreateCourse();
+	  int no = cc.countLectures(courseId);
+	  no  = no  +1;
+	  String lectnum = new Integer(no).toString();
+	  String cournum = new Integer(courseId).toString();
+	  String lectname = "Course"+cournum+"Lecture"+lectnum;
 	  
 	
-	  String userDir = "F://BmTech//Users//"+login.getEmail();
-	  String userUrl = userDir+"//"+uploadItem.getFileData().getOriginalFilename(); 
-			  userUrl = userUrl.replaceAll("//", "/");
+	 // String userDir = "F://BmTech//Users//"+login.getEmail();
+	   
+			  
 	  //String ctitle = course.getCourseTitle();
+			String  userDir = request.getRealPath("")+login.getEmail();
+			String userUrl = userDir+"//"+lectname;
+			userUrl = userUrl.replaceAll("//", "/");
+			
 	  new File(userDir).mkdir();
 	  if(session.getAttribute("currentLogin") != null)
 	  {
@@ -80,7 +91,8 @@ public class UploadController
                 System.out.println("size::" + file.getSize());
              //   fileName = request.getRealPath("") + "/images/"
              //                   + file.getOriginalFilename();
-                fileName = "F://BmTech//Users//"+login.getEmail()+"//" + file.getOriginalFilename();
+              //  fileName = "F://BmTech//Users//"+login.getEmail()+"//" + file.getOriginalFilename();
+                fileName = userUrl;
                 outputStream = new FileOutputStream(fileName);
                 System.out.println("fileName:" + file.getOriginalFilename());
 

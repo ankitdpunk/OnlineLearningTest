@@ -14,42 +14,31 @@ public class CreateTable {
 	String url = "dadas";
 		int uid = 1;
 		
+		int no = 0;
 		try
 		{
-			int no = 0;
-			ConnectionManager conn = new ConnectionManager();
-			Connection c1 = conn.getConnection();
-			String sql = "SELECT c.cid,c.uid,c.ctitle, c.ccategid, c.headline, c.keywords,c.lang, l.lid,l.url from course c, lecture l WHERE " +
-					"c.uid = l.uid AND c.uid = ?";
-			PreparedStatement pst = c1.prepareStatement(sql);
-			pst.setInt(1, uid);
-			ResultSet rs = pst.executeQuery();
-			while(rs.next())
-			{
-				no++;
-				System.out.println("The course add is "+ rs.getInt("cid"));
-				Course c = new Course();
-				System.out.println("wer  "+ rs.getInt("cid"));
-				c.setCid(rs.getInt("cid"));
-				System.out.println("wer  "+ rs.getString("ctitle"));
-				c.setCourseTitle(rs.getString("ctitle"));
-				System.out.println("wer  "+ rs.getString("ccategid"));
-				c.setCourseCategoryId(rs.getString("ccategid"));
-				System.out.println("wer  "+ rs.getString("headline"));				
-				c.setHeadline(rs.getString("headline"));
-				c.setKeywords(rs.getString("keywords"));
-				c.setLanguageId(rs.getString("lang"));
-				c.setUrl(rs.getString("url"));
-				//cour.add(c);
-			}
-			
-		}
-		catch (Exception e)
+	//	int courseId = Integer.parseInt(cid); 
+		
+		ConnectionManager conn = new ConnectionManager();
+		Connection c1 = conn.getConnection();
+		String sql = "SELECT * from lecture WHERE " +
+				"cid = 2";
+		PreparedStatement pst = c1.prepareStatement(sql);
+		//pst.setInt(1, cid);
+		ResultSet rs = pst.executeQuery();
+		
+		while(rs.next())
 		{
-			System.err.println("Inside exception of getcourselist");
+			no++;
+			rs.getString("lid");
+		}
+		}
+		
+		catch(Exception e)
+		{
 			e.printStackTrace();
 		}
-
+		System.out.println("The no lecture are: "+ no);
 		
 
 
