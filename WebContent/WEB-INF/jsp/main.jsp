@@ -54,8 +54,10 @@
         <p> <br /><img src="Style/images/logo.png" width="237" height="42" /> </p>
       </div>
   	
-      <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search :
-        <input type="text" name="search" />
+      <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search  
+        <form action="browsecourse.html">
+        <input type="text" name="search"  />       
+        </form>        
       </div>
   
       
