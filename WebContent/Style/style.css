@@ -12,7 +12,7 @@ html, .main {
 	margin:0;
 }
 .logo {
-	width:320px;
+	width:250px;
 	height:61px;
 	padding:0;
 	margin:0 auto;
@@ -98,13 +98,13 @@ margin-bottom:10px;
 .hbg div.info {
 	text-align:center;
 	width:540px;
-	padding:80px 0 0;
+	padding:50px 0 0;
 	float:right;
 }
 .menu_nav {
 	margin:0;
-	padding:25px 0 0 0;
-	width:570px;
+	padding:0px 0 0 0;
+	width:650px;
 	float:right;
 }
 .menu_nav ul {
@@ -132,6 +132,7 @@ margin-bottom:10px;
 	color:#fff;
 	text-decoration:none;
 	background:#003468;
+	
 }
 .content {
 	padding:20px 10px;

@@ -25,14 +25,14 @@
         <p><br /> <img src="Style/images/logo.png" width="237" height="42" /> </p>
       </div>
       <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search :
-        <input type="text" name="textfield" />
+        <input type="text" name="search" />
       </div>
       <div class="menu_nav">
 
         <ul>
-          <li class="active"><a href="#">Create a Course
+          <li class="active"><a href="Createacourse.html">Create a Course
 </a></li>
-          <li><a href="browsecourse.html">Browe Course </a></li>
+          <li><a href="browsecourse.html">Browse Course </a></li>
           <li><a href="mycourses.html">My Courses</a></li>
 			
           <li><a href="mycourses.html"><core:out value="${login.email}"/><br /></a></li>
@@ -93,10 +93,13 @@
   </ul>
  
     <div class="clr"></div>
+    <iframe src="http://docs.google.com/viewer?url=http%3A%2F%2Fresearch.google.com%2Farchive%2Fbigtable-osdi06.pdf&embedded=true" width="800" height="780" style="border: none;"></iframe>
 	 <div class="box"> 
+	 
 	 <%
 	
 	String cid = (String)session.getAttribute("cid");
+	 String fileName = (String)request.getAttribute("fileName");
 	
 	
 	int courseId = Integer.parseInt(cid);
@@ -109,6 +112,7 @@
 	 PreparedStatement pst = c1.prepareStatement(sql);
 	 pst.setInt(1, courseId);
 	 ResultSet rs = pst.executeQuery();
+	 
 		while(rs.next())
 		{
 			String url  = rs.getString("url");
@@ -118,6 +122,7 @@
 		
 			
 		}
+	
 	 
 		
 	 

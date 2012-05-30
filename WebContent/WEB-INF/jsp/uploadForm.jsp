@@ -12,7 +12,7 @@
       <div class="logo">
         <p><br /> <img src="Style/images/logo.png" width="237" height="42" /> </p>
       </div><div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search : 
-		  <input type="text" name="textfield" /></div>
+		  <input type="text" name="search" /></div>
       <div class="menu_nav">
         <ul>
           <li class="active"><a href="#">Create a Course

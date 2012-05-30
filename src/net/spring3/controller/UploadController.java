@@ -3,6 +3,7 @@ import net.spring3.form.*;
 import java.io.*;
 
 import javax.servlet.http.HttpSession;
+import javax.servlet.ServletContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +14,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
+
  
 import net.spring3.controller.UploadItem;
 import net.spring3.form.Login;
@@ -81,12 +83,15 @@ public class UploadController
                         return "/uploadForm";
                 }
                 System.out.println("size::" + file.getSize());
-                String  userDir = request.getRealPath("")+login.getEmail();
+             //   String userDir = getInitParameter("") + "/" + login.getEmail();
+               String  userDir = request.getRealPath("/")+login.getEmail();
+              //  String  userDir = login.getEmail();
+                
         		String userUrl = userDir+"//"+lectname;
         		userUrl = userUrl.replaceAll("//", "/");
         		fileName = userUrl+file.getOriginalFilename();
         		userUrl=fileName;
-        		
+        		System.out.println("The user url is: "+ userUrl);
           new File(userDir).mkdir();
           if(session.getAttribute("currentLogin") != null)
           {
@@ -100,6 +105,9 @@ public class UploadController
                 
                 outputStream = new FileOutputStream(fileName);
                 System.out.println("fileName:" + file.getOriginalFilename()+ fileName);
+                request.setAttribute("fileName", fileName);
+                String fm = (String)request.getAttribute("fileName");
+                System.out.println("The (String)request.getAttribute is "+ fm);
                 
           
 
