@@ -15,6 +15,8 @@
 <head>
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+<script src="http://vjs.zencdn.net/c/video.js"></script>
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="Style/index_files/css3menu1/style.css" type="text/css" /></head>
 <body>
@@ -80,6 +82,86 @@
 	<li class="topmenu"><a href="#" style="height:15px;line-height:15px;">&nbsp;&nbsp;Resources&nbsp;&nbsp;</a></li>
 	<li class="toplast"><a href="#" style="height:15px;line-height:15px;">&nbsp;&nbsp;Publish Now&nbsp;</a></li>
 </ul>
+<!-- START OF THE PLAYER EMBEDDING TO COPY-PASTE -->
+
+	<div id="mediaplayer">JW Player goes here</div>
+	
+	<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+	<script type="text/javascript">
+		jwplayer("mediaplayer").setup({
+			flashplayer: "jwplayer/player.swf",
+			file: "jwplayer/Woofer.flv",
+			image: "jwplayer/preview.jpg"
+		});
+	</script>
+	<!-- END OF THE PLAYER EMBEDDING -->
+	
+	<!-- Sound manager embedding starting -->
+	
+	<p>This is audio</p>
+	<script type="text/javascript" src="soundmanager/script/soundmanager2.js"></script>
+
+<!-- configure it for your use -->
+<script type="text/javascript">
+
+
+
+<!-- required -->
+<link rel="stylesheet" type="text/css" href="soundmanager/demo/360-player/360player.css" />
+<link rel="stylesheet" type="text/css" href="soundmanager/demo/360-player/360player-visualization.css" />
+
+<!-- special IE-only canvas fix -->
+<!--[if IE]><script type="text/javascript" src="script/excanvas.js"></script><![endif]-->
+
+<!-- Apache-licensed animation library -->
+<script type="text/javascript" src="soundmanager/demo/360-player/script/berniecode-animator.js"></script>
+
+<!-- the core stuff -->
+<script type="text/javascript" src="soundmanager/demo/360-player/script/soundmanager2.js"></script>
+<script type="text/javascript" src="soundmanager/demo/360-player/script/360player.js"></script>
+
+<script type="text/javascript">
+
+soundManager.url = 'soundmanager/swf/'; // path to directory containing SM2 SWF
+
+soundManager.useFastPolling = true; // increased JS callback frequency, combined with useHighPerformance = true
+
+threeSixtyPlayer.config.scaleFont = (navigator.userAgent.match(/msie/i)?false:true);
+threeSixtyPlayer.config.showHMSTime = true;
+
+// enable some spectrum stuffs
+
+threeSixtyPlayer.config.useWaveformData = true;
+threeSixtyPlayer.config.useEQData = true;
+
+// enable this in SM2 as well, as needed
+
+if (threeSixtyPlayer.config.useWaveformData) {
+  soundManager.flash9Options.useWaveformData = true;
+}
+if (threeSixtyPlayer.config.useEQData) {
+  soundManager.flash9Options.useEQData = true;
+}
+if (threeSixtyPlayer.config.usePeakData) {
+  soundManager.flash9Options.usePeakData = true;
+}
+
+if (threeSixtyPlayer.config.useWaveformData || threeSixtyPlayer.flash9Options.useEQData || threeSixtyPlayer.flash9Options.usePeakData) {
+  // even if HTML5 supports MP3, prefer flash so the visualization features can be used.
+  soundManager.preferFlash = true;
+}
+
+// favicon is expensive CPU-wise, but can be used.
+if (window.location.href.match(/hifi/i)) {
+  threeSixtyPlayer.config.useFavIcon = true;
+}
+
+if (window.location.href.match(/html5/i)) {
+  // for testing IE 9, etc.
+  soundManager.useHTML5Audio = true;
+}
+
+</script>	<!--  Sound manager embed finish -->
 
    <div class="leftbox" style=" margin-top:20px; width:960px;">
   <ul style="list-style:none;">
@@ -94,9 +176,7 @@
   </li>
   </ul>
  
-    <div class="clr"></div>
-    <iframe src="http://docs.google.com/viewer?url=http%3A%2F%2Fresearch.google.com%2Farchive%2Fbigtable-osdi06.pdf&embedded=true" width="800" height="780" style="border: none;"></iframe>
-	 <div class="box"> 
+    
 	 
 	 <%
 	

@@ -1,7 +1,8 @@
 package net.spring3.controller;
 import net.spring3.form.*;
+import javax.servlet.ServletContext;
 import java.io.*;
-
+import java.io.FileInputStream;
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletContext;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ import net.spring3.form.Login;
  
 @Controller
 @RequestMapping(value = "/uploadForm")
-public class UploadController
+public class UploadController extends javax.servlet.http.HttpServlet
 {
   @RequestMapping(method = RequestMethod.GET)
   public String getUploadForm(Model model)
@@ -44,6 +45,7 @@ public class UploadController
 	  	 ctitle = course1.getCourseTitle(); */
 	   	
 	  course = (Course)session.getAttribute("currentCourse");
+
 	  
 	  ctitle = course.getCourseTitle(); 
 	  int courseId = course.getCid();
@@ -72,7 +74,7 @@ public class UploadController
         
     try {
         MultipartFile file = uploadItem.getFileData();
-        String fileName = null;
+        String fileName = null, fileUrl = null;
         InputStream inputStream = null;
         OutputStream outputStream = null;
         
@@ -88,15 +90,21 @@ public class UploadController
               //  String  userDir = login.getEmail();
                 
         		String userUrl = userDir+"//"+lectname;
+        		String userLink = login.getEmail()+ "/"+ lectname;
         		userUrl = userUrl.replaceAll("//", "/");
+        		
         		fileName = userUrl+file.getOriginalFilename();
+        		fileName = fileName.replaceAll(" ", "");
+        		userLink = userLink+file.getOriginalFilename();
+        		userLink = userLink.replaceAll(" ", "");
+        		
         		userUrl=fileName;
         		System.out.println("The user url is: "+ userUrl);
           new File(userDir).mkdir();
           if(session.getAttribute("currentLogin") != null)
           {
         	  StoreLecture sl =  new StoreLecture();
-        	  sl.storeLecture(ctitle, userUrl, login.getEmail());
+        	  sl.storeLecture(ctitle, userLink, login.getEmail());
           } 
                 
              //   fileName = request.getRealPath("") + "/images/"
