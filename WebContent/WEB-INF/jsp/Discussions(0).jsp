@@ -18,9 +18,53 @@
 <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
 <script src="http://vjs.zencdn.net/c/video.js"></script>
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="Style/index_files/css3menu1/style.css" type="text/css" /></head>
+<link rel="stylesheet" href="Style/index_files/css3menu1/style.css" type="text/css" />
+
+<!-- Start of script for jwplayer -->
+		<link rel="stylesheet" href="jplayer/css/not.the.skin.css">
+		<link rel="stylesheet" href="jplayer/circle.skin/circle.player.css">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+		<script type="text/javascript" src="jplayer/js/jquery.transform.js"></script>
+		<script type="text/javascript" src="jplayer/js/jquery.grab.js"></script>
+		<script type="text/javascript" src="jplayer/js/jquery.jplayer.js"></script>
+		<script type="text/javascript" src="jplayer/js/mod.csstransforms.min.js"></script>
+		<script type="text/javascript" src="jplayer/js/circle.player.js"></script>
+		<!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>-->
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+ $("#jquery_jplayer_1").jPlayer({
+  ready: function () {
+   $(this).jPlayer("setMedia", {
+    mp3: "Style/Sajni.mp3"
+   });
+  },
+  swfPath: "/js",
+  supplied: "mp3"
+ });
+
+ 
+
+			var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
+			{
+				mp3: "Style/Sajni.mp3"
+			}, {
+				cssSelectorAncestor: "#cp_container_1"
+			});
+
+			// This code creates a 2nd instance. Delete if not required.
+
+			
+		});
+		</script>
+</head>
+		
 <body>
+
+
+
 <div class="main">
+<div id="jquery_jplayer_1" class="cp-jplayer"></div>
   <div class="header">
     <div class="header_resize">
       <div class="logo">
@@ -94,74 +138,44 @@
 			image: "jwplayer/preview.jpg"
 		});
 	</script>
-	<!-- END OF THE PLAYER EMBEDDING -->
+	<!-- END OF THE Video  PLAYER EMBEDDING -->
 	
 	<!-- Sound manager embedding starting -->
 	
-	<p>This is audio</p>
-	<script type="text/javascript" src="soundmanager/script/soundmanager2.js"></script>
-
-<!-- configure it for your use -->
-<script type="text/javascript">
+	
+	<div class="prototype-wrapper"> <!-- A wrapper to emulate use in a webpage and center align -->
 
 
+			<!-- The container for the interface can go where you want to display it. Show and hide it as you need. -->
 
-<!-- required -->
-<link rel="stylesheet" type="text/css" href="soundmanager/demo/360-player/360player.css" />
-<link rel="stylesheet" type="text/css" href="soundmanager/demo/360-player/360player-visualization.css" />
+			<div id="cp_container_1" class="cp-container">
+				<div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+					<div class="cp-buffer-1"></div>
+					<div class="cp-buffer-2"></div>
+				</div>
+				<div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+					<div class="cp-progress-1"></div>
+					<div class="cp-progress-2"></div>
+				</div>
+				<div class="cp-circle-control"></div>
+				<ul class="cp-controls">
+					<li><a href="#" class="cp-play" tabindex="1">play</a></li>
+					<li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+				</ul>
+			</div>
 
-<!-- special IE-only canvas fix -->
-<!--[if IE]><script type="text/javascript" src="script/excanvas.js"></script><![endif]-->
+			<!-- This is the 2nd instance HTML -->
 
-<!-- Apache-licensed animation library -->
-<script type="text/javascript" src="soundmanager/demo/360-player/script/berniecode-animator.js"></script>
+			
 
-<!-- the core stuff -->
-<script type="text/javascript" src="soundmanager/demo/360-player/script/soundmanager2.js"></script>
-<script type="text/javascript" src="soundmanager/demo/360-player/script/360player.js"></script>
-
-<script type="text/javascript">
-
-soundManager.url = 'soundmanager/swf/'; // path to directory containing SM2 SWF
-
-soundManager.useFastPolling = true; // increased JS callback frequency, combined with useHighPerformance = true
-
-threeSixtyPlayer.config.scaleFont = (navigator.userAgent.match(/msie/i)?false:true);
-threeSixtyPlayer.config.showHMSTime = true;
-
-// enable some spectrum stuffs
-
-threeSixtyPlayer.config.useWaveformData = true;
-threeSixtyPlayer.config.useEQData = true;
-
-// enable this in SM2 as well, as needed
-
-if (threeSixtyPlayer.config.useWaveformData) {
-  soundManager.flash9Options.useWaveformData = true;
-}
-if (threeSixtyPlayer.config.useEQData) {
-  soundManager.flash9Options.useEQData = true;
-}
-if (threeSixtyPlayer.config.usePeakData) {
-  soundManager.flash9Options.usePeakData = true;
-}
-
-if (threeSixtyPlayer.config.useWaveformData || threeSixtyPlayer.flash9Options.useEQData || threeSixtyPlayer.flash9Options.usePeakData) {
-  // even if HTML5 supports MP3, prefer flash so the visualization features can be used.
-  soundManager.preferFlash = true;
-}
-
-// favicon is expensive CPU-wise, but can be used.
-if (window.location.href.match(/hifi/i)) {
-  threeSixtyPlayer.config.useFavIcon = true;
-}
-
-if (window.location.href.match(/html5/i)) {
-  // for testing IE 9, etc.
-  soundManager.useHTML5Audio = true;
-}
-
-</script>	<!--  Sound manager embed finish -->
+		</div>
+	
+	
+	
+	
+	
+	
+	<!--  Sound manager embed finish -->
 
    <div class="leftbox" style=" margin-top:20px; width:960px;">
   <ul style="list-style:none;">
