@@ -191,14 +191,14 @@
 	<!--  Sound manager embed finish -->
 	
 	<!-- Start of flex paper -->
-	<div style="position:absolute;left:10px;top:10px;">
+	<div style="position:relative;left:10px;top:10px;">
 	        <a id="viewerPlaceHolder" style="width:680px;height:480px;display:block"></a>
 	        
 	        <script type="text/javascript"> 
 				var fp = new FlexPaperViewer(	
-						 'Flexpaper/FlexPaperViewer',
+						 'FlexPaper/FlexPaperViewer',
 						 'viewerPlaceHolder', { config : {
-						 SwfFile : escape('FlexPaper/B.swf'),
+						 SwfFile : escape('FlexPaper/3.swf'),
 						 Scale : 0.6, 
 						 ZoomTransition : 'easeOut',
 						 ZoomTime : 0.5,
