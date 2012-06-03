@@ -2,8 +2,18 @@ package net.spring3.controller;
 
 import java.io.*;
 
-public class DocConvertor {
+public class SwfCreator {
 	
+	
+	public static void main(String args[]) throws IOException
+	{
+		File file = new File("c:\\Service.pdf");
+		
+		
+		 
+		 
+		File f = convertToSWF(file);
+	}
 	
 	private static File convertToSWF(File file) throws IOException{
 	    String oldFilePath = file.getAbsolutePath();
@@ -12,16 +22,20 @@ public class DocConvertor {
 	    
 	    //calling pdf2swf to convert our file.pdf to file.swf
 
-	    String[] command = { "pdf2swf", file.getAbsolutePath(), "-o", newFilePath, "-f",
+	    String[] command = { "C:\\Program Files\\SWFTools\\pdf2swf", file.getAbsolutePath(), "-o", newFilePath, "-f",
 	            "-T 10", "-t", "-G"};
 	    
 	    Process p = Runtime.getRuntime().exec(command);
+	    System.out.println("Just above while");
 	    
 	    BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));  
 	    String line = null;  
 	    while ((line = in.readLine()) != null) {  
+	    	 System.out.println("Still Converting");
 	 //       log.info(line);  
 	    } 
+	    System.out.println("--------------------------------");
+	    System.out.println("Conversion finish");
 	    
 	    return new File(newFilePath);
 	}

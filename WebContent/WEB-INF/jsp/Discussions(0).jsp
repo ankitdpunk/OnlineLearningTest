@@ -198,7 +198,7 @@
 				var fp = new FlexPaperViewer(	
 						 'FlexPaper/FlexPaperViewer',
 						 'viewerPlaceHolder', { config : {
-						 SwfFile : escape('FlexPaper/3.swf'),
+						 SwfFile : escape('FlexPaper/Service.swf'),
 						 Scale : 0.6, 
 						 ZoomTransition : 'easeOut',
 						 ZoomTime : 0.5,
