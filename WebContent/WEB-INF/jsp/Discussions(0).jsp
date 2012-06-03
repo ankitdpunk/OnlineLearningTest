@@ -57,6 +57,19 @@
 			
 		});
 		</script>
+	<!--  End of jplayer audio -->
+	
+	<!-- Start of flex paper -->	
+	
+	<style type="text/css" media="screen"> 
+			html, body	{ height:100%; }
+			body { margin:0; padding:0; overflow:auto; }   
+			#flashContent { display:none; }
+        </style> 
+        
+        
+		<script type="text/javascript" src="FlexPaper/js/flexpaper_flash.js"></script>
+	<!-- End of flex paper -->
 </head>
 		
 <body>
@@ -164,7 +177,7 @@
 				</ul>
 			</div>
 
-			<!-- This is the 2nd instance HTML -->
+			
 
 			
 
@@ -176,6 +189,45 @@
 	
 	
 	<!--  Sound manager embed finish -->
+	
+	<!-- Start of flex paper -->
+	<div style="position:absolute;left:10px;top:10px;">
+	        <a id="viewerPlaceHolder" style="width:680px;height:480px;display:block"></a>
+	        
+	        <script type="text/javascript"> 
+				var fp = new FlexPaperViewer(	
+						 'Flexpaper/FlexPaperViewer',
+						 'viewerPlaceHolder', { config : {
+						 SwfFile : escape('FlexPaper/B.swf'),
+						 Scale : 0.6, 
+						 ZoomTransition : 'easeOut',
+						 ZoomTime : 0.5,
+						 ZoomInterval : 0.2,
+						 FitPageOnLoad : true,
+						 FitWidthOnLoad : false,
+						 FullScreenAsMaxWindow : false,
+						 ProgressiveLoading : false,
+						 MinZoomSize : 0.2,
+						 MaxZoomSize : 5,
+						 SearchMatchAll : false,
+						 InitViewMode : 'Portrait',
+						 PrintPaperAsBitmap : false,
+						 
+						 ViewModeToolsVisible : true,
+						 ZoomToolsVisible : true,
+						 NavToolsVisible : true,
+						 CursorToolsVisible : true,
+						 SearchToolsVisible : true,
+  						
+  						 localeChain: 'en_US'
+						 }});
+	        </script>
+        </div>
+	
+	
+	
+		
+	<!-- End of flex paper -->
 
    <div class="leftbox" style=" margin-top:20px; width:960px;">
   <ul style="list-style:none;">
