@@ -21,17 +21,18 @@ public class CreateTable {
 		
 		ConnectionManager conn = new ConnectionManager();
 		Connection c1 = conn.getConnection();
-		String sql = "SELECT * from lecture WHERE " +
-				"cid = 2";
-		PreparedStatement pst = c1.prepareStatement(sql);
+		String sqlq = "CREATE TABLE lecture ("
+                + "lid INT NOT NULL AUTO_INCREMENT,"
+                + "uid INT, cid INT,"
+                + "url VARCHAR(500), type VARCHAR(20),"
+                + "PRIMARY KEY (lid), FOREIGN KEY(uid) REFERENCES user(uid), FOREIGN KEY(cid) REFERENCES course(cid))";
+
+
+		PreparedStatement pst = c1.prepareStatement(sqlq);
 		//pst.setInt(1, cid);
-		ResultSet rs = pst.executeQuery();
+		pst.executeUpdate();
 		
-		while(rs.next())
-		{
-			no++;
-			rs.getString("lid");
-		}
+		
 		}
 		
 		catch(Exception e)

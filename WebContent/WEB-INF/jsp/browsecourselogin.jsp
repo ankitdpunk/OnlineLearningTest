@@ -1,6 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" 
+         
+         pageEncoding="windows-1256"
+         import="net.spring3.form.Course"
+         import="java.util.*"
+         import="java.lang.*"
+         import="java.sql.*"
+         import="net.spring3.controller.ConnectionManager"
+        
+  %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -92,39 +103,40 @@
   <div class="content">
     <div class="content_resize">
       <div class="mainbar">
-        <div class="article">
-          <h2><span>New and Noteworthy Course</span></h2>
-          <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
-          <h5>AJAX Development</h5>
-          <p class="spec">Mark Lassoff
-11 Subscribers , 41 Lectures<br />
-Price: 49</p>
-</div>
-        <div class="article">
-          <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
-          <h5>AJAX Development</h5>
-          <p class="spec">Mark Lassoff
-            11 Subscribers , 41 Lectures<br />
-          Price: 49</p>
-        </div>
-        <div class="article">
-          <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
-          <h5>AJAX Development</h5>
-          <p class="spec">Mark Lassoff
-            11 Subscribers , 41 Lectures<br />
-            Price: 49</p>
-        </div>
-        <div class="article">
-          <div class="clr"></div>
-          <p class="post-data"><img src="pics/Success-Failure.jpg" alt="" width="613" height="217" align="left" /></p>
-          <h5>AJAX Development</h5>
-          <p class="spec">Mark Lassoff
-            11 Subscribers , 41 Lectures<br />
-          Price: $49</p>
-        </div>
+      
+      <h2><span>New and Noteworthy Course</span></h2>
+      <div class="article">
+      <% ConnectionManager conn = new ConnectionManager();
+	 Connection c1 = conn.getConnection();
+	 String sql = "SELECT * from course ";
+	 PreparedStatement pst = c1.prepareStatement(sql);
+	// pst.setInt(1, courseId);
+	 ResultSet rs = pst.executeQuery();
+	 
+		while(rs.next())
+		{
+			String url  = rs.getString("ctitle");
+			out.println(url);
+			
+
+
+
+			 
+		//	out.write("<h2><span>New and Noteworthy Course</span></h2>");
+          out.write("<div class=\"clr\"></div>");
+      //    out.write("<p class=\"post-data\"><img src=\"pics/Success-Failure.jpg\" alt=\"\" width=\"613\" height=\"217\" align=\"left\" /></p>");
+      //    out.write("<h5>AJAX Development</h5>");
+          out.write("<p class=\"spec\">Mark Lassoff");
+          out.write("11 Subscribers , 41 Lectures<br />");
+          out.write("</div>");
+		}
+                
+        
+		
+      %>
+      
+      </div>
+      </div>
       </div>
       <div class="sidebar">
         <div class="gadget"></div>

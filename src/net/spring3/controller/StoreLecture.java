@@ -4,7 +4,7 @@ import java.sql.*;
 
 
 public class StoreLecture {
-	public void storeLecture(String ctitle, String url, String email)
+	public void storeLecture(String ctitle, String url, String email, String type)
 	{
 		 int cid=0, uid=0;
 		
@@ -56,11 +56,12 @@ public class StoreLecture {
 		try
 		{
 			Connection c = conn.getConnection();
-			String sql = "INSERT INTO lecture(uid,cid,url) VALUES(?,?,?)";
+			String sql = "INSERT INTO lecture(uid,cid,url,type) VALUES(?,?,?,?)";
 			PreparedStatement pst = c.prepareStatement(sql);
 			pst.setInt(1, uid);
 			pst.setInt(2, cid);
 			pst.setString(3,url);
+			pst.setString(4,type);
 			int no=pst.executeUpdate();
 			System.out.println("Value inserted into lecture");
 		}

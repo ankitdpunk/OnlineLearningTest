@@ -7,6 +7,7 @@ public class UploadItem
   private String name;
   private CommonsMultipartFile fileData;
  
+ 
   public String getName()
   {
 	  System.out.println("I am inside getName");

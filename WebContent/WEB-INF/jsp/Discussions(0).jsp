@@ -20,43 +20,8 @@
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="Style/index_files/css3menu1/style.css" type="text/css" />
 
-<!-- Start of script for jwplayer -->
-		<link rel="stylesheet" href="jplayer/css/not.the.skin.css">
-		<link rel="stylesheet" href="jplayer/circle.skin/circle.player.css">
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-		<script type="text/javascript" src="jplayer/js/jquery.transform.js"></script>
-		<script type="text/javascript" src="jplayer/js/jquery.grab.js"></script>
-		<script type="text/javascript" src="jplayer/js/jquery.jplayer.js"></script>
-		<script type="text/javascript" src="jplayer/js/mod.csstransforms.min.js"></script>
-		<script type="text/javascript" src="jplayer/js/circle.player.js"></script>
-		<!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>-->
-
-		<script type="text/javascript">
-		$(document).ready(function(){
- $("#jquery_jplayer_1").jPlayer({
-  ready: function () {
-   $(this).jPlayer("setMedia", {
-    mp3: "Style/Sajni.mp3"
-   });
-  },
-  swfPath: "/js",
-  supplied: "mp3"
- });
-
- 
-
-			var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
-			{
-				mp3: "Style/Sajni.mp3"
-			}, {
-				cssSelectorAncestor: "#cp_container_1"
-			});
-
-			// This code creates a 2nd instance. Delete if not required.
-
-			
-		});
-		</script>
+<!-- Start of script for jplayer -->
+		
 	<!--  End of jplayer audio -->
 	
 	<!-- Start of flex paper -->	
@@ -77,7 +42,7 @@
 
 
 <div class="main">
-<div id="jquery_jplayer_1" class="cp-jplayer"></div>
+
   <div class="header">
     <div class="header_resize">
       <div class="logo">
@@ -141,27 +106,118 @@
 </ul>
 <!-- START OF THE PLAYER EMBEDDING TO COPY-PASTE -->
 
-	<div id="mediaplayer">JW Player goes here</div>
 	
-	<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
-	<script type="text/javascript">
-		jwplayer("mediaplayer").setup({
-			flashplayer: "jwplayer/player.swf",
-			file: "jwplayer/Woofer.flv",
-			image: "jwplayer/preview.jpg"
-		});
-	</script>
 	<!-- END OF THE Video  PLAYER EMBEDDING -->
 	
 	<!-- Sound manager embedding starting -->
 	
 	
-	<div class="prototype-wrapper"> <!-- A wrapper to emulate use in a webpage and center align -->
+	
+	
+	
+	
+	
+	
+	<!--  Sound manager embed finish -->
+	
+	<!-- Start of flex paper -->
+	
+	
+	
+		
+	<!-- End of flex paper -->
+
+   <div class="leftbox" style=" margin-top:20px; width:960px;">
+  <ul style="list-style:none;">
+  <li style="float:left; margin: 0 10px 0 10px;"> 
+    <h4><a href="Lectures (0).html">Lectures (0)</a></h4>
+  </li>
+  <li style="float:left; margin: 0 10px 0 10px;"> 
+    <h4> <a href="Discussions(0).html">Discussions(0</a>)</h4>
+  </li>
+    <li style="float:left; margin: 0 10px 0 10px;"> 
+    <h4> <a href="Live Sessions (0).html">Live Sessions (0)</a></h4>
+  </li>
+  </ul>
+ 
+    
+	 
+	 <%
+	String placeHolder = "1";
+	String mediaPlayer = "mediaPlayer";
+	String jqueryPlayer = "jqueryPlayer";
+	String container  ="container";
+	String cid = (String)session.getAttribute("cid");
+	// String fileName = (String)request.getAttribute("fileName");
+	
+	
+	int courseId = Integer.parseInt(cid);
+	//courseId = ${c1.getCid()};
+	 
+	 System.out.println("Inside Discussions jsp  "+ cid);
+	 ConnectionManager conn = new ConnectionManager();
+	 Connection c1 = conn.getConnection();
+	 String sql = "SELECT * from lecture where cid = ?";
+	 PreparedStatement pst = c1.prepareStatement(sql);
+	 pst.setInt(1, courseId);
+	 ResultSet rs = pst.executeQuery();
+	 
+		while(rs.next())
+		{
+			int no = 0;
+			String url  = rs.getString("url");
+			String type = rs.getString("type");
+			out.println(url);
+			out.write("The download link is <a href="+url+">Download Here</a><br>");
+			if(type.equals("audio"))
+			{ 
+				jqueryPlayer = jqueryPlayer.concat(jqueryPlayer);
+				container  =container.concat(container);
+			%>
+			
+			<link rel="stylesheet" href="jplayer/css/not.the.skin.css">
+			<link rel="stylesheet" href="jplayer/circle.skin/circle.player.css">
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+			<script type="text/javascript" src="jplayer/js/jquery.transform.js"></script>
+			<script type="text/javascript" src="jplayer/js/jquery.grab.js"></script>
+			<script type="text/javascript" src="jplayer/js/jquery.jplayer.js"></script>
+			<script type="text/javascript" src="jplayer/js/mod.csstransforms.min.js"></script>
+			<script type="text/javascript" src="jplayer/js/circle.player.js"></script>
+		<!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>-->
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+ 			$("#<% out.write(jqueryPlayer);%>").jPlayer({
+  			ready: function () {
+   			$(this).jPlayer("setMedia", {
+    		mp3: "<%out.write(url); %>"
+   			});
+  				},
+  			swfPath: "/js",
+  			supplied: "mp3"
+ 			});
+
+ 
+			var myCirclePlayer = new CirclePlayer("#<% out.write(jqueryPlayer);%>",
+			{
+				mp3: "<%out.write(url); %>"
+			}, {
+				cssSelectorAncestor: "#<% out.write(container);%>"
+			});
+
+			// This code creates a 2nd instance. Delete if not required.
+
+			
+		});
+			
+			<div id="<% out.write(jqueryPlayer);%>" class="cp-jplayer"></div>
+		</script>
+		<div class="prototype-wrapper"> <!-- A wrapper to emulate use in a webpage and center align -->
 
 
 			<!-- The container for the interface can go where you want to display it. Show and hide it as you need. -->
 
-			<div id="cp_container_1" class="cp-container">
+			<div id="<% out.write(container);%>" class="cp-container">
 				<div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
 					<div class="cp-buffer-1"></div>
 					<div class="cp-buffer-2"></div>
@@ -177,28 +233,44 @@
 				</ul>
 			</div>
 
-			
 
-			
+
+
 
 		</div>
-	
-	
-	
-	
-	
-	
-	<!--  Sound manager embed finish -->
-	
-	<!-- Start of flex paper -->
-	<div style="position:relative;left:10px;top:10px;">
-	        <a id="viewerPlaceHolder" style="width:680px;height:480px;display:block"></a>
+		
+			
+		<% 	}
+			else if(type.equals("video"))
+			{
+				mediaPlayer = mediaPlayer.concat(mediaPlayer);
+				%>
+			<div id="<%out.write(mediaPlayer); %>">JW Player goes here</div>	
+			<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+			<script type="text/javascript">
+			jwplayer("<%out.write(mediaPlayer); %>").setup({
+			flashplayer: "jwplayer/player.swf",
+			file: "<% out.write(url);%>",
+			image: ""
+		});
+	</script>
+				
+		<% 	}
+			else if(type.equals("pdf"))
+			{
+				placeHolder = placeHolder.concat(placeHolder);
+				url = url.replaceAll(".pdf", ".swf");
+				out.println(no);
+				%>
+			
+			<div style="position:relative;left:10px;top:10px;">
+	        <a id="<%out.write(placeHolder); %>" style="width:680px;height:480px;display:block"></a>
 	        
 	        <script type="text/javascript"> 
 				var fp = new FlexPaperViewer(	
 						 'FlexPaper/FlexPaperViewer',
-						 'viewerPlaceHolder', { config : {
-						 SwfFile : escape('FlexPaper/Service.swf'),
+						 '<%out.write(placeHolder); %>', { config : {
+						 SwfFile : escape('<%out.write(url);%>'),
 						 Scale : 0.6, 
 						 ZoomTransition : 'easeOut',
 						 ZoomTime : 0.5,
@@ -223,51 +295,8 @@
 						 }});
 	        </script>
         </div>
-	
-	
-	
-		
-	<!-- End of flex paper -->
-
-   <div class="leftbox" style=" margin-top:20px; width:960px;">
-  <ul style="list-style:none;">
-  <li style="float:left; margin: 0 10px 0 10px;"> 
-    <h4><a href="Lectures (0).html">Lectures (0)</a></h4>
-  </li>
-  <li style="float:left; margin: 0 10px 0 10px;"> 
-    <h4> <a href="Discussions(0).html">Discussions(0</a>)</h4>
-  </li>
-    <li style="float:left; margin: 0 10px 0 10px;"> 
-    <h4> <a href="Live Sessions (0).html">Live Sessions (0)</a></h4>
-  </li>
-  </ul>
- 
-    
-	 
-	 <%
-	
-	String cid = (String)session.getAttribute("cid");
-	 String fileName = (String)request.getAttribute("fileName");
-	
-	
-	int courseId = Integer.parseInt(cid);
-	//courseId = ${c1.getCid()};
-	 
-	 System.out.println("Inside Discussions jsp  "+ cid);
-	 ConnectionManager conn = new ConnectionManager();
-	 Connection c1 = conn.getConnection();
-	 String sql = "SELECT * from lecture where cid = ?";
-	 PreparedStatement pst = c1.prepareStatement(sql);
-	 pst.setInt(1, courseId);
-	 ResultSet rs = pst.executeQuery();
-	 
-		while(rs.next())
-		{
-			String url  = rs.getString("url");
-			out.println(url);
-			out.write("The download link is <a href="+url+">Download Here</a><br>");
-			
-		
+				
+		<% 	}
 			
 		}
 	

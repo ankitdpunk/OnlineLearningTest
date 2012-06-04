@@ -17,8 +17,8 @@ public class GetCourseList {
 			int no = 0;
 			ConnectionManager conn = new ConnectionManager();
 			Connection c1 = conn.getConnection();
-			String sql = "SELECT c.cid,c.uid,ctitle, ccategid, headline, keywords,lang, lid,url from course c, lecture l WHERE " +
-					"c.uid = l.uid AND c.uid = ?";
+			String sql = "SELECT * from course c WHERE " +
+					" c.uid = ? ";
 			PreparedStatement pst = c1.prepareStatement(sql);
 			pst.setInt(1, uid);
 			ResultSet rs = pst.executeQuery();
@@ -33,7 +33,7 @@ public class GetCourseList {
 				c.setHeadline(rs.getString("headline"));
 				c.setKeywords(rs.getString("keywords"));
 				c.setLanguageId(rs.getString("lang"));
-				c.setUrl(rs.getString("url"));
+			//	c.setUrl(rs.getString("url"));
 				cour.add(c);
 			}
 			

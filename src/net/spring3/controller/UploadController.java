@@ -2,13 +2,15 @@ package net.spring3.controller;
 import net.spring3.form.*;
 import javax.servlet.ServletContext;
 import java.io.*;
-import java.io.FileInputStream;
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletContext;
+
+import org.apache.commons.fileupload.FileItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -36,7 +38,7 @@ public class UploadController extends javax.servlet.http.HttpServlet
   public String create(UploadItem uploadItem,Course course, Model model, Login login, HttpSession session, HttpServletRequest request) throws Exception
   {
 	  Course course1 = new Course();
-	  String ctitle;
+	  String ctitle,type =null;
 	  
 	  System.out.println("Inside post of uplodForm");
 	  login = (Login)session.getAttribute("currentLogin");
@@ -74,6 +76,8 @@ public class UploadController extends javax.servlet.http.HttpServlet
         
     try {
         MultipartFile file = uploadItem.getFileData();
+        MultipartFile file1 = uploadItem.getFileData();
+       // File f = (File)file;
         String fileName = null, fileUrl = null;
         InputStream inputStream = null;
         OutputStream outputStream = null;
@@ -98,21 +102,39 @@ public class UploadController extends javax.servlet.http.HttpServlet
         		userLink = userLink+file.getOriginalFilename();
         		userLink = userLink.replaceAll(" ", "");
         		
+        		GetType gtype = new GetType();
+        		type = gtype.returnType(userLink);
+        		
+        		if(type.equals("pdf"))
+        		{
+        			System.out.println("Inside the pdf convertor call");
+        			File f = new File(fileName);
+        			f.createNewFile();
+        			FileOutputStream fos = new FileOutputStream(f); 
+        			fos.write(file.getBytes());
+        			fos.close(); //setting the value of fileUploaded variable
+        			SwfCreator swf = new SwfCreator();
+        			f = swf.convertToSWF(f);
+        			 
+        			
+        		}
+        		
         		userUrl=fileName;
         		System.out.println("The user url is: "+ userUrl);
           new File(userDir).mkdir();
           if(session.getAttribute("currentLogin") != null)
           {
         	  StoreLecture sl =  new StoreLecture();
-        	  sl.storeLecture(ctitle, userLink, login.getEmail());
+        	  sl.storeLecture(ctitle, userLink, login.getEmail(), type);
           } 
+         
                 
              //   fileName = request.getRealPath("") + "/images/"
              //                   + file.getOriginalFilename();
               //  fileName = "F://BmTech//Users//"+login.getEmail()+"//" + file.getOriginalFilename();
                 
                 outputStream = new FileOutputStream(fileName);
-                System.out.println("fileName:" + file.getOriginalFilename()+ fileName);
+              //  System.out.println("fileName:" + f.getOriginalFilename()+ fileName);
                 request.setAttribute("fileName", fileName);
                 String fm = (String)request.getAttribute("fileName");
                 System.out.println("The (String)request.getAttribute is "+ fm);

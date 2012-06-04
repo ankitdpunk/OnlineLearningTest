@@ -1,7 +1,7 @@
 package net.spring3.controller;
 
 import java.io.*;
-
+import org.springframework.web.multipart.MultipartFile;
 public class SwfCreator {
 	
 	
@@ -9,13 +9,11 @@ public class SwfCreator {
 	{
 		File file = new File("c:\\Service.pdf");
 		
-		
-		 
-		 
 		File f = convertToSWF(file);
 	}
 	
-	private static File convertToSWF(File file) throws IOException{
+	public static File convertToSWF(File file) throws IOException{
+	
 	    String oldFilePath = file.getAbsolutePath();
 	    //change the extension to .swf
 	    String newFilePath = oldFilePath.substring(0, oldFilePath.lastIndexOf(".")) + ".swf";
@@ -36,6 +34,7 @@ public class SwfCreator {
 	    } 
 	    System.out.println("--------------------------------");
 	    System.out.println("Conversion finish");
+	    
 	    
 	    return new File(newFilePath);
 	}
