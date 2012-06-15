@@ -156,7 +156,7 @@ public class ContactController {
        return new ModelAndView("/Createacourse" );
 	   }
    } 
-   @RequestMapping(value = "/Lectures", method = RequestMethod.POST )
+   @RequestMapping(value = "/addLectures", method = RequestMethod.POST )
    public ModelAndView addContac1t(@ModelAttribute Course course,Login login, Model model, HttpSession session, HttpServletRequest request) {
 	   Course course1 = new Course();
 	   model.addAttribute("login", login);
@@ -206,20 +206,26 @@ public class ContactController {
 			   
 			   StoreCourseDetails scd  = new StoreCourseDetails();
 			   scd.storeCourse(course, login); 
+			   int cnum = scd.getCid();
+			   String cid = new Integer(cnum).toString(); 
+			   session.setAttribute("cid", cid);
 			   
-		       return new ModelAndView("/Lectures", "coursename", course.getCourseTitle());
+			   
+		       return new ModelAndView("/addLectures", "coursename", course.getCourseTitle());
 			   }
 		}
 		
 		//return "redirect:course2.html";
 	}
-   @RequestMapping("/Lectures")
+   @RequestMapping("/addLectures")
    public ModelAndView createLecture( HttpSession session, Login login, Model model) {
 	   System.out.println("I am in get of lectures");
 	   model.addAttribute("login", login);
-       return new ModelAndView("/Lectures");
+       return new ModelAndView("/addLectures");
        
    } 
+   
+   
    
    
    @RequestMapping("/mycourses")

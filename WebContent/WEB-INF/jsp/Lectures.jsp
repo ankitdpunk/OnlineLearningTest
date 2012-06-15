@@ -1,165 +1,304 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html"%>
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" 
+         
+         pageEncoding="windows-1256"
+         import="net.spring3.form.Course"
+         import="java.util.*"
+         import="java.lang.*"
+         import="java.sql.*"
+         import="net.spring3.controller.ConnectionManager"
+        
+  %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html >
 <head>
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+<script src="http://vjs.zencdn.net/c/video.js"></script>
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="Style/index_files/css3menu1/style.css" type="text/css" /></head>
+<link rel="stylesheet" href="Style/index_files/css3menu1/style.css" type="text/css" />
+
+<!-- Start of script for jplayer -->
+		
+	<!--  End of jplayer audio -->
+	
+	<!-- Start of flex paper -->	
+	
+	<style type="text/css" media="screen"> 
+			html, body	{ height:100%; }
+			body { margin:0; padding:0; overflow:auto; }   
+			#flashContent { display:none; }
+        </style> 
+        
+        
+		<script type="text/javascript" src="FlexPaper/js/flexpaper_flash.js"></script>
+	<!-- End of flex paper -->
+</head>
 <body>
 <div class="main">
   <div class="header">
     <div class="header_resize">
-      <div class="logo">
-        <p><br /> <img src="Style/images/logo.png" width="237" height="42" /> </p>
-      </div>
-      <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search :
-        <form action="browsecourse.html">
-        <input type="text" name="search"  />       
-        </form>  
-      </div>
+      <div class="logo"> <img src="Style/images/logo copy.png" width="84" height="92" /> <img src="Style/images/text.png" width="150" height="40" / style="margin-bottom:25px"></div>
       <div class="menu_nav">
-        <ul>
-          <li class="active"><a href="Createacourse.html">Create a Course
-</a></li>
-          <li><a href="browsecourse.html">Browse Course </a></li>
-          <li><a href="mycourses.html">My Courses</a></li>
-          <li><a href="mycourses.html"><core:out value="${login.email}"/></a></li>
-          <li><a href="logout.html">Log Out</a></li>
-        </ul>
+        <div class="search">
+          <div class="searchtext">
+            <input name="input8" type="text" / style="width:200px; height:22px;" class="textfield"/>
+          </div>
+          <div class="se"><img src="Style/images/search1.png" alt="" width="25" height="25" /></div>
+        </div>
+        <!--<div id="menu">
+    <ul class="menu" >
+ <li><a href="#" class="parent"><span>Ankita Singh</span></a>
+     <div><ul>
+  <li><a href="#" class="parent"><span>My course</span></a>
+ <li><a href="#"><span>Mu account</span></a></li>
+                
+            </ul></div>
+        </li>
+        <li><a href="browe.html">Browse Course </a>
+           
+        </li>
+        <li><a href="Sign In.html">Login</a></li>
+        <li class="last"><a href="Sign up.html" >Sign Up</a></li>
+    </ul>
+    <div id="copyright" style="display:hide">Copyright &copy; 2012 <a href="http://apycom.com/"></a></div>
+</div>-->
+
+
+<div class="top_menu">Create Course</div>
+<div class="top_menu">Browse Course</div>
+<div class="username">
+Ankita Singh
+</div>
+
+
       </div>
-      <div class="clr"></div>
-      <div class="hbg">
-        <div class="clr"></div>
-      </div>
-      <div class="clr"></div>
+      
     </div>
   </div>
   <div class="content">
-    <div class="content_resize">
-      <h2 style="color:#000;"> Course Name  <core:out value="${course.courseTitle}"/><br/> </h2>
+    <div class="content_resize1">
+    <div class="create_cor1">Product Development at Facebook </div>
+    <div class="video_side">
+    <div class="vedio_box">
     
-	  <div class="rightbox">
-       <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="Style/images/like.png" width="60" height="25" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="Style/images/tweet.png" width="75" height="25" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="Style/images/send.jpg" width="70" height="25" border="0" /></a></h4>
-      </div>
-	  <div class="leftbox" style="margin-bottom:20px;"><img src="Style/images/userpic.gif" width="104" height="87" align="left" />
-	   <h4><span class="green style1" style="padding-left:20px; ">BY </span>  <strong>Creater Name <core:out value="${login.email}"/><br/>  </strong><br />
-	  <span class="green style1" style="padding-left:20px; ">Category:</span> Art <core:out value="${course.courseCategoryId}"/><br/><br />
-	  <span class="green style1" style="padding-left:20px; ">Tags:</span>
-	   </h4>
-	  </div>
-	<br />	<br />	<br />	<br />
-	   <ul id="css3menu1" class="topmenu">
-	<li class="topfirst"><a class="pressed" href="#" style="height:15px;line-height:15px;"><span>&nbsp;&nbsp;Create a New Lecture&nbsp;&nbsp;</span></a>
-	<ul>
-		<li class="subfirst"><a href="#">&nbsp;&nbsp;Create a New Lecture 3&nbsp;&nbsp;</a></li>
-		<li><a href="#">&nbsp;&nbsp;Create a New Lecture 2&nbsp;&nbsp;</a></li>
-		<li><a href="#">&nbsp;&nbsp;Create a New Lecture 1&nbsp;&nbsp;</a></li>
-		<li><a href="#">&nbsp;&nbsp;Create a New Lecture 0&nbsp;&nbsp;</a></li>
-	</ul></li>
-	<li class="topmenu"><a href="#" style="height:15px;line-height:15px;"><span>&nbsp;&nbsp;Schedule a Live Session &nbsp;&nbsp;</span></a>	</li>
-	<li class="topmenu"><a href="#" style="height:15px;line-height:15px;">&nbsp;&nbsp;More&nbsp;&nbsp;</a>
-	<ul>
-		<li class="subfirst"><a href="#">&nbsp;&nbsp;Schedule a Live Session  3&nbsp;&nbsp;</a></li>
-		<li><a href="#">&nbsp;&nbsp;Schedule a Live Session  2&nbsp;&nbsp;</a></li>
-		<li><a href="#">&nbsp;&nbsp;Schedule a Live Session  1&nbsp;&nbsp;</a></li>
-		<li><a href="#">&nbsp;&nbsp;Item 1 0&nbsp;&nbsp;</a></li>
-	</ul>
-	</li>
-	<li class="topmenu"><a href="#" style="height:15px;line-height:15px;">&nbsp;&nbsp;Resources&nbsp;&nbsp;</a></li>
-	<li class="toplast"><a href="#" style="height:15px;line-height:15px;">&nbsp;&nbsp;Publish Now&nbsp;</a></li>
-</ul>
+    <%
+	String placeHolder = "1";
+	String mediaPlayer = "mediaPlayer";
+	String jqueryPlayer = "jqueryPlayer";
+	String container  ="container";
+	String cid = (String)session.getAttribute("cid");
+	// String fileName = (String)request.getAttribute("fileName");
+	
+	
+	int courseId = Integer.parseInt(cid);
+	//courseId = ${c1.getCid()};
+	 
+	 System.out.println("Inside Lectures jsp  "+ cid);
+	 ConnectionManager conn = new ConnectionManager();
+	 Connection c1 = conn.getConnection();
+	 String sql = "SELECT * from lecture where cid = ?";
+	 PreparedStatement pst = c1.prepareStatement(sql);
+	 pst.setInt(1, courseId);
+	 ResultSet rs = pst.executeQuery();
+	 String type="", url = "";
+	 int no = 0;
+		while(rs.next())
+		{
+			
+			 url  = rs.getString("url");
+			 type = rs.getString("type");
+			out.println(url);
+			out.write("The download link is <a href="+url+">Download Here</a><br>");
+		}
+			if(type.equals("audio"))
+			{ 
+				jqueryPlayer = jqueryPlayer.concat(jqueryPlayer);
+				container  =container.concat(container);
+			%>
+			
+			<link rel="stylesheet" href="jplayer/css/not.the.skin.css">
+			<link rel="stylesheet" href="jplayer/circle.skin/circle.player.css">
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+			<script type="text/javascript" src="jplayer/js/jquery.transform.js"></script>
+			<script type="text/javascript" src="jplayer/js/jquery.grab.js"></script>
+			<script type="text/javascript" src="jplayer/js/jquery.jplayer.js"></script>
+			<script type="text/javascript" src="jplayer/js/mod.csstransforms.min.js"></script>
+			<script type="text/javascript" src="jplayer/js/circle.player.js"></script>
+		<!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>-->
 
-   <div class="leftbox" style=" margin-top:20px; width:960px;">
-  <ul style="list-style:none;">
-  <li style="float:left; margin: 0 10px 0 10px;"> 
-    <h4><a href="Lectures (0).html">Lectures (0)</a></h4>
-  </li>
-  <li style="float:left; margin: 0 10px 0 10px;"> 
-    <h4> <a href="Discussions(0).html">Discussions(0)</a></h4>
-  </li>
-    <li style="float:left; margin: 0 10px 0 10px;"> 
-    <h4> <a href="Live Sessions (0).html">Live Sessions (0)</a></h4>
-  </li>
-  </ul>
-    <div class="clr"></div>
-	<div class="box">
-	  <p>Hi there!</p>
-	  <p>Thanks for creating a course on Udemy! We're thrilled to see what you come up with. On Udemy, you can add lectures in the form of videos, PowerPoints or articles. Or, you can also host live classes with your students.</p>
-	  <ul style=" list-style:none;">
-	    <li>
-	      <h2>Create Lectures</h2>
-	      <div style="margin-left:30px;">
-	        <ol id="add-content">
-	          <li>
-	            <h4><a href="uploadForm.html">Upload a file</a></h4>
-	            <p>Videos are a great way to engage your audience with visual and auditory learning.</p>
-	          </li>
-	          <li>
-	            <h4><a href="#">Upload a Presentation</a></h4>
-	            <p>Have a PowerPoint presentation that you want to use as a lecture? Click here to upload it.</p>
-	          </li>
-	          <li>
-	            <h4> <a href="#">Upload a Document</a></h4>
-	            <p>You can upload documents like e-book, work sheets etc in pdf format here.</p>
-	          </li>
-	          <li>
-	            <h4><a href="#">Create a Presentation/Video Mashup</a></h4>
-	            <p>This is a special feature on Udemy where you can sync videos and PowerPoint presentations. Now you don't have to choose between the slides or the presenter; show them both!</p>
-	          </li>
-	          <li>
-	            <h4><a href="#">Write an Article</a></h4>
-	            <p>Write an article so your students can learn by reading.</p>
-	          </li>
-	          <li>
-	            <h4><a href="#">Import Content from Other Sites</a></h4>
-	            <p>Do you already have content on YouTube, SlideShare, Vimeo... ? No problem! Just import it into Udemy.</p>
-	          </li>
-	          <li>
-	            <h4><a href="#">Upload an Audio Lecture</a></h4>
-	            <p> Only .mp3 files for now</p>
-	          </li>
-	          <li>
-	            <h4><a href="uploadForm.html">Upload any File</a></h4>
-	            <p>Use this tool to upload all other file types to be downloaded by users.</p>
-	          </li>
-	          </ol>
-	        </div>
-	      </li>
-	    <li>
-	      <h2>Live Sessions</h2>
-	        <div style="margin-left:30px;">
-	        <ol>
-	          <li>
-	            <h4><a href="#">Schedule a live session</a></h4>
-	            <p>Use our powerful <strong>Udemy Live™</strong> tool to hold virtual classes, Q&amp;A sessions and meetings with your subscribers.</p>
-	          </li>
-	          </ol>
-	        <ol>
-	          <li>Share PowerPoint or PDF presentations</li>
-	          <li>Draw diagrams and write notes on the virtual whiteboard</li>
-	          <li>Use live video and audio to talk with others</li>
-	          <li>Talk with others via our chatroo</li>
-	          </ol>
-	        </div>
-	      </li>
-	    </ul>
-	  <br />
-</div>
-</div>
-      <div class="clr"></div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+ 			$("#<% out.write(jqueryPlayer);%>").jPlayer({
+  			ready: function () {
+   			$(this).jPlayer("setMedia", {
+    		mp3: "<%out.write(url); %>"
+   			});
+  				},
+  			swfPath: "/js",
+  			supplied: "mp3"
+ 			});
+
+ 
+			var myCirclePlayer = new CirclePlayer("#<% out.write(jqueryPlayer);%>",
+			{
+				mp3: "<%out.write(url); %>"
+			}, {
+				cssSelectorAncestor: "#<% out.write(container);%>"
+			});
+
+			// This code creates a 2nd instance. Delete if not required.
+
+			
+		});
+			
+			<div id="<% out.write(jqueryPlayer);%>" class="cp-jplayer"></div>
+		</script>
+		<div class="prototype-wrapper"> <!-- A wrapper to emulate use in a webpage and center align -->
+
+
+			<!-- The container for the interface can go where you want to display it. Show and hide it as you need. -->
+
+			<div id="<% out.write(container);%>" class="cp-container">
+				<div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+					<div class="cp-buffer-1"></div>
+					<div class="cp-buffer-2"></div>
+				</div>
+				<div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+					<div class="cp-progress-1"></div>
+					<div class="cp-progress-2"></div>
+				</div>
+				<div class="cp-circle-control"></div>
+				<ul class="cp-controls">
+					<li><a href="#" class="cp-play" tabindex="1">play</a></li>
+					<li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+				</ul>
+			</div>
+
+
+
+
+
+		</div>
 		
-		
+			
+		<% 	}
+			else if(type.equals("video"))
+			{
+				mediaPlayer = mediaPlayer.concat(mediaPlayer);
+				%>
+			<div id="<%out.write(mediaPlayer); %>">JW Player goes here</div>	
+			<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+			<script type="text/javascript">
+			jwplayer("<%out.write(mediaPlayer); %>").setup({
+			flashplayer: "jwplayer/player.swf",
+			file: "<% out.write(url);%>",
+			image: ""
+		});
+	</script>
+				
+		<% 	}
+			else if(type.equals("pdf"))
+			{
+				placeHolder = placeHolder.concat(placeHolder);
+				url = url.replaceAll(".pdf", ".swf");
+				out.println(no);
+				%>
+			
+			<div style="position:relative;left:10px;top:10px;">
+	        <a id="<%out.write(placeHolder); %>" style="width:680px;height:480px;display:block"></a>
+	        
+	        <script type="text/javascript"> 
+				var fp = new FlexPaperViewer(	
+						 'FlexPaper/FlexPaperViewer',
+						 '<%out.write(placeHolder); %>', { config : {
+						 SwfFile : escape('<%out.write(url);%>'),
+						 Scale : 0.6, 
+						 ZoomTransition : 'easeOut',
+						 ZoomTime : 0.5,
+						 ZoomInterval : 0.2,
+						 FitPageOnLoad : true,
+						 FitWidthOnLoad : false,
+						 FullScreenAsMaxWindow : false,
+						 ProgressiveLoading : false,
+						 MinZoomSize : 0.2,
+						 MaxZoomSize : 5,
+						 SearchMatchAll : false,
+						 InitViewMode : 'Portrait',
+						 PrintPaperAsBitmap : false,
+						 
+						 ViewModeToolsVisible : true,
+						 ZoomToolsVisible : true,
+						 NavToolsVisible : true,
+						 CursorToolsVisible : true,
+						 SearchToolsVisible : true,
+  						
+  						 localeChain: 'en_US'
+						 }});
+	        </script>
+        </div>
+				
+		<% 	}  %>
+    
+    
+    
+    
+    
     </div>
-  </div>
-  <div class="footer">
+    <p>Mark Zuckerberg, founder of TheFacebook, gives an example to demonstrate product development and experience at Facebook and talks about how their product has evolved with the company.</p>
+    <a href='addLectures.html' >Add Lectures</a>
+    <div class="create_cor">Comments:</div>
+<div><textarea name="input3" style=" width:643px; height:80px;"></textarea></div><br />
+
+<div class="save_bt1">Post</div>
+    </div>
+    <div class="option_side">
+    
+  
+<% 
+//String cid1 = (String)session.getAttribute("cid");
+//int courseId1 = Integer.parseInt(cid1);
+ConnectionManager conn1 = new ConnectionManager();
+Connection c2 = conn1.getConnection();
+String sql1 = "SELECT * from lecture where cid = ?";
+PreparedStatement pst1 = c1.prepareStatement(sql1);
+pst1.setInt(1, courseId);
+ResultSet rs1 = pst1.executeQuery();
+String url1= "";
+	while(rs1.next())
+	{
+		
+		 url  = rs1.getString("url");
+		 
+		System.out.println("This is the url"+url); %>
+		<div class="optio_box">
+        <div class="option_thum"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+    <strong>Lecture 1</strong><br />
+Sample text</div>
+<%} %>	
+
+ 
+<div class="create_cor">Recommendations</div>
+<div class="optio_box">
+            <div class="option_thum"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+        <strong>Lecture 1</strong><br />
+Sample text</div>
+
+    
+    </div>
+    
+    </div>
+    <div class="footer">
     <div class="footer_resize">
       <p class="lf">&copy; Copyright | All Right Reserved 2012</p>
       <p class="rf">&nbsp;</p>
       <div class="clr"></div>
     </div>
   </div>
+</div>
 </div>
 </body>
 </html>

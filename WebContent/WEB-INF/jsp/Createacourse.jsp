@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
@@ -8,84 +8,97 @@
 <link href="Style/style.css" rel="stylesheet" type="text/css" /></head>
 <body>
 <div class="main">
-  <div class="header">
+<div class="header">
     <div class="header_resize">
-      <div class="logo">
-        <p> <img src="Style/images/logo.png" width="237" height="42" /> </p>
-      </div>
+      <div class="logo"> <img src="Style/images/logo copy.png" width="84" height="92" /> <img src="Style/images/text.png" width="150" height="40" / style="margin-bottom:25px"></div>
       <div class="menu_nav">
-        <ul>
-          <li class="active"><a href="Createacourse.html">Create a Course
-</a></li>
-          <li><a href="browsecourse.html">Browse Course </a></li>
-          <li><a href="mycourses.html">My Courses</a></li>
-          <li><a href="mycourses.html"><c:out value="${login.email}"/></a></li>
-          <li><a href="logout.html">Log Out</a></li>
-        
-        </ul>
+        <div class="search">
+          <div class="searchtext">
+            <input name="input8" type="text" / style="width:200px; height:22px;" class="textfield"/>
+          </div>
+          <div class="se"><img src="Style/images/search1.png" alt="" width="25" height="25" /></div>
+        </div>
+        <!--<div id="menu">
+    <ul class="menu" >
+ <li><a href="#" class="parent"><span>Ankita Singh</span></a>
+     <div><ul>
+  <li><a href="#" class="parent"><span>My course</span></a>
+ <li><a href="#"><span>Mu account</span></a></li>
+                
+            </ul></div>
+        </li>
+        <li><a href="browe.html">Browse Course </a>
+           
+        </li>
+        <li><a href="Sign In.html">Login</a></li>
+        <li class="last"><a href="Sign up.html" >Sign Up</a></li>
+    </ul>
+    <div id="copyright" style="display:hide">Copyright &copy; 2012 <a href="http://apycom.com/"></a></div>
+</div>-->
+
+
+<div class="top_menu">Create Course</div>
+<div class="top_menu">Browse Course</div>
+<div class="username">
+Ankita Singh
+</div>
+
+
       </div>
-      <div class="clr"></div>
-      <div class="clr"></div>
+      
     </div>
   </div>
   <div class="content">
-    <div class="content_resize">
-      <h2 style="color:#000;">Create a Course </h2>
-	  Your course will be created as a draft. It won't be visible until you publish it!
-	  
-      <form id="form1" name="form1" method="post" action="Lectures.html">
-        <table width="843" height="357" border="0" align="center">
+    <div class="content_resize"> 
+    
+    <div style="margin-bottom:10px; margin-top:10px; border-bottom:1px solid #dddddd;"><span class="blue" style="font-size: 24px; color: #5591FF;">Create a Course</span>
+      <p>Your course will be created as a draft. It won't be visible until you publish it! </p>
+    </div>
+    <form id="form1" name="form1" method="post" action="addLectures.html">
+   <table width="711" border="0" align="left" style="border-right:1px solid #dddddd; ">
           <tr>
-            <td width="148" height="54" align="right" valign="top"><h4>Course Title: *</h4>
-            </td>
-            <td width="679"><div class="input-field">
-                    <input id="title" name="CourseTitle" type="text" class="text-input  " maxlength="60" style="width:500px; height:30px;">
-                    <span style="color:#AAA; padding:3px 7px 0px; text-align:right">60 characters left</span>
-                    
-					
-            </div></td>
+            <td width="140" height="39">Course Title: *</td>
+            <td width="520"><div class="input-field">
+              <input id="title" name="CourseTitle" type="text" class="text-input" maxlength="60" style="width:500px; height:30px;">
+              
           </tr>
           <tr>
-            <td height="44" align="right" valign="top"> <h4>Course Category: </h4></td>
+            <td height="39">Course Category:</td>
             <td><span class="input-field">
               <select name="courseCategoryId" id="courseCategoryId" style="width:auto;">
                 <option value="" selected="selected">-- Select One --</option>
-                <option value="Arts">Arts</option>
-                <option value="Business">Business</option>
-                <option value="Crafts and Hobbies">Crafts and Hobbies</option>
-                <option value="Design">Design</option>
-                <option value="Education">Education</option>
-                <option value="Games">Games</option>
-                <option value="Health and Fitness">Health and Fitness</option>
-                <option value="Humanities">Humanities</option>
-                <option value="Languages">Languages</option>
-                <option value="Lifestyle">Lifestyle</option>
-                <option value="Math and Science">Math and Science</option>
-                <option value="Music">Music</option>
-                <option value="Other">Other</option>
-                <option value="Social Sciences">Social Sciences</option>
-                <option value="Sports">Sports</option>
-                <option value="Technology">Technology</option>
-                <option value="Test">Test</option>
+                <option value="273">Arts</option>
+                <option value="268">Business</option>
+                <option value="275">Crafts and Hobbies</option>
+                <option value="269">Design</option>
+                <option value="277">Education</option>
+                <option value="281">Games</option>
+                <option value="276">Health and Fitness</option>
+                <option value="272">Humanities</option>
+                <option value="279">Languages</option>
+                <option value="274">Lifestyle</option>
+                <option value="271">Math and Science</option>
+                <option value="278">Music</option>
+                <option value="282">Other</option>
+                <option value="270">Social Sciences</option>
+                <option value="280">Sports</option>
+                <option value="267">Technology</option>
+                <option value="283">Test</option>
               </select>
             </span></td>
           </tr>
           <tr>
-            <td height="65" align="right" valign="top"><h4>Headline: 
-              
-              <span class="required-text"> *</span></h4></td>
+            <td height="41">Headline: <span class="required-text"> *</span></td>
             <td><div class="input-field">
-              <textarea name="Headline" class="text-input  " id="title2" style="width:500px; height:30px;"></textarea>
-              <span style="color:#AAA; padding:3px 7px 0px; text-align:right">120 characters left</span> </div></td>
+              <textarea name="Headline" style=" width:400px; height:80px;"></textarea>
+              <span style="color:#AAA; padding:3px 7px 0px; text-align:right">120 characters left</span></div></td>
           </tr>
           <tr>
-            <td height="61" align="right" valign="top"><h4>Keywords:</h4></td>
-            <td><div class="input-field">
-              <textarea name="Keywords" class="text-input  " id="title22" style="width:500px; height:30px;"></textarea>
-            </div></td>
+            <td height="41">Keywords</td>
+            <td><input name="Keywords" type="text" / style=" width:400px; height:30px;" /></td>
           </tr>
           <tr>
-            <td height="66" align="right"><h4>Content Language: </h4></td>
+            <td height="41">Content Language: </td>
             <td><span class="input-field">
               <select name="languageId" id="languageId" style="width:auto;">
                 <option value="">-- Select One --</option>
@@ -228,19 +241,12 @@
             </span></td>
           </tr>
           <tr>
-            <td height="51">&nbsp;</td>
-            <td><div class="button-blue">&nbsp;&nbsp;Save</div></td>
+            <td><td><input type="submit" class="save_bt" /></td></td>
           </tr>
-          <tr>
-		<td colspan="2">
-			<input type="submit" value="Create Course"/>
-		</td>
-	</tr>
         </table>
-      </form>
+         </form>
+        
       <div class="clr"></div>
-		
-		
     </div>
   </div>
   <div class="footer">

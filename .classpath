@@ -34,8 +34,5 @@
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-webmvc-portlet.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/spring-webmvc-struts.jar"/>
 	<classpathentry kind="lib" path="F:/BmTech/OnlineLearningTest/WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/falcon/Desktop/jodconverter-core-3.0-beta-4-dist/jodconverter-core-3.0-beta-4/jodconverter-core-3.0-beta-4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/falcon/Desktop/jodconverter-core-3.0-beta-4-dist/jodconverter-core-3.0-beta-4/lib/jodconverter-core-3.0-beta-4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/falcon/Desktop/jodconverter-core-3.0-beta-4-dist/jodconverter-core-3.0-beta-4/lib/juh-3.2.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -1,8 +1,10 @@
 package net.spring3.controller;
 import net.spring3.form.*;
+
 import java.sql.*;
 
 public class StoreCourseDetails {
+	public int uid=0;
 	public void storeCourse(Course course, Login login)
 	{
 		 String courseTitle = course.getCourseTitle() ;
@@ -12,7 +14,7 @@ public class StoreCourseDetails {
 		 String languageId = course.getLanguageId();
 		 String email = login.getEmail();
 		// String nooflectures = "1";
-		 int uid = 0;
+		 
 		 
 		 
 		 
@@ -26,6 +28,7 @@ public class StoreCourseDetails {
 	     	ResultSet rs = pst.executeQuery();
 	     	while(rs.next())
 	     	{
+	     		
 	     		uid  = rs.getInt("uid");
 	     	}
 	     	System.out.println("Inside get uid of course entry ");
@@ -56,8 +59,38 @@ public class StoreCourseDetails {
 	        {
 	     	   System.err.println ("Problem inserting values into the course database");
 	        }
+		
 	        
 
+	}
+	public int getCid()
+	{
+		int no = 0, cid = 0;
+		try
+		{
+			
+			ConnectionManager conn = new ConnectionManager();
+			Connection c1 = conn.getConnection();
+			String sql = "SELECT * from course c WHERE " +
+					" c.uid = ? ";
+			PreparedStatement pst = c1.prepareStatement(sql);
+			pst.setInt(1, uid);
+			ResultSet rs = pst.executeQuery();
+			while(rs.next())
+			{
+				no++;
+				
+				 cid = (rs.getInt("cid"));
+			
+			}
+			
+		}
+		catch (Exception e)
+		{
+			System.err.println("Inside exception of getcourselist");
+			e.printStackTrace();
+		}
+		return cid;
 	}
 
 }

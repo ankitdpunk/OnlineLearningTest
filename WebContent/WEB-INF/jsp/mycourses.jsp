@@ -1,6 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
@@ -11,61 +9,91 @@
 <div class="main">
   <div class="header">
     <div class="header_resize">
-      <div class="logo">
-        <p><br /> <img src="Style/images/logo.png" width="237" height="42" /> </p>
-      </div>
-      <div style="float:right; margin-right:10px; margin-bottom:10px; margin-top:10px; color:#fff;">Search :
-        <form action="browsecourse.html">
-        <input type="text" name="search"  />       
-        </form>  
-      </div>
+      <div class="logo"> <img src="Style/images/logo copy.png" width="84" height="92" /> <img src="Style/images/text.png" width="150" height="40" / style="margin-bottom:25px"></div>
       <div class="menu_nav">
-        <ul>
-          <li class="active"><a href="Createacourse.html">Create a Course
-</a></li>
-          <li><a href="browsecourse.html">Browe Course </a></li>
-          <li><a href="mycourses.html">My Courses</a></li>
-          <li><a href="#"><core:out value="${login.email}"/></a></li>
-        </ul>
+        <div class="search">
+          <div class="searchtext">
+            <input name="input8" type="text" / style="width:200px; height:22px;" class="textfield"/>
+          </div>
+          <div class="se"><img src="Style/images/search1.png" alt="" width="25" height="25" /></div>
+        </div>
+        <!--<div id="menu">
+    <ul class="menu" >
+ <li><a href="#" class="parent"><span>Ankita Singh</span></a>
+     <div><ul>
+  <li><a href="#" class="parent"><span>My course</span></a>
+ <li><a href="#"><span>Mu account</span></a></li>
+                
+            </ul></div>
+        </li>
+        <li><a href="browe.html">Browse Course </a>
+           
+        </li>
+        <li><a href="Sign In.html">Login</a></li>
+        <li class="last"><a href="Sign up.html" >Sign Up</a></li>
+    </ul>
+    <div id="copyright" style="display:hide">Copyright &copy; 2012 <a href="http://apycom.com/"></a></div>
+</div>-->
+
+
+<div class="top_menu">Create Course</div>
+<div class="top_menu">Browse Course</div>
+<div class="username">
+Ankita Singh
+</div>
+
+
       </div>
-      <div class="clr"></div>
-      <div class="clr"></div>
+      
     </div>
   </div>
   <div class="content">
     <div class="content_resize">
-      <div class="leftbox" style="width:960px; margin:">
-	  <h4><span class="green" style="padding-left:20px; ">My courses </span>  </h4>
-	  <div class="box">
-	 <div class="pic"><img src="Style/images/2202.jpg" width="75" height="75" /></div>
-     <a href="#">
-     Courses name create by you </a><br />
-     Public · Not Published · Free <br />
-     0 Lecture </div>
-	  <div class="box">
-	 <div class="pic"><img src="Style/images/2202.jpg" width="75" height="75" /></div>
-     <a href="#">
-     Courses name create by you </a><br />
-     Public · Not Published · Free <br />
-     0 Lecture </div>
-	   <div class="box">
-	 <div class="pic"><img src="Style/images/2202.jpg" width="75" height="75" /></div>
-     <a href="#">
-     Courses name create by you </a><br />
-     Public · Not Published · Free <br />
-     0 Lecture </div>
-	   <div class="clr"></div>	
+      <div class="create_cor_box">
+        <div class=" create_cor">Created Courses</div>
+     
+     
+      <div class="box" style=" height:auto; float:left;">
+	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+<a href="#"><strong>Courses name create by you</strong></a><br />
+       Free <br />
+       0 Lecture <br /><br />
+       <div class="save_bt">Delete Course</div>
+       </div>
+       
+      <div class="box" style=" height:auto; float:left;">
+	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+<a href="#"><strong>Courses name create by you</strong></a><br />
+       Free <br />
+       0 Lecture <br /><br />
+       <div class="save_bt">Delete Course</div>
+       </div>
     </div>
-	 <div class="leftbox" style="width:960px; margin:">
-	  <h4><span class="green" style="padding-left:20px; ">Courses you are taking </span>  </h4>
-	  <div class="box">
-	 <div class="pic"><img src="Style/images/2202.jpg" width="75" height="75" /></div>
-     <a href="#">An Entrepreneur's Checklist</a><br />
-     by <a href="#">Steve Blank</a><br />
-     6 lectures · 8917 Subscriber </div>
-	  <div class="clr"></div>	
+      
+      <div class="create_cor_box">
+     <div class=" create_cor">Taking Courses</div>
+     
+     
+      <div class="box" style=" height:auto; float:left;">
+	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+<a href="#"><strong>Courses name create by you</strong></a><br />
+       Free <br />
+       0 Lecture <br /><br />
+       <div class="save_bt">Unsubscribe Course</div>
+       </div>
+       
+      <div class="box" style=" height:auto; float:left;">
+	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+<a href="#"><strong>Courses name create by you</strong></a><br />
+       Free <br />
+       0 Lecture <br /><br />
+       <div class="save_bt">Unsubscribe Course</div>
+       </div>
+       
+       
+     </div>
+     
     </div>
-	</div>
     <div class="footer">
     <div class="footer_resize">
       <p class="lf">&copy; Copyright | All Right Reserved 2012</p>
@@ -73,6 +101,7 @@
       <div class="clr"></div>
     </div>
   </div>
+</div>
 </div>
 </body>
 </html>

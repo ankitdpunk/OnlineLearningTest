@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -18,7 +19,7 @@ import net.spring3.controller.UploadItem;
 import net.spring3.form.Login;
  
 @Controller
-@RequestMapping(value = "/Discussions(0)")
+@RequestMapping(value = "/Lectures")
 public class CourseController
 {
   @RequestMapping(method = RequestMethod.GET)
@@ -39,12 +40,13 @@ public class CourseController
 	session.setAttribute("cid", cid);
 	model.addAttribute("login", login);
 	
-	
-	
-    
-    
-  
- 
-      return "/Discussions(0)";
+	return "/Lectures";
   }
+  @RequestMapping("/Lectures")
+  public ModelAndView createLecture( HttpSession session, Login login, Model model) {
+	   System.out.println("I am in get of lectures");
+	   model.addAttribute("login", login);
+      return new ModelAndView("/Lectures");
+      
+  } 
 }

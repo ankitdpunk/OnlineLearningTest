@@ -154,7 +154,7 @@
 	int courseId = Integer.parseInt(cid);
 	//courseId = ${c1.getCid()};
 	 
-	 System.out.println("Inside Discussions jsp  "+ cid);
+	 System.out.println("Inside Lectures jsp  "+ cid);
 	 ConnectionManager conn = new ConnectionManager();
 	 Connection c1 = conn.getConnection();
 	 String sql = "SELECT * from lecture where cid = ?";

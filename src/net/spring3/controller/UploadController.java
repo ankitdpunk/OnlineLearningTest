@@ -156,6 +156,6 @@ public class UploadController extends javax.servlet.http.HttpServlet
 } catch (Exception e) {
         e.printStackTrace();
 }
-     return "/Discussions(0)";
+     return "/Lectures";
   }
 }

@@ -5,12 +5,23 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class UploadItem
 {
   private String name;
-  private CommonsMultipartFile fileData;
+  private String description;
+  public String getDescription() {
+	  System.out.println("The value of descrption in get is: "+ description);
+	return description;
+}
+
+public void setDescription(String description) {
+	System.out.println("The value of descrptio is: "+ description);
+	this.description = description;
+}
+
+private CommonsMultipartFile fileData;
  
  
   public String getName()
   {
-	  System.out.println("I am inside getName");
+	  System.out.println("I am inside getName"+ name);
     return name;
   }
  

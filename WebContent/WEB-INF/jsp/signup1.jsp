@@ -1,88 +1,89 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<style type="text/css">
-.signup{
-	height:300px;
-	width:700px;
-	border:1px solid #999;
-	box-shadow: 2px 2px 2px 2px #888;
-	}
-.colm1{
-	width:250px;
-	height:20px;
-	padding:10px;
-	margin:5px;
-	float:left;
-	text-align: center;
+<title>on line education</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="Style/style.css" rel="stylesheet" type="text/css" />
 
-	}
-	.colm2{
-	width:250px;
-	height:20px;
-	padding:10px;
-	margin:5px;
-	float:right;
-
-	}	
-.button-blue { background-color:#316482; width:60px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4794BF', endColorstr='#316482'); /* for IE */ background: -o-linear-gradient(top, #4794BF, #316482); /* for webkit browsers */ background: -moz-linear-gradient(top, #4794BF, #316482); /* for firefox 3.6+ */ background:-o-linear-gradient(top, #4794BF, #316482);
--moz-border-radius: 8px;
-padding:5px;
--webkit-border-radius:8px;
-border-radius:8px;
- border:1px solid #316482 !important; color:white !important;}
- .button-blue a{
- color:white;
- text-decoration:none;}
-.style3 {font-family:Georgia ; font-size:12px;}
-.style4 {font-family: Georgia}
-.button-blue1 {background-color:#316482; width:60px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4794BF', endColorstr='#316482'); /* for IE */ background: -o-linear-gradient(top, #4794BF, #316482); /* for webkit browsers */ background: -moz-linear-gradient(top, #4794BF, #316482); /* for firefox 3.6+ */ background:-o-linear-gradient(top, #4794BF, #316482);
--moz-border-radius: 8px;
-padding:5px;
--webkit-border-radius:8px;
-border-radius:8px;
- border:1px solid #316482 !important; color:white !important;}
-</style>
-
-</style>
 </head>
 
 <body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"> <img src="Style/images/logo copy.png" width="84" height="92" /> <img src="Style/images/text.png" width="150" height="40" / style="margin-bottom:25px"></div>
+      <div class="menu_nav">
+        <div class="search">
+          <div class="searchtext">
+            <input name="input8" type="text" / style="width:200px; height:22px;" class="textfield"/>
+          </div>
+          <div class="se"><img src="Style/images/search1.png" alt="" width="25" height="25" /></div>
+        </div>
+        <!--<div id="menu">
+    <ul class="menu" >
+ <li><a href="#" class="parent"><span>Ankita Singh</span></a>
+     <div><ul>
+  <li><a href="#" class="parent"><span>My course</span></a>
+ <li><a href="#"><span>Mu account</span></a></li>
+                
+            </ul></div>
+        </li>
+        <li><a href="browe.html">Browse Course </a>
+           
+        </li>
+        <li><a href="Sign In.html">Login</a></li>
+        <li class="last"><a href="Sign up.html" >Sign Up</a></li>
+    </ul>
+    <div id="copyright" style="display:hide">Copyright &copy; 2012 <a href="http://apycom.com/"></a></div>
+</div>-->
 
 
-<form:form method="post" action="addContact.html" >	
-<div class="signup">
-<h2>Spring's form tags example</h2>	
-	<table height="148" align="center">
-	<tr>
-	  <td width="79"><form:label path="email">Email</form:label></td>
-	  <td width="371"><form:input path="email" />
-	    
-	</tr>
-	<tr>
-		<td><form:label path="name">Name</form:label></td>
-	  <td><form:input path="name" />
-	  
-	</tr>
-	<tr>
-		<td><form:label path="password">password</form:label></td>
-	  <td><form:input path="password" />
-	   
-	</tr>
-	<tr>
-		<td colspan="2">
-			<input type="submit" value="Signup"/>
-		</td>
-	</tr>
-	
-	
-	<tr>
-		<td colspan="2"><div class="button-blue1">&nbsp;&nbsp;Signup</div></td>
-	</tr>
-  </table>	
-  </form:form>
-	
+<div class="top_menu">Create Course</div>
+<div class="top_menu">Browse Course</div>
+<div class="username">
+Ankita Singh
+</div>
+
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="slider"></div>
+  <div class="content">
+    <div class="content_resize">
+      
+      <div style="margin-bottom:10px; margin-top:10px; border-bottom:1px solid #dddddd;">
+      <span class="blue" style="font-size: 24px; color: #5591FF;">Sign In.</span>
+        <p> Sign into your Coursera account with an email and a previously chosen password. </p>
+      </div>
+      
+        <form:form method="post" action="addContact.html" > <table width="669" border="0" align="left" style="border-right:1px solid #dddddd; ">
+          <tr>
+            <td width="140" height="39"><form:label path="email">Email</form:label></td>
+            <td width="520"><form:input path="email" /></td>
+           </td>
+          </tr>
+          <tr>
+            <td width="140" height="39"><form:label path="name">Name</form:label></td>
+            <td width="520"><form:input path="name" /></td>
+          </tr>
+        <tr>
+            <td width="140" height="39"><form:label path="password">Password</form:label></td>
+            <td width="520"><form:input path="password" /></td>
+          </tr>
+          <tr>
+            <td> <input type="submit" class="save_bt" /></td>
+            
+          </tr>
+        </table>
+      </form:form>
+    
+    </div>
+  </div>
+  <div class="footer">About EduOnWeb</div>
 </div>
 </body>
 </html>
