@@ -37,8 +37,11 @@ public class UploadController extends javax.servlet.http.HttpServlet
   @RequestMapping(method = RequestMethod.POST)
   public String create(UploadItem uploadItem,Course course, Model model, Login login, HttpSession session, HttpServletRequest request) throws Exception
   {
+	  String description, title;
 	  Course course1 = new Course();
 	  String ctitle,type =null;
+	  description = uploadItem.getDescription();
+	  title = uploadItem.getName();
 	  
 	  System.out.println("Inside post of uplodForm");
 	  login = (Login)session.getAttribute("currentLogin");
@@ -125,7 +128,7 @@ public class UploadController extends javax.servlet.http.HttpServlet
           if(session.getAttribute("currentLogin") != null)
           {
         	  StoreLecture sl =  new StoreLecture();
-        	  sl.storeLecture(ctitle, userLink, login.getEmail(), type);
+        	  sl.storeLecture(ctitle, userLink, login.getEmail(), type, title, description);
           } 
          
                 

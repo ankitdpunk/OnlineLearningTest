@@ -142,8 +142,8 @@ $(document).ready(function () {
 </div>-->
 
 <div class="top_menu"><a href="logout.html">Log Out</a></div>
-<div class="top_menu">Create Course</div>
-<div class="top_menu">Browse Course</div>
+<div class="top_menu"><a href='Createacourse.html' >Create Course</a></div>
+<div class="top_menu"><a href='browsecourse.html' >Browse course</a></div>
 
 <ul id="nav">
 	

@@ -87,18 +87,20 @@ Ankita Singh
 	String jqueryPlayer = "jqueryPlayer";
 	String container  ="container";
 	String cid = (String)session.getAttribute("cid");
+	String lnum = (String)session.getAttribute("lid");
 	// String fileName = (String)request.getAttribute("fileName");
 	
 	
 	int courseId = Integer.parseInt(cid);
+	int lectId = Integer.parseInt(lnum);
 	//courseId = ${c1.getCid()};
 	 
-	 System.out.println("Inside Lectures jsp  "+ cid);
+	 System.out.println("Inside showLectures jsp  "+ lnum);
 	 ConnectionManager conn = new ConnectionManager();
 	 Connection c1 = conn.getConnection();
-	 String sql = "SELECT * from lecture where cid = ?";
+	 String sql = "SELECT * from lecture where lid = ?";
 	 PreparedStatement pst = c1.prepareStatement(sql);
-	 pst.setInt(1, courseId);
+	 pst.setInt(1, lectId);
 	 ResultSet rs = pst.executeQuery();
 	 String type="", url = "", title="", description="";
 	 int no = 0;
@@ -280,13 +282,11 @@ String url1= "";
 		lid = rs1.getInt("lid");
 		 url  = rs1.getString("url");
 		 
-		 
 		 %>
 		<div class="optio_box">
-		<%out.println("This is the lecture id "+lid); %>>
+		<%out.println("This is the lecture id"+lid); %>>
         <div class="option_thum"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
-        <%System.out.println("<a href=\"showLectures.html?lid="+lid+"\">"); 
-        out.write("<a href=\"showLectures.html?lid="+lid+"\">") ;%> 
+        <% out.write("<a href=\"showLectures.html?lid="+lid+"\">") ;%> 
     <strong>Lecture <%out.println(lectnum); %></strong><br />
 Sample text</div>
 <%} %>	

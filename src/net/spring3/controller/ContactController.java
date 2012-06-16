@@ -18,6 +18,7 @@ import net.spring3.validator.SignupValidator;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import net.spring3.form.*; 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -156,6 +157,27 @@ public class ContactController {
        return new ModelAndView("/Createacourse" );
 	   }
    } 
+   @RequestMapping(value = "/coursePage", method = RequestMethod.GET)
+   public String coursePage(Model model, HttpServletRequest request, HttpSession session, Login login)
+   {
+ 	//Course c1 = new Course();
+ 	  System.out.println("Inside coursePage controller in contact controller");
+ 	String cid = (String)request.getParameter("cidPage");
+ 	System.out.println("The cid after browse page is: "+ cid);
+ 	CreateCourse cc = new CreateCourse();
+ 	Course course = cc.createCourse(cid);
+ 	session.setAttribute("currentCourse", course);
+ 	login=(Login)session.getAttribute("currentLogin");
+ 	
+ 	
+ 	
+// 	c1.setCid(courseId);
+ 	System.out.println("The cid i get is "+ cid);
+ 	session.setAttribute("cid", cid);
+ 	model.addAttribute("login", login);
+ 	
+ 	return "/coursePage";
+   }
    @RequestMapping(value = "/addLectures", method = RequestMethod.POST )
    public ModelAndView addContac1t(@ModelAttribute Course course,Login login, Model model, HttpSession session, HttpServletRequest request) {
 	   Course course1 = new Course();
