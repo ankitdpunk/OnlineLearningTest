@@ -1,9 +1,121 @@
+<%@ page language="java" contentType="text/html"%>
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" 
+         
+         pageEncoding="windows-1256"
+         import="net.spring3.form.Course"
+         import="java.util.*"
+         import="java.lang.*"
+         import="java.sql.*"
+         import="net.spring3.controller.ConnectionManager"
+        
+  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Style/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {	
+	
+	$('#nav li').hover(
+		function () {
+			//show its submenu
+			$('ul', this).slideDown(100);
+
+		}, 
+		function () {
+			//hide its submenu
+			$('ul', this).slideUp(100);			
+		}
+	);
+	
+});
+	</script>
+    <style type="text/css">
+	
+	
+	/* remove the list style */
+	#nav {
+		margin:0; 
+		padding:0; 
+		list-style:none;
+	}	
+	
+		/* make the LI display inline */
+		/* it's position relative so that position absolute */
+		/* can be used in submenu */
+		#nav li {
+			float:left; 
+			display:block; 
+			width:150px; 
+			
+			position:relative;
+			z-index:500; 
+			margin:0px 0 0px 0;;
+		}
+		
+		/* this is the parent menu */
+		#nav li a {
+			display:block; 
+			padding:8px 5px 0 5px; 
+			  
+			height:16px; 
+			text-decoration:none; 
+			color:#fff; 
+			text-align:center; 
+			color:#333;
+		}
+
+		#nav li a:hover {
+			color:#333;
+		}
+	
+		/* you can make a different style for default selected value */
+		#nav a.selected {
+			color:#f00;
+		}
+	
+		/* submenu, it's hidden by default */
+		#nav ul {
+			position:absolute; 
+			left:0; 
+			display:none; 
+			margin:0 0 0 -1px; 
+			padding:0; 
+			list-style:none;
+			background:#ccc;
+		}
+		
+		#nav ul li {
+			width:100px; 
+			float:left; 
+			border-top:1px solid #fff;
+		}
+		
+		/* display block will make the link fill the whole area of LI */
+		#nav ul a {
+			display:block;  
+			height:15px;
+			padding: 8px 5px; 
+			color:#666;
+		}
+		
+		#nav ul a:hover {
+			text-decoration:underline;	
+		}
+
+		/* fix ie6 small issue */
+		/* we should always avoid using hack like this */
+		/* should put it into separate file : ) */
+		*html #nav ul {
+			margin:0 0 0 -2px;
+		}
+
+	</style>
 </head>
 <body>
 <div class="main">
@@ -35,11 +147,19 @@
     <div id="copyright" style="display:hide">Copyright &copy; 2012 <a href="http://apycom.com/"></a></div>
 </div>-->
 
+<div class="top_menu"><a href="logout.html">Log Out</a></div>
+<div class="top_menu"><a href='Createacourse.html' >CreateCourse</a></div>
+<div class="top_menu"><a href='browsecourse.html' >BrowseCourse</a></div>
 
-<div class="top_menu">Create Course</div>
-<div class="top_menu">Browse Course</div>
-<div class="username">
-Ankita Singh
+<ul id="nav">
+	<li><a href="#"><core:out value="${login.email}"/></a>
+	<ul>
+		<li><a href="mycourses.html">Courses</a></li>
+		<li><a href="#">Account</a></li>
+	</ul>			
+		<div class="clear"></div>
+	</li>	
+</ul>
 </div>
 
 
@@ -50,31 +170,45 @@ Ankita Singh
   <div class="content">
     <div class="content_resize">
       <div class="create_cor_box">
-        <div class=" create_cor">Created Courses</div>
+        <div class=" create_cor">Created Courses</div>   
+        <%
+     ArrayList<Course> clist = new ArrayList<Course>();
+     ArrayList<Integer> cidlist = new ArrayList<Integer>();
+    
+     clist = (ArrayList<Course>)session.getAttribute("courseList");
+     Iterator<Course> itr = clist.iterator();
+     int nu = 0;
+     while(itr.hasNext())
+     {	
+    	 Course co = new Course();
+    	 nu++;
+    	 co = (Course)itr.next();
+
+    	int cid= co.getCid();
+    	cidlist.add(cid);
+     	out.write("The course id is "+ cid);
+     	String cnum = new Integer(cid).toString();   	
+     	
+     	
+    	 out.write("<a href=\"Lectures.html?cid="+cid+"\">") ;
+    	 
      
      
+     
+     %>       
       <div class="box" style=" height:auto; float:left;">
 	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
-<a href="#"><strong>Courses name create by you</strong></a><br />
+	<a href="#"><strong>Courses name create by you</strong></a><br />
        Free <br />
        0 Lecture <br /><br />
        <div class="save_bt">Delete Course</div>
-       </div>
-       
-      <div class="box" style=" height:auto; float:left;">
-	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
-<a href="#"><strong>Courses name create by you</strong></a><br />
-       Free <br />
-       0 Lecture <br /><br />
-       <div class="save_bt">Delete Course</div>
-       </div>
+       </div>   
+        <%} %>   
     </div>
       
       <div class="create_cor_box">
      <div class=" create_cor">Taking Courses</div>
-     
-     
-      <div class="box" style=" height:auto; float:left;">
+           <div class="box" style=" height:auto; float:left;">
 	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
 <a href="#"><strong>Courses name create by you</strong></a><br />
        Free <br />
@@ -82,14 +216,7 @@ Ankita Singh
        <div class="save_bt">Unsubscribe Course</div>
        </div>
        
-      <div class="box" style=" height:auto; float:left;">
-	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
-<a href="#"><strong>Courses name create by you</strong></a><br />
-       Free <br />
-       0 Lecture <br /><br />
-       <div class="save_bt">Unsubscribe Course</div>
-       </div>
-       
+        
        
      </div>
      

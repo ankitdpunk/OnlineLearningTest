@@ -22,6 +22,8 @@ public class SwfCreator {
 
 	    String[] command = { "C:\\Program Files\\SWFTools\\pdf2swf", file.getAbsolutePath(), "-o", newFilePath, "-f",
 	            "-T 10", "-t", "-G"};
+	//            String[] command = { "pdf2swf", file.getAbsolutePath(), "-o", newFilePath, "-f",
+	 //   	            "-T 10", "-t", "-G"};
 	    
 	    Process p = Runtime.getRuntime().exec(command);
 	    System.out.println("Just above while");

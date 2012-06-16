@@ -120,8 +120,8 @@ Ankita Singh
 		<% 
 			if(type.equals("audio"))
 			{ 
-				jqueryPlayer = jqueryPlayer.concat(jqueryPlayer);
-				container  =container.concat(container);
+			//	jqueryPlayer = jqueryPlayer.concat(jqueryPlayer);
+			//	container  =container.concat(container);
 			%>
 			
 			<link rel="stylesheet" href="jplayer/css/not.the.skin.css">
@@ -192,7 +192,7 @@ Ankita Singh
 		<% 	}
 			else if(type.equals("video"))
 			{
-				mediaPlayer = mediaPlayer.concat(mediaPlayer);
+				//mediaPlayer = mediaPlayer.concat(mediaPlayer);
 				%>
 			<div id="<%out.write(mediaPlayer); %>">JW Player goes here</div>	
 			<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
@@ -207,7 +207,7 @@ Ankita Singh
 		<% 	}
 			else if(type.equals("pdf"))
 			{
-				placeHolder = placeHolder.concat(placeHolder);
+				//placeHolder = placeHolder.concat(placeHolder);
 				url = url.replaceAll(".pdf", ".swf");
 				out.println(no);
 				%>

@@ -43,10 +43,22 @@ public class CourseController
 	return "/Lectures";
   }
   @RequestMapping("/Lectures")
-  public ModelAndView createLecture( HttpSession session, Login login, Model model) {
-	   System.out.println("I am in get of lectures");
-	   model.addAttribute("login", login);
-      return new ModelAndView("/Lectures");
+  public String createLecture( Login login, Model model,  HttpServletRequest request, HttpSession session ) {
+	  System.out.println("Inside get of discussions");
+		String cid = request.getParameter("cid");
+		CreateCourse cc = new CreateCourse();
+		Course course = cc.createCourse(cid);
+		session.setAttribute("currentCourse", course);
+		login=(Login)session.getAttribute("currentLogin");
+		
+		
+		
+//		c1.setCid(courseId);
+		System.out.println("The cid i get is "+ cid);
+		session.setAttribute("cid", cid);
+		model.addAttribute("login", login);
+		
+		return "/Lectures";
       
   } 
 }

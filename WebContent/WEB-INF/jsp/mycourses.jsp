@@ -36,10 +36,9 @@
 </div>-->
 
 
-<div class="top_menu">Create Course</div>
-<div class="top_menu">Browse Course</div>
-<div class="username">
-Ankita Singh
+<div class="top_menu"><a href='Login.html' >Log in</a></div>
+<div class="top_menu"><a href='signup1.html' >Sign up</a></div>
+<div class="top_menu"><a href='browsecourse.html' >Browse course</a></div>
 </div>
 
 
