@@ -17,6 +17,14 @@ public class GetType {
 		{
 			type = "pdf";
 		}
+		else if(lectname.contains(".jpg") || lectname.contains(".jpeg")|| lectname.contains("png") )
+		{
+			type = "pic";
+		}
+		else if(lectname.contains(".txt"))
+		{
+			type = "text";
+		}
 		else type = "other";
 		return type;
 		

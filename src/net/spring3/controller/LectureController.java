@@ -26,6 +26,7 @@ public class LectureController
   public String getLectureId(Model model, HttpServletRequest request, HttpSession session, Login login)
   {
 	//Course c1 = new Course();
+	  login=(Login)session.getAttribute("currentLogin");
 	  System.out.println("Inside get of Lectures Controller");
 	String lid = request.getParameter("lid");
 	

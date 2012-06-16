@@ -5,6 +5,7 @@
          
          pageEncoding="windows-1256"
          import="net.spring3.form.Course"
+         import="net.spring3.form.Login"
          import="java.util.*"
          import="java.lang.*"
          import="java.sql.*"
@@ -20,6 +21,105 @@
 <script src="http://vjs.zencdn.net/c/video.js"></script>
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="Style/index_files/css3menu1/style.css" type="text/css" />
+<script type="text/javascript" src="Style/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {	
+	
+	$('#nav li').hover(
+		function () {
+			//show its submenu
+			$('ul', this).slideDown(100);
+
+		}, 
+		function () {
+			//hide its submenu
+			$('ul', this).slideUp(100);			
+		}
+	);
+	
+});
+	</script>
+    <style type="text/css">
+	
+	
+	/* remove the list style */
+	#nav {
+		margin:0; 
+		padding:0; 
+		list-style:none;
+	}	
+	
+		/* make the LI display inline */
+		/* it's position relative so that position absolute */
+		/* can be used in submenu */
+		#nav li {
+			float:left; 
+			display:block; 
+			width:150px; 
+			
+			position:relative;
+			z-index:500; 
+			margin:0px 0 0px 0;;
+		}
+		
+		/* this is the parent menu */
+		#nav li a {
+			display:block; 
+			padding:8px 5px 0 5px; 
+			  
+			height:16px; 
+			text-decoration:none; 
+			color:#fff; 
+			text-align:center; 
+			color:#333;
+		}
+
+		#nav li a:hover {
+			color:#333;
+		}
+	
+		/* you can make a different style for default selected value */
+		#nav a.selected {
+			color:#f00;
+		}
+	
+		/* submenu, it's hidden by default */
+		#nav ul {
+			position:absolute; 
+			left:0; 
+			display:none; 
+			margin:0 0 0 -1px; 
+			padding:0; 
+			list-style:none;
+			background:#ccc;
+		}
+		
+		#nav ul li {
+			width:100px; 
+			float:left; 
+			border-top:1px solid #fff;
+		}
+		
+		/* display block will make the link fill the whole area of LI */
+		#nav ul a {
+			display:block;  
+			height:15px;
+			padding: 8px 5px; 
+			color:#666;
+		}
+		
+		#nav ul a:hover {
+			text-decoration:underline;	
+		}
+
+		/* fix ie6 small issue */
+		/* we should always avoid using hack like this */
+		/* should put it into separate file : ) */
+		*html #nav ul {
+			margin:0 0 0 -2px;
+		}
+
+	</style>
 
 <!-- Start of script for jplayer -->
 		
@@ -68,11 +168,37 @@
 </div>-->
 
 
-<div class="top_menu">Create Course</div>
-<div class="top_menu">Browse Course</div>
-<div class="username">
-Ankita Singh
+<%
+Login login= new Login();
+login = (Login)session.getAttribute("currentLogin");
+if(session.getAttribute("currentLogin") == null)
+{
+	
+
+%>
+<div class="top_menu"><a href='Login.html' >Log in</a></div>
+<div class="top_menu"><a href='signup1.html' >Sign up</a></div>
+<div class="top_menu"><a href='browsecourse.html' >Browse course</a></div>
 </div>
+<%}
+else
+{ %>
+<div class="top_menu"><a href="logout.html">Log Out</a></div>
+<div class="top_menu"><a href='Createacourse.html' >CreateCourse</a></div>
+<div class="top_menu"><a href='browsecourse.html' >BrowseCourse</a></div>
+<ul id="nav">
+	<li><a href="#"><core:out value="${login.email}"/></a>
+	<ul>
+		<li><a href="mycourses.html">Courses</a></li>
+		<li><a href="#">Account</a></li>	
+	</ul>			
+		<div class="clear"></div>
+	</li>	
+</ul>
+	
+
+
+<%} %>
 
 
       </div>
@@ -245,7 +371,22 @@ Ankita Singh
 	        </script>
         </div>
 				
-		<% 	}  %>
+		<% 	}  
+			else if(type.equals("pic"))
+			{ %>
+			<img src="<%out.write(url); %>"  />
+				
+			<% }
+			else if(type.equals("text"))
+			{
+				%>
+				<core:import var="data" url="<%out.write(url); %>" scope="session"/>
+				<core:out value="${data}"/>
+				<p><%out.write(url); %> </p>
+				
+				
+		<% 	}
+		%>
     
     
     

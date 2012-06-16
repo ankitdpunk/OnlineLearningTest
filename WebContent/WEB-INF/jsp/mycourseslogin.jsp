@@ -190,7 +190,7 @@ $(document).ready(function () {
      	String cnum = new Integer(cid).toString();   	
      	
      	
-    	 out.write("<a href=\"Lectures.html?cid="+cid+"\">") ;
+    	 out.write("<a href=\"coursePage.html?cidPage="+cid+"\">") ;
     	 
      
      
