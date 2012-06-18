@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html"%>
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" 
@@ -16,6 +15,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
+<link rel="icon" 
+      type="image/png" 
+      href="Style/images/logo copy.png" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="Style/js/jquery.js"></script>

@@ -19,6 +19,9 @@
 <title>on line education</title>
 <meta http-equiv="content-type" content="text/html" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
+<link rel="icon" 
+      type="image/png" 
+      href="Style/images/logo copy.png" />
 
 </head>
 

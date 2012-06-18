@@ -6,7 +6,9 @@
 <title>on line education</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
-
+<link rel="icon" 
+      type="image/png" 
+      href="Style/images/logo copy.png" />
 </head>
 
 <body>
@@ -53,8 +55,8 @@
     <div class="content_resize">
       
       <div style="margin-bottom:10px; margin-top:10px; border-bottom:1px solid #dddddd;">
-      <span class="blue" style="font-size: 24px; color: #5591FF;">Sign In.</span>
-        <p> Sign into your Coursera account with an email and a previously chosen password. </p>
+      <span class="blue" style="font-size: 24px; color: #5591FF;">Sign Up.</span>
+        <p> Sign up with EduOnWeb </p>
       </div>
       
         <form:form method="post" action="addContact.html" > <table width="669" border="0" align="left" style="border-right:1px solid #dddddd; ">
@@ -72,7 +74,11 @@
             <td width="520"><form:input path="password" /></td>
           </tr>
           <tr>
-            <td> <input type="submit" class="save_bt" /></td>
+          <td>${login.message}</td>
+          </tr>
+          <tr>
+            <td class="save_bt"><input type="submit" value="Sign Up" style="background-color: #377dfe;
+            border:none;color: white;"/></td>
             
           </tr>
         </table>

@@ -4,6 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line</title>
+<link rel="icon" 
+      type="image/png" 
+      href="Style/images/logo copy.png" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
 

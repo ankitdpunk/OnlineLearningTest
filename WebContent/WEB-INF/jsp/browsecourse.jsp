@@ -15,6 +15,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line education</title>
+<link rel="icon" 
+      type="image/png" 
+      href="Style/images/logo copy.png" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
 
@@ -66,7 +69,7 @@
   <div class="content">
     <div class="content_resize">
       
-      <div style="margin-bottom:10px; margin-top:10px;"><span class="blue" style="font-size: 24px; color: #5591FF;">Trending Paid Courses</span><a href="#"><span class="seemore">See All...</span></a></div>
+      <div style="margin-bottom:10px; margin-top:10px;"><span class="blue" style="font-size: 24px; color: #5591FF;">Trending Paid Courses</span><a href="#"><span class="seemore"></span></a></div>
       <%
      ConnectionManager conn = new ConnectionManager();
  	 Connection c1 = conn.getConnection();

@@ -16,6 +16,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 <head>
+<link rel="icon" 
+      type="image/png" 
+      href="Style/images/logo copy.png" />
 <title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
@@ -232,15 +235,15 @@ else
 	 ResultSet rs = pst.executeQuery();
 	 String type="", url = "", title="", description="";
 	 int no = 0;
+	 int userId=0;
 		while(rs.next())
 		{
-			
+			userId = rs.getInt("uid");
 			 url  = rs.getString("url");
 			 type = rs.getString("type");
 			 title = rs.getString("title");
 			 description = rs.getString("description");
-			out.println(url);
-			out.write("The download link is <a href="+url+">Download Here</a><br>");
+			 out.write("Link to download lecture: <a href="+url+">Download</a><br>");
 		} %>
 		<div class="content">
     <div class="content_resize1">
@@ -383,10 +386,6 @@ else
 			<% }
 			else if(type.equals("text"))
 			{ %>
-				
-				
-				
-				
 		<%} %>
 		
     
@@ -395,11 +394,24 @@ else
     
     
     </div>
+    <br/><br/><br/>
+        
     <p><%out.write(description); %></p>
+    <%
+    if(session.getAttribute("currentLogin") != null  )
+    {
+    	if(login.getUid() == userId)
+    	{	
+    %>
     <a href='addLectures.html' >Add Lectures</a>
-    
+     <% }
+    }%>   
 <div>
+		
         <div id="disqus_thread"></div>
+        
+        
+        
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'eduonweb'; // required: replace example with your forum shortname
@@ -416,14 +428,6 @@ else
         
 </div>
 
-
-
-
-
-
-
-
-<div class="save_bt1">Post</div>
     </div>
     <div class="option_side">
     
@@ -439,20 +443,19 @@ pst1.setInt(1, courseId);
 ResultSet rs1 = pst1.executeQuery();
 int lid=0;
 int lectnum=0;
-String url1= "";
+String ltitle= "";
 	while(rs1.next())
 	{
 		lectnum++;
 		lid = rs1.getInt("lid");
 		 url  = rs1.getString("url");
+		 ltitle = rs1.getString("title");
 		 
 		 %>
 		<div class="optio_box">
-		<%out.println("This is the lecture id"+lid); %>>
-        <div class="option_thum"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+	    <div class="option_thum"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
         <% out.write("<a href=\"showLectures.html?lid="+lid+"\">") ;%> 
-    <strong>Lecture <%out.println(lectnum); %></strong><br />
-Sample text</div>
+    <strong>Lecture <%out.println(lectnum); %></strong><br/><%out.println(ltitle); %></div>
 <%} %>	
 
  

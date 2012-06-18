@@ -8,7 +8,9 @@
 <title>on line education</title>
 <meta http-equiv="content-type" content="text/html" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
-
+<link rel="icon" 
+      type="image/png" 
+      href="Style/images/logo copy.png" />
 </head>
 
 <body>
@@ -75,7 +77,8 @@
               <td>${login.message}</td>
             </tr>
             <tr>
-              <td><input type="submit" class="save_bt" value="Submit" /></td>
+              <td class="save_bt"><input type="submit" value="Login In" style="background-color: #377dfe;
+            border:none;color: white;"/></td>
             </tr>
             
           </table>

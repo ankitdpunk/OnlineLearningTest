@@ -18,6 +18,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>on line education</title>
+<link rel="icon" 
+      type="image/png" 
+      href="Style/images/logo copy.png" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="Style/js/jquery.js"></script>
@@ -194,27 +197,35 @@ else
       <div class="leftbox" style="width: 970px;">
         <div class="edit">
 	  <ul>
-	    <li><a href="edituserinfo.html">Edit Your User Info</a></li>
-	   <li> <a href="#">Upload a Photo</a></li>
+	<!--      <li><a href="edituserinfo.html">Edit Your User Info</a></li>
+	  	 <li> <a href="#">Upload a Photo</a></li>
 	    <li><a href="#">Change Your Password</a></li>
-	    <li><a href="#">Account Settings</a></li></ul>
+	    <li><a href="#">Account Settings</a></li></ul> -->
 	  </div>
         <div class="pic" style="width:150px;
         height:150px;"><img src="Style/images/userpic.gif" width="150" height="150" /></div>
         <h2><core:out value="${login.email}"/></h2>
 	<p style="font-size:13px; margin:0; line-height:18px; ">
-	  <a href="#">Teaching 0 course</a><br />
+	<li><a href="edituserinfo.html">Edit Your User Info</a></li>
+<!--  	 <li> <a href="#">Upload a Photo</a></li> -->
+	    <li><a href="#">Change Your Password</a></li>
+	    <li><a href="#">Account Settings</a></li></ul>
+	<!--    <a href="#">Teaching 0 course</a><br />
 	  <a href="#">Taking 1 course</a><br />
 	  <a href="#">Has 0 follower</a><br />
 	  <a href="#">Following 1 user </a><br />
 	  <a href="#">Interests: Edit </a></p>
-      
+      -->
       </div>	
       
-     <div class="create_cor_box">
-     <div class=" create_cor">Created Courses</div>
-     <%
-     ArrayList<Course> clist = new ArrayList<Course>();
+    <div class="create_cor_box">
+        <div class=" create_cor">Created Courses</div>   
+        <%
+        Login log = new Login();
+    	log = (Login)session.getAttribute("currentLogin");
+    	int uid = log.getUid();
+
+  /*   ArrayList<Course> clist = new ArrayList<Course>();
      ArrayList<Integer> cidlist = new ArrayList<Integer>();
     
      clist = (ArrayList<Course>)session.getAttribute("courseList");
@@ -228,28 +239,65 @@ else
 
     	int cid= co.getCid();
     	cidlist.add(cid);
-     	out.write("The course id is "+ cid);
+     //	out.write("The course id is "+ cid);
      	String cnum = new Integer(cid).toString();   	
      	
      	
-    	 out.write("<a href=\"coursePage.html?cidPage="+cid+"\">") ;
+    	 out.write("<a href=\"coursePage.html?cidPage="+cid+"\">") ; */
     	 
-     
-     
+    	
+    	ConnectionManager conn2 = new ConnectionManager();
+		Connection c2 = conn2.getConnection();
+		String sql1 = "SELECT * from course c WHERE " +
+					" c.uid = ? ";
+		PreparedStatement pst2 = c2.prepareStatement(sql1);
+		pst2.setInt(1, uid);
+		ResultSet rs2 = pst2.executeQuery();
+		int cid = 0;
+		String ctitle = "";
+		while(rs2.next())
+		{
+			cid = rs2.getInt("cid");
+			ctitle = rs2.getString("ctitle");
+			out.write("<a href=\"coursePage.html?cidPage="+cid+"\">") ;
+		
+		
+ 
+     	ConnectionManager conn = new ConnectionManager();
+ 	 	Connection c1 = conn.getConnection();
+ 	 	String sql = "SELECT * from lecture where cid=? ";
+ 	 	PreparedStatement pst = c1.prepareStatement(sql);
+ 	 	pst.setInt(1,cid);
+ 	  	ResultSet rs = pst.executeQuery();
+ 	 	int lnum=0;
+ 	 
+ 		while(rs.next())
+ 		{
+ 			
+ 			lnum++; 
+ 		}
      
      %>       
       <div class="box" style=" height:auto; float:left;">
 	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
-	<a href="#"><strong>Courses name create by you</strong></a><br />
+	<a href="#"><strong>Courses Name:  <%out.write(ctitle); %></strong></a><br />
        Free <br />
-       0 Lecture <br /><br />
-       <div class="save_bt"><a href="#">Delete Course</a></div>
+       <%out.println(lnum); 
+       if(lnum == 0 || lnum==1)
+       {
+    	   out.write("Lecture");
+       }
+       else
+       {
+    	   out.write("Lectures");
+       }
+       
+       %><br/><br/>
+       <div class="save_bt"><%out.write("<a href=\"deleteCourse.html?cidPage="+cid+"\">") ; %>Delete Course</a></div>
        </div>   
         <%} %>   
+    </div>
      
-     
-       
-      </div>
       
       <div class="create_cor_box">
      <div class=" create_cor">Taking Courses</div>

@@ -15,7 +15,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 <head>
+
 <title>on line</title>
+<link rel="icon" 
+      type="image/png" 
+      href="Style/images/logo copy.png" />
+<link rel="icon" 
+      type="image/png" 
+      href="Style/images/logo copy.png" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
 <script src="http://vjs.zencdn.net/c/video.js"></script>
@@ -228,15 +235,16 @@ else
 	 ResultSet rs = pst.executeQuery();
 	 String type="", url = "", title="", description="";
 	 int no = 0;
+	 int userId = 0;
 		while(rs.next())
 		{
-			
+			userId = rs.getInt("uid");
 			 url  = rs.getString("url");
 			 type = rs.getString("type");
 			 title = rs.getString("title");
 			 description = rs.getString("description");
-			out.println(url);
-			out.write("The download link is <a href="+url+">Download Here</a><br>");
+			
+			out.write("Link to download lecture: <a href="+url+">Download</a><br>");
 		} %>
 		<div class="content">
     <div class="content_resize1">
@@ -393,6 +401,7 @@ else
     
     
     </div>
+    <br/><br/><br/>
     <p><%out.write(description); %></p>
     <a href='addLectures.html' >Add Lectures</a>
     <div class="create_cor">Comments:</div>
@@ -415,11 +424,13 @@ ResultSet rs1 = pst1.executeQuery();
 int lid=0;
 int lectnum=0;
 String url1= "";
+String ltitle= "";
 	while(rs1.next())
 	{
 		lectnum++;
 		lid = rs1.getInt("lid");
 		 url  = rs1.getString("url");
+		 ltitle = rs1.getString("title");
 		 
 		 
 		 %>
@@ -428,8 +439,7 @@ String url1= "";
         <div class="option_thum"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
         <%System.out.println("<a href=\"showLectures.html?lid="+lid+"\">"); 
         out.write("<a href=\"showLectures.html?lid="+lid+"\">") ;%> 
-    <strong>Lecture <%out.println(lectnum); %></strong><br />
-Sample text</div>
+    <strong>Lecture <%out.println(lectnum); %></strong><br/><%out.println(ltitle); %></div>
 <%} %>	
 
  

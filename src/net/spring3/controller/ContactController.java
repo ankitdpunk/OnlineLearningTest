@@ -40,16 +40,33 @@ public class ContactController {
 //	private HttpServletRequest request;
 		
 	@RequestMapping(value = "/addContact", method = RequestMethod.POST)
-    public ModelAndView addContact(@ModelAttribute Tutor tutor, Model model) {
+    public ModelAndView addContact(@ModelAttribute Tutor tutor, Model model, Login log,HttpSession session, HttpServletRequest request, SessionStatus status) {
 		System.out.println("Name:" + tutor.getName() +
                 "email:" + tutor.getEmail());
 	
+		SignUpValidator sv = new SignUpValidator();
+		String message = sv.validate(tutor.getEmail(), tutor.getName(), tutor.getPassword());
 		
+		if(message.contains("User") || message.contains("Name") || message.contains("Password")) 
+		{
+			log.setMessage(message);
+			return new ModelAndView("/signup1", "command", new Login());
+		}
+		
+		else
+		{
+			int uid = Integer.parseInt(message);
+			log.setUid(uid);
+			log.setEmail(tutor.getEmail());
+			log.setPassword(tutor.getPassword());
+			session.setAttribute("currentLogin", log);
 		StoreUserDetails sd = new StoreUserDetails();
 		sd.storeInfo(tutor);
 		System.out.println("I am here");
 		model.addAttribute("tutor", tutor);
-		return new ModelAndView("/browsecourse");
+		return new ModelAndView("/mainalogin");
+		}
+		
        } 	
 	
 	@RequestMapping(value = "/main", method = RequestMethod.POST)
