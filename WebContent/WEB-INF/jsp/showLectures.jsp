@@ -16,6 +16,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 <head>
+<script type='text/javascript'>
+(function (d, t) {
+  var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
+  bh.type = 'text/javascript';
+  bh.src = '//www.bugherd.com/sidebarv2.js?apikey=ebdb311c-2520-4a7a-baa8-3a3d1f8d399a';
+  s.parentNode.insertBefore(bh, s);
+  })(document, 'script');
+</script>
 <link rel="icon" 
       type="image/png" 
       href="Style/images/logo copy.png" />
