@@ -42,11 +42,9 @@
 </div>-->
 
 
-<div class="top_menu">Create Course</div>
-<div class="top_menu">Browse Course</div>
-<div class="username">
-Ankita Singh
-</div>
+<div class="top_menu"><a href='Login.html' >Log in</a></div>
+<div class="top_menu"><a href='signup1.html' >Sign up</a></div>
+<div class="top_menu"><a href='browsecourse.html' >Browse course</a></div>
 
 
       </div>
@@ -77,7 +75,7 @@ Ankita Singh
               <td>${login.message}</td>
             </tr>
             <tr>
-              <td><input type="submit" class="save_bt" /></td>
+              <td><input type="submit" class="save_bt" value="Submit" /></td>
             </tr>
             
           </table>
@@ -86,7 +84,7 @@ Ankita Singh
               <td>No Account Yet?</td>
             </tr>
               <tr>
-              <td><a href="Sign up.html">Sign Up</a> today. </td>
+              <td><a href="signup1.html">Sign Up</a> today. </td>
             </tr>
           </table> 
          </form:form>

@@ -1,5 +1,7 @@
 package net.spring3.controller;
 import org.apache.commons.fileupload.FileItem;
+import java.sql.*;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 //import org.springframework.web.bind.annotation.PathVariable;
@@ -246,15 +248,11 @@ public class ContactController {
        return new ModelAndView("/addLectures");
        
    } 
-   
-   
-   
-   
-   @RequestMapping("/mycourses")
-   public ModelAndView mycourses( HttpSession session, Login login, Model model) {
+   @RequestMapping("/manageprofile")
+   public ModelAndView manageProfile( HttpSession session, Login login, Model model) {
 	   if(session.getAttribute("currentLogin") == null)
 	   {
-		   return new ModelAndView ("mycourses");
+		   return new ModelAndView("/manageprofile");
 	   }
 	   else
 	   {
@@ -266,11 +264,62 @@ public class ContactController {
 		   model.addAttribute("courseList", cour);
 		   System.out.println("I am here");
 		   model.addAttribute("login", login);
+		   return new ModelAndView("/manageprofile");
+	   }
+       
+       
+   } 
+   
+   
+   
+   
+   @RequestMapping("/mycourses")
+   public ModelAndView mycourses( HttpSession session, Login login, Model model) {
+	   if(session.getAttribute("currentLogin") == null)
+	   {
+		   return new ModelAndView ("mycourseslogin");
+	   }
+	   else
+	   {
+		 /*  ArrayList<Course> cour = new ArrayList<Course>();
+		   login = (Login)session.getAttribute("currentLogin");
+		   GetCourseList glc = new GetCourseList();
+		   cour = glc.getCourseList(login.getUid());
+		   session.setAttribute("courseList", cour);
+		   model.addAttribute("courseList", cour); */
+		   login = (Login)session.getAttribute("currentLogin");
+		   System.out.println("I am in mycourses");
+		   model.addAttribute("login", login);
 		   return new ModelAndView ("mycourseslogin");
 	   }
    } 
    
-  
+   @RequestMapping(value ="/deleteCourse", method = RequestMethod.GET)
+   public String deleteCourse( Login login, Model model,  HttpServletRequest request, HttpSession session) throws SQLException 
+   {
+	   login=(Login)session.getAttribute("currentLogin");
+	   String cid = request.getParameter("cidPage");
+	   int courId = Integer.parseInt(cid);
+	   ConnectionManager conn = new ConnectionManager();
+	   Connection c1 = conn.getConnection();
+	 	String sql = "delete from lecture where cid=?";
+	 	PreparedStatement pst = c1.prepareStatement(sql);
+	 	pst.setInt(1,courId);
+	  	pst.executeUpdate();
+	 	int lnum=0;	 
+		
+		ConnectionManager conn2 = new ConnectionManager();
+		   Connection c2 = conn2.getConnection();
+		 	 sql = "delete from course where cid=?";
+		 	PreparedStatement pst2 = c2.prepareStatement(sql);
+		 	pst2.setInt(1,courId);
+		  	 pst2.executeUpdate();
+		  	model.addAttribute("login", login);
+		 	
+		
+   	
+       return "/mycourses";
+   }
    
    
     @RequestMapping("/index1")

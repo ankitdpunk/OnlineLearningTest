@@ -3,8 +3,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" 
          
-         pageEncoding="windows-1256"
+        
          import="net.spring3.form.Course"
+         import="net.spring3.form.Login"
          import="java.util.*"
          import="java.lang.*"
          import="java.sql.*"
@@ -172,7 +173,11 @@ $(document).ready(function () {
       <div class="create_cor_box">
         <div class=" create_cor">Created Courses</div>   
         <%
-     ArrayList<Course> clist = new ArrayList<Course>();
+        Login log = new Login();
+    	log = (Login)session.getAttribute("currentLogin");
+    	int uid = log.getUid();
+
+  /*   ArrayList<Course> clist = new ArrayList<Course>();
      ArrayList<Integer> cidlist = new ArrayList<Integer>();
     
      clist = (ArrayList<Course>)session.getAttribute("courseList");
@@ -186,22 +191,61 @@ $(document).ready(function () {
 
     	int cid= co.getCid();
     	cidlist.add(cid);
-     	out.write("The course id is "+ cid);
+     //	out.write("The course id is "+ cid);
      	String cnum = new Integer(cid).toString();   	
      	
      	
-    	 out.write("<a href=\"coursePage.html?cidPage="+cid+"\">") ;
+    	 out.write("<a href=\"coursePage.html?cidPage="+cid+"\">") ; */
     	 
-     
-     
+    	
+    	ConnectionManager conn2 = new ConnectionManager();
+		Connection c2 = conn2.getConnection();
+		String sql1 = "SELECT * from course c WHERE " +
+					" c.uid = ? ";
+		PreparedStatement pst2 = c2.prepareStatement(sql1);
+		pst2.setInt(1, uid);
+		ResultSet rs2 = pst2.executeQuery();
+		int cid = 0;
+		String ctitle = "";
+		while(rs2.next())
+		{
+			cid = rs2.getInt("cid");
+			ctitle = rs2.getString("ctitle");
+			out.write("<a href=\"coursePage.html?cidPage="+cid+"\">") ;
+		
+		
+ 
+     	ConnectionManager conn = new ConnectionManager();
+ 	 	Connection c1 = conn.getConnection();
+ 	 	String sql = "SELECT * from lecture where cid=? ";
+ 	 	PreparedStatement pst = c1.prepareStatement(sql);
+ 	 	pst.setInt(1,cid);
+ 	  	ResultSet rs = pst.executeQuery();
+ 	 	int lnum=0;
+ 	 
+ 		while(rs.next())
+ 		{
+ 			
+ 			lnum++; 
+ 		}
      
      %>       
       <div class="box" style=" height:auto; float:left;">
 	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
-	<a href="#"><strong>Courses name create by you</strong></a><br />
+	<a href="#"><strong>Courses Name:  <%out.write(ctitle); %></strong></a><br />
        Free <br />
-       0 Lecture <br /><br />
-       <div class="save_bt">Delete Course</div>
+       <%out.println(lnum); 
+       if(lnum == 0 || lnum==1)
+       {
+    	   out.write("Lecture");
+       }
+       else
+       {
+    	   out.write("Lectures");
+       }
+       
+       %><br/><br/>
+       <div class="save_bt"><%out.write("<a href=\"deleteCourse.html?cidPage="+cid+"\">") ; %>Delete Course</a></div>
        </div>   
         <%} %>   
     </div>

@@ -1,5 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html"
     pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html"%>
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" 
+         
+         
+         import="net.spring3.form.Course"
+         import="java.util.*"
+         import="java.lang.*"
+         import="java.sql.*"
+         import="net.spring3.controller.ConnectionManager"
+        
+  %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -60,38 +73,39 @@
   <div class="content">
     <div class="content_resize">
       
-      <div style="margin-bottom:10px; margin-top:10px;"><span class="blue" style="font-size: 24px; color: #5591FF;">Trending Paid Courses</span><a href="#"><span class="seemore">see more</span></a></div>
+      <div style="margin-bottom:10px; margin-top:10px;"><span class="blue" style="font-size: 24px; color: #5591FF;">Trending Paid Courses</span><a href="browsecourse.html"><span class="seemore">see more</span></a></div>
+      <%
+     ConnectionManager conn = new ConnectionManager();
+ 	 Connection c1 = conn.getConnection();
+ 	 String sql = "SELECT * from course ";
+ 	 PreparedStatement pst = c1.prepareStatement(sql);
+ 	 
+ 	 ResultSet rs = pst.executeQuery();
+ 	 int cidPage=0;
+ 	 String ctitle = "";
+ 	 int no = 0;
+ 		while(rs.next() && no!=6)
+ 		{
+ 			 no++;
+ 			 cidPage  = rs.getInt("cid"); 			
+ 			 ctitle = rs.getString("ctitle"); 			
+ 			%>
+ 			<div class="midbox" style="margin-right: 20px; padding: 5px; border: 1px solid #CCC; width: 250px ; margin-left:20px;"> <img src="Style/images/EDUACTE.jpg" width="250" height="127" />
+        	<div class=" boxblack">
+          <h5><%
+          System.out.println("The course id in coursePage controlle is: "+ cidPage);
+          out.write("<a href=\"coursePage.html?cidPage="+cidPage+"\">") ;          
+          out.write(ctitle); 
+          %> </a></h5>
+        </div>
+      </div>
+ 	<%	}    
       
-      <div class="midbox" style="margin-right: 20px; padding: 5px; border: 1px solid #CCC; width: 250px ; margin-left:20px;">
-        <img src="Style/images/EDUACTE.jpg" width="250" height="127" />
-       <div class=" boxblack"> <h5><a href="#">AJAX Development      </a></h5></div>
-      </div>
-      <div class="midbox" style="margin-right: 40px; padding: 5px; margin-left: 35px; width:250px;">
-       <img src="Style/images/EDUACTE.jpg" width="250" height="127" />
-       <div class=" boxblack"> <h5><a href="#">AJAX Development      </a></h5></div>
-      </div>
-      <div class="midbox" style="margin-left: 20px; padding: 5px; border: 1px solid #CCC; width: 250px;"><img src="Style/images/EDUACTE.jpg" width="250" height="127" />
-      <div class=" boxblack"> <h5><a href="#">AJAX Development      </a></h5></div>
-      </div>
-     <div style="margin-bottom:10px; margin-top:10px;"></div>
-    </div>
-    <div class="content_resize">
       
-      <div style="margin-bottom:10px; margin-top:10px;"><span class="blue" style="font-size: 24px; color: #5591FF;">Trending Paid Courses</span><a href="#"><span class="seemore">see more</span></a></div>
+      %>
       
-      <div class="midbox" style="margin-right: 20px; padding: 5px; border: 1px solid #CCC; width: 250px;">
-        <img src="Style/images/EDUACTE.jpg" width="250" height="127" />
-       <div class=" boxblack"> <h5><a href="#">AJAX Development      </a></h5></div>
-      </div>
-      <div class="midbox" style="margin-right: 40px; padding: 5px; margin-left: 35px; width:250px;">
-       <img src="Style/images/EDUACTE.jpg" width="250" height="127" />
-       <div class=" boxblack"> <h5><a href="#">AJAX Development      </a></h5></div>
-      </div>
-      <div class="midbox" style="margin-left: 20px; padding: 5px; border: 1px solid #CCC; width: 250px;"><img src="Style/images/EDUACTE.jpg" width="250" height="127" />
-      <div class=" boxblack"> <h5><a href="#">AJAX Development      </a></h5></div>
-      </div>
-     <div style="margin-bottom:10px; margin-top:10px;"></div>
-    </div>
+      
+    
   </div>
   <div class="footer">About EduOnWeb</div>
 </div>

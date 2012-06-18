@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" 
          
-         pageEncoding="windows-1256"
+         
          import="net.spring3.form.Course"
          import="net.spring3.form.Login"
          import="java.util.*"
@@ -195,66 +195,94 @@ else
         <div class="info fl">
          <% 
          Course cor = new Course();
-         cor = (Course)session.getAttribute("currentCourse");
-         
-         
+         cor = (Course)session.getAttribute("currentCourse");        
          out.write("<h1>"+cor.getCourseTitle()+"</h1>");
          %>
          <h1><% 
          System.out.println("The currentCourse title is: "+ cor.getCourseTitle());
          cor.getCourseTitle();%></h1>
-          <h3>Peter Struck</h3>
-          This course will focus on the myths of ancient Greece and Rome, as a way of exploring the nature of myth and the function it plays for individuals, societies, and 
-<a href="#"><img src="Style/images/button .png" width="174" height="76" /></a>
+         By
+         
+         <%
+         ConnectionManager conn1 = new ConnectionManager();
+     	 Connection c1 = conn1.getConnection();
+     	 String sql1 = "select * from course c where c.cid=?;";
+     	 PreparedStatement pst1 = c1.prepareStatement(sql1);
+     	 pst1.setInt(1,cor.getCid());
+     	 ResultSet rs1 = pst1.executeQuery();
+     	 String cname = "";
+     	 String ctitle = "";
+     	 int cuid = 0;
+     		while(rs1.next())
+     		{
+     			
+     			 cuid  = rs1.getInt("uid");
+     			 
+     		}
+     		ConnectionManager conn2 = new ConnectionManager();
+        	 Connection c2 = conn2.getConnection();
+        	 String sql2 = "select * from user u where u.uid=?;";
+        	 PreparedStatement pst2 = c2.prepareStatement(sql2);
+        	 pst2.setInt(1,cuid);
+        	 ResultSet rs2 = pst2.executeQuery();
+        	 String name = "";
+        		while(rs2.next())
+        		{
+        			
+        			 name  = rs2.getString("name");
+        			 
+        		}
+     			 
+         
+         
+         %>
+          <h3><%out.println(name); %></h3>
+          <%out.write(cor.getHeadline()); %><br>
+          <%
+          	Login login1 = new Login();
+          	login1= (Login)session.getAttribute("currentLogin");
+          	
+          %>
+          <a href="#"><img src="Style/images/button .png" width="174" height="76" /></a> 
         </div>
         <div class="clr"></div>
       </div>
     </div>
   </div>
   <div class="content">
-    <div class="content_resize"> <span class="one">Ark lassoff</span><br />
+    <div class="content_resize"> <span class="one"><%out.println(name); %></span><br />
       <hr />
-      <p>You learned a little Javascript,  but you still look at sites with slick, smooth elegant user interfaces and wonder:  How DO they do that.  Here's a secret-- The answer is AJAX.  Asynchronous Javascript and XML.  If you want to make pages on your web application respond quickly, and with a minimum of screen refreshes, this IS the technology to learn.
-        
-        With a little Javascript knowlege you can use AJAX to take database information and store, alter, sort and conditionally format it all on the client side.  This minimizes the load on your sever and makes your applications respond quickly and without reloading the HTML page.  AJAX comminicates wth the server behind the scenes while your user continues to use your web site, accessing the information they want.
-        
-        In this course master trainer Mark Lassoff takes you through the basics of AJAX righ to advanced topics like parsing JSON responses from web services.  This couse is recommended for all web developers who want to improve their client side skills, and make killer responsive web applications. </p>
-      <span class="one">Insturctors</span><br />
-      <hr />
-      <p>LearnToProgram.tv is a leading corporate technical training firm. LearnToProgram.tv provides training for software, web and mobile developers world wide. Our courses have taken place at Fortune 500 companies, training centers and Federal Government organizations. Now on Udemy, you can experience the same great instruction that you get in one of our classroom sessions-- at a small fraction of the price.
-        
-        About Mark-- The Guy Behind LearnToProgram.tv
-        
-        Mark Lassoff’s parents frequently claim that he was born to be a programmer. In the mid-eighties, when the neighborhood kids were outside playing kickball and throwing snowballs, Mark was hard at work on his Commodore 64 writing games in the BASIC programming language. Computers and programming continued to be a strong interest in college where Mark majored in Communications and Computer Science. After completing his college career, Mark worked in the software and web development departments at several large corporations.
-        
-        In 2001, on a whim, while his contemporaries were conquering the dot com world, Mark accepted a position training programmers in a technical training center in Austin, Texas. It was there that Mark fell in love with teaching programming, which has been his passion ever since. Today Mark is a top technical trainer, traveling the country providing training for software and web developers. Mark's training clients include the Department of Defense, Lockheed Martin, Discover Card Services, and Kaiser Permanente. He has consulted for companies such as Dell, Target, Lockheed Martin, and government agencies including the US House of Representatives. In addition to traditional classroom training and consulting, Mark releases video tutorial training for aspiring programmers on his  </p><span class="one">Leactures:</span>
+      <p>Put text from user descrioton page after creating it ......</p>
+      <span class="one">Insturctors</span><br/><hr/>
+      <p> Put text here............. </p>
+      <span class="one">Lectures </span>
      
       <hr />
       <br />
       <div class="leftbox" style="width:970px;">
-      <%ConnectionManager conn = new ConnectionManager();
- 	 Connection c1 = conn.getConnection();
- 	 String sql = "SELECT * from lecture where cid = ?";
- 	 PreparedStatement pst = c1.prepareStatement(sql);
- 	 pst.setInt(1, cor.getCid());
- 	 ResultSet rs = pst.executeQuery();
+      <%ConnectionManager conn3 = new ConnectionManager();
+ 	 Connection c3 = conn3.getConnection();
+ 	 String sql3 = "SELECT * from lecture where cid = ?";
+ 	 PreparedStatement pst3 = c3.prepareStatement(sql3);
+ 	 pst3.setInt(1, cor.getCid());
+ 	 ResultSet rs3 = pst3.executeQuery();
  	 String type="", url = "", title="", description="";
- 	 int no = 0, lid=0;
- 		while(rs.next())
+ 	 int no1 = 0, lid=0;
+ 		while(rs3.next())
  		{
- 			 no++;
- 			 lid =  rs.getInt("lid");
- 			 url  = rs.getString("url");
- 			 type = rs.getString("type");
- 			 title = rs.getString("title");
- 			 description = rs.getString("description");
- 			out.println(title);
+ 			 no1++;
+ 			 lid =  rs3.getInt("lid");
+ 			 url  = rs3.getString("url");
+ 			 type = rs3.getString("type");
+ 			 title = rs3.getString("title");
+ 			 description = rs3.getString("description");
+ 		//	out.println(title);
  		//	out.write("The download link is <a href="+url+">Download Here</a><br>");
  		 %>
         <div class="videodetails">
           <div class="pic">
           <% out.write("<a href=\"showLectures.html?lid="+lid+"\">") ; %><img src="Style/images/video.png" width="50" height="50" border="0" align="left" /></a></div>
-          <p> Lecture <%out.write(no); %> :</p>
+          <p> Lecture <%out.println(no1); %> </p>
         </div>
        <%  } %>
         </div>

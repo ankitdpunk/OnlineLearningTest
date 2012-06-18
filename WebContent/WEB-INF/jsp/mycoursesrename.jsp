@@ -1,14 +1,10 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>on line education</title>
+<title>on line</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="Style/style.css" rel="stylesheet" type="text/css" />
-
 </head>
-
 <body>
 <div class="main">
   <div class="header">
@@ -39,48 +35,72 @@
     <div id="copyright" style="display:hide">Copyright &copy; 2012 <a href="http://apycom.com/"></a></div>
 </div>-->
 
+
 <div class="top_menu"><a href='Login.html' >Log in</a></div>
 <div class="top_menu"><a href='signup1.html' >Sign up</a></div>
 <div class="top_menu"><a href='browsecourse.html' >Browse course</a></div>
+</div>
 
 
       </div>
       
     </div>
   </div>
-  <div class="slider"></div>
   <div class="content">
     <div class="content_resize">
+      <div class="create_cor_box">
+        <div class=" create_cor">Created Courses</div>
+     
+     
+      <div class="box" style=" height:auto; float:left;">
+	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+<a href="#"><strong>Courses name create by you</strong></a><br />
+       Free <br />
+       0 Lecture <br /><br />
+       <div class="save_bt">Delete Course</div>
+       </div>
+       
+      <div class="box" style=" height:auto; float:left;">
+	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+<a href="#"><strong>Courses name create by you</strong></a><br />
+       Free <br />
+       0 Lecture <br /><br />
+       <div class="save_bt">Delete Course</div>
+       </div>
+    </div>
       
-      <div style="margin-bottom:10px; margin-top:10px; border-bottom:1px solid #dddddd;">
-      <span class="blue" style="font-size: 24px; color: #5591FF;">Sign In.</span>
-        <p> Sign into your Coursera account with an email and a previously chosen password. </p>
-      </div>
-      
-        <form:form method="post" action="addContact.html" > <table width="669" border="0" align="left" style="border-right:1px solid #dddddd; ">
-          <tr>
-            <td width="140" height="39"><form:label path="email">Email</form:label></td>
-            <td width="520"><form:input path="email" /></td>
-           </td>
-          </tr>
-          <tr>
-            <td width="140" height="39"><form:label path="name">Name</form:label></td>
-            <td width="520"><form:input path="name" /></td>
-          </tr>
-        <tr>
-            <td width="140" height="39"><form:label path="password">Password</form:label></td>
-            <td width="520"><form:input path="password" /></td>
-          </tr>
-          <tr>
-            <td> <input type="submit" class="save_bt" /></td>
-            
-          </tr>
-        </table>
-      </form:form>
-    
+      <div class="create_cor_box">
+     <div class=" create_cor">Taking Courses</div>
+     
+     
+      <div class="box" style=" height:auto; float:left;">
+	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+<a href="#"><strong>Courses name create by you</strong></a><br />
+       Free <br />
+       0 Lecture <br /><br />
+       <div class="save_bt">Unsubscribe Course</div>
+       </div>
+       
+      <div class="box" style=" height:auto; float:left;">
+	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+<a href="#"><strong>Courses name create by you</strong></a><br />
+       Free <br />
+       0 Lecture <br /><br />
+       <div class="save_bt">Unsubscribe Course</div>
+       </div>
+       
+       
+     </div>
+     
+    </div>
+    <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright | All Right Reserved 2012</p>
+      <p class="rf">&nbsp;</p>
+      <div class="clr"></div>
     </div>
   </div>
-  <div class="footer">About EduOnWeb</div>
+</div>
 </div>
 </body>
 </html>

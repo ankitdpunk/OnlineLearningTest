@@ -379,7 +379,8 @@ else
             </span></td>
           </tr>
           <tr>
-            <td><td><input type="submit" class="save_bt" /></td></td>
+            <td class="save_bt"><input type="submit" value="Create Course" style="background-color: #377dfe;
+            border:none;color: white;"/></td>
           </tr>
         </table>
          </form>

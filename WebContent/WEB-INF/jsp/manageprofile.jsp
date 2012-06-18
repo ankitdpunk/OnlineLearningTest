@@ -6,6 +6,7 @@
          
          
          import="net.spring3.form.Course"
+         import="net.spring3.form.Login"
          import="java.util.*"
          import="java.lang.*"
          import="java.sql.*"
@@ -118,14 +119,9 @@ $(document).ready(function () {
 		}
 
 	</style>
- <!--<link href="menu.css" rel="stylesheet" type="text/css" />
-   <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="menu.js"></script>-->
 </head>
-
 <body>
 <div class="main">
- 
   <div class="header">
     <div class="header_resize">
       <div class="logo"> <img src="Style/images/logo copy.png" width="84" height="92" /> <img src="Style/images/text.png" width="150" height="40" / style="margin-bottom:25px"></div>
@@ -154,73 +150,125 @@ $(document).ready(function () {
     <div id="copyright" style="display:hide">Copyright &copy; 2012 <a href="http://apycom.com/"></a></div>
 </div>-->
 
-<div class="top_menu"><a href="logout.html">Log Out</a></div>
-<div class="top_menu"><a href='Createacourse.html' >Create Course</a></div>
-<div class="top_menu"><a href='browsecourse.html' >Browse course</a></div>
 
-<ul id="nav">
+<%
+Login login= new Login();
+login = (Login)session.getAttribute("currentLogin");
+if(session.getAttribute("currentLogin") == null)
+{
 	
 
+%>
+<div class="top_menu"><a href='Login.html' >Log in</a></div>
+<div class="top_menu"><a href='signup1.html' >Sign up</a></div>
+<div class="top_menu"><a href='browsecourse.html' >Browse course</a></div>
+</div>
+<%}
+else
+{ %>
+<div class="top_menu"><a href="logout.html">Log Out</a></div>
+<div class="top_menu"><a href='Createacourse.html' >CreateCourse</a></div>
+<div class="top_menu"><a href='browsecourse.html' >BrowseCourse</a></div>
+<ul id="nav">
 	<li><a href="#"><core:out value="${login.email}"/></a>
 	<ul>
 		<li><a href="mycourses.html">Courses</a></li>
-		<li><a href="manageprofile.html">Account</a></li>
-	
+		<li><a href="#">Account</a></li>	
 	</ul>			
 		<div class="clear"></div>
-	</li>
-	
+	</li>	
 </ul>
+	
 
 
+<%} %>
+
+
+
       </div>
-      <div class="hbg" style="background-image:url(Style/images/banner_3.jpg);
-	background-repeat:no-repeat;"><div class="info fl">
-          <h3>Education for Everyone. </h3>
-          <div style="width:300px; margin:auto;"><p>We offer courses from the top universities, for free.
-          Learn from world-class professors, watch high quality lectures, achieve mastery via interactive exercises, and collaborate with a global community of students. </p></div>
-      </div>
-        <div class="clr"></div>
-      </div>
+      
     </div>
   </div>
-  
   <div class="content">
     <div class="content_resize">
+      <div class="leftbox" style="width: 970px;">
+        <div class="edit">
+	  <ul>
+	    <li><a href="edituserinfo.html">Edit Your User Info</a></li>
+	   <li> <a href="#">Upload a Photo</a></li>
+	    <li><a href="#">Change Your Password</a></li>
+	    <li><a href="#">Account Settings</a></li></ul>
+	  </div>
+        <div class="pic" style="width:150px;
+        height:150px;"><img src="Style/images/userpic.gif" width="150" height="150" /></div>
+        <h2><core:out value="${login.email}"/></h2>
+	<p style="font-size:13px; margin:0; line-height:18px; ">
+	  <a href="#">Teaching 0 course</a><br />
+	  <a href="#">Taking 1 course</a><br />
+	  <a href="#">Has 0 follower</a><br />
+	  <a href="#">Following 1 user </a><br />
+	  <a href="#">Interests: Edit </a></p>
       
-      <div style="margin-bottom:10px; margin-top:10px;"><span class="blue" style="font-size: 24px; color: #5591FF;">Trending Paid Courses</span><a href="browsecourse.html"><span class="seemore">see more</span></a></div>
-      <%
-     ConnectionManager conn = new ConnectionManager();
- 	 Connection c1 = conn.getConnection();
- 	 String sql = "SELECT * from course ";
- 	 PreparedStatement pst = c1.prepareStatement(sql);
- 	 
- 	 ResultSet rs = pst.executeQuery();
- 	 int cidPage=0;
- 	 String ctitle = "";
- 	 int no = 0;
- 		while(rs.next() && no!=6)
- 		{
- 			 no++;
- 			 cidPage  = rs.getInt("cid"); 			
- 			 ctitle = rs.getString("ctitle"); 			
- 			%>
- 			<div class="midbox" style="margin-right: 20px; padding: 5px; border: 1px solid #CCC; width: 250px ; margin-left:20px;"> <img src="Style/images/EDUACTE.jpg" width="250" height="127" />
-        	<div class=" boxblack">
-          <h5><%
-          System.out.println("The course id in coursePage controlle is: "+ cidPage);
-          out.write("<a href=\"coursePage.html?cidPage="+cidPage+"\">") ;          
-          out.write(ctitle); 
-          %> </a></h5>
-        </div>
+      </div>	
+      
+     <div class="create_cor_box">
+     <div class=" create_cor">Created Courses</div>
+     <%
+     ArrayList<Course> clist = new ArrayList<Course>();
+     ArrayList<Integer> cidlist = new ArrayList<Integer>();
+    
+     clist = (ArrayList<Course>)session.getAttribute("courseList");
+     Iterator<Course> itr = clist.iterator();
+     int nu = 0;
+     while(itr.hasNext())
+     {	
+    	 Course co = new Course();
+    	 nu++;
+    	 co = (Course)itr.next();
+
+    	int cid= co.getCid();
+    	cidlist.add(cid);
+     	out.write("The course id is "+ cid);
+     	String cnum = new Integer(cid).toString();   	
+     	
+     	
+    	 out.write("<a href=\"coursePage.html?cidPage="+cid+"\">") ;
+    	 
+     
+     
+     
+     %>       
+      <div class="box" style=" height:auto; float:left;">
+	 <div class="pic"><img src="Style/images/2202.jpg" width="50" height="50" /></div>
+	<a href="#"><strong>Courses name create by you</strong></a><br />
+       Free <br />
+       0 Lecture <br /><br />
+       <div class="save_bt"><a href="#">Delete Course</a></div>
+       </div>   
+        <%} %>   
+     
+     
+       
       </div>
- 	<%	}    
       
-      
-      %>
-      
+      <div class="create_cor_box">
+     <div class=" create_cor">Taking Courses</div>
+     
+     
+       
+       
+     </div>
+     
+    </div>
   </div>
-  <div class="footer">About EduOnWeb</div>
+    <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright | All Right Reserved 2012</p>
+      <p class="rf">&nbsp;</p>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
 </div>
 </body>
 </html>
